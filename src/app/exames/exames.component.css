@@ -1,0 +1,18 @@
+
+#dRadio{
+  float: left;
+}
+
+.busca{
+  width: 20vw!important;
+  margin-left: 0vw!important;
+  height: 3vh!important;
+}
+
+table.highlight {
+  cursor: pointer;
+}
+
+.selecionado {
+  background-color: #999;
+}

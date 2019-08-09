@@ -1,0 +1,50 @@
+<div class="conteudo">
+    <p id="txtHistorico">Histórico de consultas marcadas e exames :</p>
+    <div id="divAgen">
+        <p id="txtAgend">Meu(s) Agendamento(s):</p>
+        <label class="procurar">Procurar por:</label>
+         <input class="busca"  id="inputBusca" type="search" list=""/>
+
+         <table class="responsive-table highlight" id="tabela2" >
+            <thead>
+              <tr>
+                  <th>Profissional</th>
+                  <th>Dia</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let agendamento of agendamentos">
+                <td>{{agendamento.profissional}}</td>
+                <td>{{agendamento.dia}}</td>
+              </tr>
+            </tbody>
+
+        </table>
+
+</div>
+
+<div id="divExa">
+    <p id="txtAgend">Meu(s) exame(s):</p>
+    <label class="procurar">Procurar por:</label>
+    <input class="busca"  id="inputBusca" type="search" list=""/>
+    <table class="responsive-table highlight"  id="tabela3" >
+        <thead>
+          <tr>
+              <th>Exame</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
+              <td>{{exame.exame}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<router-outlet></router-outlet>
+
+

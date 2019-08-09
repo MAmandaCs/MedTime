@@ -1,0 +1,146 @@
+
+<div id="conTabela">
+    <p id="txtHorario">Horários:</p>
+      <table class="responsive-table highlight"  id="tabela" >
+          <thead>
+            <tr>
+                <tr>
+
+                    <th>Profissional</th>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+                  <tr *ngFor="let horario of horarios">
+                    <td>{{horario.profissional}}</td>
+                    <td>{{horario.segunda}}</td>
+                    <td>{{horario.terca}}</td>
+                    <td>{{horario.quarta}}</td>
+                    <td>{{horario.quinta}}</td>
+                    <td>{{horario.sexta}}</td>
+              </tr>
+            </tbody>
+          </table></div>
+          <div class="editaHoararios">
+            <p id="txtAtualizacao">Atualize aqui os horários:</p>
+            <div class="edit"><p id="profissional">Clínico Geral:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+            <div class="edit"><p id="profDent">Dentista:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+            <div class="edit"><p id="profEnfe">Enfermaria:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+            <div class="edit"><p id="profissional">Fisioterapeuta:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+            <div class="edit"><p id="pNatal">Pré-natal:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+            <div class="edit"><p id="profPsi">Pscicologo:</p>
+              <div class="input-field col s12" id="select">
+                  <select multiple>
+                    <option value="1">Segunda </option>
+                    <option value="2">Terça </option>
+                    <option value="3">Quarta </option>
+                    <option value="4">Quinta </option>
+                    <option value="5">Sexta </option>
+                  </select>
+                  <label>Escolha os dias de atendimento:</label>
+                </div>
+                  <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Início</label> </div>
+                      <div class="input-field col s12" id="select2">
+                      <input type="text" class="timepicker">
+                      <label>Término</label> </div>
+            </div>
+          </div
+          >
+
+
+<router-outlet></router-outlet>
+
+

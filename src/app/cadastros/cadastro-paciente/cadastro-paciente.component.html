@@ -1,0 +1,82 @@
+ <form>
+  <div id="divCad">
+     <p id="pCad">Cadastre-se </p>
+   </div>
+   <div id="divCadastro">
+     <label class="labelCad1">Nome: </label>
+     <input class="inputCad1" id="inputNome" name="inputNome" type="text" placeholder="Nome completo" [(ngModel)]="paciente.nome"/>
+     <p></p>
+     <label class="labelCad1">RG: </label>
+     <input class="inputCad2" id="inputRg" name="inputRg" type="text" placeholder="000.000.000" [(ngModel)]="paciente.rg"/>
+     <label class="labelCad2">CPF: </label>
+     <input class="inputCad2" id="inputCPF" name="inputCPF" type="text"placeholder="000.000.000-00" [(ngModel)]="paciente.cpf"/>
+     <p></p>
+     <label class="labelCad1">Data de Nasc: </label>
+     <input [(ngModel)]="dataNascimento" id="inputDate" name="inputDate" type="date"/>
+     <label class="labelCad2">Telefone: </label>
+     <input class="inputCad2"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="paciente.telefone"/>
+     <p></p>
+     <label class="labelCad1">E-mail:</label>
+     <input class="inputCad1" id="inputEmail" name="inputEmail" type="text"placeholder="text@text.com" [(ngModel)]="paciente.email"/>
+     <p></p>
+     <label class="labelCad1">Cidade: </label>
+     <input class="inputCad2" id="inputCidade" name="inputCidade" type="text" placeholder="ex.: Garanhuns" [(ngModel)]="paciente.cidade"/>
+     <label class="labelCad2">UF: </label>
+     <input id="inputUF" name="inputUF" type="search" list="estados">
+     <datalist id="estados" style="display: hidden;">
+     <option value="AC"></option>
+     <option value="AL"></option>
+     <option value="AP"></option>
+     <option value="AM"></option>
+     <option value="BA"></option>
+     <option value="CE"></option>
+     <option value="DF"></option>
+     <option value="ES"></option>
+     <option value="GO"></option>
+     <option value="MA"></option>
+     <option value="MT"></option>
+     <option value="MS"></option>
+     <option value="MG"></option>
+     <option value="PA"></option>
+     <option value="PB"></option>
+     <option value="PR"></option>
+     <option value="PE"></option>
+     <option value="PI"></option>
+     <option value="RJ"></option>
+     <option value="RN"></option>
+     <option value="RS"></option>
+     <option value="RO"></option>
+     <option value="RR"></option>
+     <option value="SC"></option>
+     <option value="SP"></option>
+     <option value="SE"></option>
+     <option value="TO"></option>
+     </datalist>
+     <p></p>
+     <label class="labelCad1">Bairro: </label>
+     <input class="inputCad1" id="inputBairro" name="inputBairro" type="text"placeholder="ex.: Heliópolis" [(ngModel)]="paciente.bairro"/>
+     <p></p>
+     <label class="labelCad1">Rua: </label>
+     <input class="inputCad1" id="inputRua" name="inputRua" type="text" placeholder="ex.: Epitácio Coimbra" [(ngModel)]="paciente.rua"/>
+     <p></p>
+     <label class="labelCad1">Senha: </label>
+     <input class="inputCad2" id="inputSenha" name="inputSenha" type="password" [(ngModel)]="paciente.senha"/>
+     <p></p>
+     <label class="labelCad1">Confirmar Senha: </label>
+     <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="paciente.confSenha"/>
+   </div>
+   <button id="button" type="submit" (click)="cadastrar()">Cadastrar</button>
+
+
+</form>  
+
+
+<router-outlet></router-outlet>
+<!-- 
+<div class="col s12 select-div">
+  <label>Usuário</label>
+  <select name="usuario" [(ngModel)]="novoContato.uidUsuario">
+    <option value="" disabled selected>Selecione o usuário</option>
+    <option *ngFor="let usuario of usuarios" value="{{usuario.uid}}">{{usuario.nome}}</option>
+  </select>
+</div> -->

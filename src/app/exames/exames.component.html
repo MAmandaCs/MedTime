@@ -1,0 +1,40 @@
+
+<div id="divExa">
+    <div id="dRadio"></div>
+    <p id="pFiltro">Filtrar por:</p>
+    <form action="#">
+        <p>
+          <label>
+            <input name="group1" type="radio" />
+            <span>Nome do paciente</span>
+          </label>
+        </p>
+        <p>
+            <label>
+              <input name="group1" type="radio" />
+              <span>Tipo do exame</span>
+            </label>
+          </p>
+          </form>
+          <div id="dBusca">
+            <span> Buscar por:</span>
+           <input class="busca"  id="inputBusca" type="search" list=""/></div>
+    <table class="responsive-table highlight"  id="tabela3" >
+        <thead>
+          <tr>
+              <th>Exame(s)</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
+              <td>{{exame.exame}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<router-outlet></router-outlet>
+

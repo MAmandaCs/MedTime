@@ -1,0 +1,158 @@
+
+<div class="cabeçalho" (mouseover)="alerta()">
+  <h1 id="txtBemVindo">Perfil de </h1>
+</div>
+<div class="conteudo">
+      <div id="menulateral">
+          <p id="txtProfiss">Profissionais:</p>
+      <ul class="collapsible" id="opcoesLateral">
+          <li>
+            <div class="collapsible-header"><a><img id="img" src="/assets/img/med.png"/></a>Clínico Geral</div>
+            <div class="collapsible-body">
+                <div class="input-field col s12">
+                    <select>
+                      <option value="" disabled selected>Escolha o dia</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
+            <div class="collapsible-body">
+                <div class="input-field col s12">
+                    <select>
+                      <option value="" disabled selected>Escolha o dia</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">local_hospital</i>Enfermaria</div>
+            <div class="collapsible-body">
+                <div class="input-field col s12">
+                    <select>
+                      <option value="" disabled selected>Escolha o dia</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div>
+            </div>
+          </li>
+          <li>
+              <div class="collapsible-header"><i class="material-icons">accessibility</i>Fisioterapia</div>
+              <div class="collapsible-body">
+                  <div class="input-field col s12">
+                      <select>
+                        <option value="" disabled selected>Escolha o dia</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                      </select>
+                    </div>
+              </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">pregnant_woman</i>Pré-natal</div>
+                <div class="collapsible-body">
+                  <div class="input-field col s12">
+                    <select>
+                      <option value="" disabled selected>Escolha o dia</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                  </div></div>
+              </li>
+              <li>
+                  <div class="collapsible-header"><i class="material-icons">people</i>Psicologo</div>
+                  <div class="collapsible-body">
+                      <div class="input-field col s12">
+                          <select>
+                            <option value="" disabled selected>Escolha o dia</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                          </select>
+                        </div>
+                  </div>
+                </li>
+        </ul>
+</div>
+<div id="conTabela">
+    <p id="txtHorario">Horários:</p>
+      <table class="responsive-table highlight"  id="tabela" >
+          <thead>
+            <tr>
+                <tr>
+
+                    <th>Profissional</th>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let horario of horarios">
+                  <td>{{horario.profissional}}</td>
+                  <td>{{horario.segunda}}</td>
+                  <td>{{horario.terca}}</td>
+                  <td>{{horario.quarta}}</td>
+                  <td>{{horario.quinta}}</td>
+                  <td>{{horario.sexta}}</td>
+            </tr>
+          </tbody>
+        </table></div>
+
+<div id="divAgen">
+    <p id="txtAgend">Meu(s) Agendamento(s):</p>
+     <table class="responsive-table highlight" id="tabela2" >
+        <thead>
+          <tr>
+              <th>Profissional</th>
+              <th>Horário</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr  [class.selecionado]="agendamento.profissional === agendamentoSelecionado.profissional"  (click)="selecionarAgendamento(agendamento)"*ngFor="let agendamento of agendamentos">
+            <td>{{agendamento.profissional}}</td>
+            <td>{{agendamento.horario}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+
+<button id="button" type="submit">Cancelar</button>
+</div>
+<div id="divExa">
+    <p id="txtAgend">Meu(s) exame(s):</p>
+    <table class="responsive-table highlight"  id="tabela3" >
+        <thead>
+          <tr>
+              <th>Exame</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
+              <td>{{exame.exame}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</div>
+<router-outlet></router-outlet>
+

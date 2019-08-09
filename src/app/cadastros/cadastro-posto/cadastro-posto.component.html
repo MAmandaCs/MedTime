@@ -1,0 +1,31 @@
+<form>
+<div id="divCad">
+  <p id="pCad">Cadastre-se </p>
+</div>
+<div id="divCadastro">
+  <span class="spanCad1">Nome: </span>
+  <input class="inputCad1" id="inputNome" name="nome" type="text" placeholder="Nome completo" [(ngModel)]="funcPosto.nome"/>
+  <p></p>
+  <span class="spanCad1">RG: </span>
+  <input class="inputCad2"  id="inputRg" name="rg" type="text" placeholder="000.000.000" [(ngModel)]="funcPosto.rg"/>
+  <span class="spanCad2">CPF: </span>
+  <input class="inputCad2" id="inputCPF" name="cpf" type="text" placeholder="000.000.000-00" [(ngModel)]="funcPosto.cpf"/>
+  <p></p>
+  <span class="spanCad1">Data de Nasc: </span>
+  <input id="inputDate" name="dtNasc" type="date"/>
+  <p></p>
+  <span class="spanCad1">E-mail:</span>
+  <input class="inputCad1" id="inputEmail" name="email" type="text" placeholder="text@text.com" [(ngModel)]="funcPosto.email"/>
+  <p></p>
+  <span class="spanCad1">Função:</span>
+  <input class="inputCad1" id="inputFuncao" name="funcao" type="text" placeholder="dentista" [(ngModel)]="funcPosto.funcao"/>
+  <p></p>
+  <span class="spanCad1">Senha: </span>
+  <input class="inputCad2"id="inputSenha" name="senha" type="password" [(ngModel)]="funcPosto.senha"/>
+  <p></p>
+  <span class="spanCad1">Confirmar Senha: </span>
+  <input class="inputCad2" id="inputConfSenha" name="confSenha" type="password" [(ngModel)]="funcPosto.confSenha"/>
+</div>
+<button id="button" type="submit" (click)="cadastrar()">Cadastrar</button>
+</form>
+<router-outlet></router-outlet>
