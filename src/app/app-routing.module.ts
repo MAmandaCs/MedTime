@@ -17,6 +17,7 @@ import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { PerfilPostoComponent } from './perfil/perfil-posto/perfil-posto.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { CadastroPacienteComponent } from "./cadastros/cadastro-paciente/cadastro-paciente.component";
+import { LoginService } from './servicos/loginService';
 
 
 const routes: Routes = [
@@ -37,7 +38,6 @@ const routes: Routes = [
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
   {path: 'funcionarios', component: FuncionarioComponent}
-
 
 
 ];

@@ -3,27 +3,26 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 import { Observable } from 'rxjs';
+import { CastExpr } from '@angular/compiler';
 
 @Injectable()
 export class DatabaseService {
 
     constructor(public db: AngularFireDatabase) { }
 
-    inserir<Type>(caminho: string, objeto: Type): Promise<string> {
+    inserir<CadastroPaciente>(caminho: string, objeto: CadastroPaciente): Promise<string> {
         return new Promise<string>((resolve, reject) => {
-            this.db.list<Type>(caminho)
+            this.db.list<CadastroPaciente>(caminho)
                 .push(objeto)
                 .then(item => resolve(item.key));
         });
     }
 
+    
+
     // atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
     //     return this.db.object(`${caminho}/${uid}`).update(objeto);
     // }
-
-    remover(caminho: string, nome: string): Promise<void> {
-        return this.db.object(`${caminho}/${nome}`).remove();
-    }
 
      get<Type>(caminho: string): Promise<Type> {
          return new Promise<Type>((resolve, reject) => {
@@ -61,21 +60,21 @@ export class DatabaseService {
           });
       }
 
-     listarSincronizado<Type>(caminho: string): Observable<Type[]> {
-        return this.db.list<Type>(caminho).valueChanges();
+     listarSincronizado<CadastroPaciente>(caminho: string): Observable<CadastroPaciente[]> {
+        return this.db.list<CadastroPaciente>(caminho).valueChanges();
      }
 
-     buscar<Type>(caminho: string, propriedade: string, valor: any): Promise<Type[]> {
-        return new Promise<Type[]>((resolve, reject) => {
-            this.db.list<Type>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
+     buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
+        return new Promise<CadastroPaciente[]>((resolve, reject) => {
+            this.db.list<CadastroPaciente>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
                 .snapshotChanges()
                 .subscribe(
                     items => {
-                        const typedItems: Type[] = [];
+                        const typedItems: CadastroPaciente[] = [];
 
                         items.forEach(item => {
-                            const typedItem: Type = item.payload.val();
-                            typedItem['nome'] = item.key;
+                            const typedItem: CadastroPaciente = item.payload.val();
+                            typedItem['cpf'] = item.key;
                             typedItems.push(typedItem);
                         });
 
@@ -85,4 +84,9 @@ export class DatabaseService {
                 );
         });
     }
+
+    remover(caminho: string, cpf: string): Promise<void> {
+        return this.db.object(`${caminho}/${cpf}`).remove();
+    }
+
 }

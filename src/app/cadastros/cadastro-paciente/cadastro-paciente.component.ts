@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
 import { DatabaseService } from 'src/app/servicos/databaseService';
 import { PacienteService } from 'src/app/servicos/pacienteService';
+import { LoginService } from 'src/app/servicos/loginService';
 
 @Component({
   selector: 'app-cadastro-paciente',
@@ -16,7 +17,7 @@ export class CadastroPacienteComponent implements OnInit {
 
   dataNascimento: any;
 
-  constructor(private pacienteService: PacienteService){
+  constructor(private pacienteService: PacienteService, private loginService: LoginService){
     this.paciente = new CadastroPaciente();
 
     this.listarPacientes();
@@ -31,7 +32,9 @@ export class CadastroPacienteComponent implements OnInit {
     this.pacienteService.inserir(this.paciente)
       .then(() => {
         alert('Paciente inserido no posto');
+        this.loginService.criarUser(this.paciente.email, this.paciente.senha);
         this.paciente = new CadastroPaciente();
+
       
     });
   }
@@ -43,7 +46,7 @@ export class CadastroPacienteComponent implements OnInit {
   private listarPacientes() {
     this.carregando = true;
 
-    this.pacienteService.listar()
+    this.pacienteService.lista()
       .then(pacienteDB => {
         this.pacientes = pacienteDB;
 

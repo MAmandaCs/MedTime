@@ -12,6 +12,7 @@ export class PerfilUsuarioComponent implements OnInit {
   agendamentoSelecionado: any;
   exames: any;
   exameSelecionado: any;
+  exibiuAlerta: boolean;
 
   constructor() {
   this.horarios = [
@@ -49,6 +50,9 @@ selecionarExame(exame) {
   this.exameSelecionado = exame;
 }
 alerta() {
-    alert('Seja bem vindo a tela de perfil. Aqui você pode ver os horários de cada profissional, marcar consultas e baixar seus exames.');
+    if (!this.exibiuAlerta) {
+      alert('Seja bem vindo a tela de perfil. Aqui você pode ver os horários de cada profissional, marcar consultas e baixar seus exames.');
+      this.exibiuAlerta = true;
+    }
 }
 }

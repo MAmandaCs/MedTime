@@ -27,36 +27,37 @@
   font-size: 150%;
 }
 #button{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 80%;
-  color: #ffffff;
-  padding: 10px 20px;
-  background: -moz-linear-gradient(
-    top,
-    #f00606 0%,
-    #961d1d);
-  background: -webkit-gradient(
-    linear, left top, left bottom,
-    from(#f00606),
-    to(#961d1d));
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  border: 0px solid #ffffff;
-  -moz-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px #961d1d;
-  -webkit-box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px #961d1d;
-  box-shadow:
-    0px 3px 11px rgba(000,000,000,0.5),
-    inset 0px 0px 1px #961d1d;
-  text-shadow:
-    0px -1px 0px rgba(000,000,000,0.2),
-        0px 1px 0px rgba(255,255,255,0.3);
-  margin-left: 65vw;
-  margin-top: 1vh;
+  margin-left: 58vw;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 80%;
+color: #ffffff;
+padding: 10px 20px;
+background: -moz-linear-gradient(
+  top,
+  #0e808f 0%,
+  #0e808f);
+background: -webkit-gradient(
+  linear, left top, left bottom,
+  from(#0e808f),
+  to(#0e808f));
+-moz-border-radius: 20px;
+-webkit-border-radius: 20px;
+border-radius: 20px;
+border: 0px solid #ffffff;
+-moz-box-shadow:
+  0px 3px 11px rgba(000,000,000,0.5),
+  inset 0px 0px 1px #dee5e6;
+-webkit-box-shadow:
+  0px 3px 11px rgba(000,000,000,0.5),
+  inset 0px 0px 1px #e8ecec;
+box-shadow:
+  0px 3px 11px rgba(000,000,000,0.5),
+  inset 0px 0px 1px #c2c9ca;
+text-shadow:
+  0px -1px 0px rgba(000,000,000,0.2),
+      0px 1px 0px rgba(255,255,255,0.3);
+
+margin-bottom: 0vh;
 
 }
 #imgLogin{

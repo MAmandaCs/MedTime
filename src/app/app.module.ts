@@ -27,7 +27,9 @@ import { CadastroPacienteComponent } from "./cadastros/cadastro-paciente/cadastr
 import { DatabaseService } from './servicos/databaseService';
 import { PacienteService } from './servicos/pacienteService';
 import { PostoService } from './servicos/postoService';
-
+import { LoginService } from './servicos/loginService';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthGuard } from './guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,7 @@ import { PostoService } from './servicos/postoService';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [DatabaseService, PacienteService, PostoService],
+  providers: [DatabaseService, PacienteService, PostoService, LoginService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
 

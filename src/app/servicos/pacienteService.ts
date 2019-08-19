@@ -14,23 +14,48 @@ export class PacienteService {
         return this.database.inserir(PATH, paciente);
     }
 
-     listar(): Promise<CadastroPaciente[]> {
+     lista(): Promise<CadastroPaciente[]> {
          return this.database.listar<CadastroPaciente>(PATH);
      }
 
-     remover(nome: string): Promise<void> {
+     remover(cpf: string): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this.database.buscar<CadastroPaciente>('pacientes', 'nome', nome)
+            this.database.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
                 .then(pacientes => {
                     if (pacientes.length > 0) {
-                        reject('Paciente não encontrado no nosso banco de dados');
+                        reject('Paciente não foi encontrado no nosso banco de dados');
                     } else {
-                        this.database.remover(PATH, nome)
+                        this.database.remover(PATH, cpf)
                             .then(() => resolve());
                     }
                 });
         });
     }
+
+    // buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
+    //     return new Promise<CadastroPaciente[]>((resolve, reject) => {
+    //         this.database.listar<CadastroPaciente>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
+    //             .snapshotChanges()
+    //             .subscribe(
+    //                 items => {
+    //                     const typedItems: CadastroPaciente[] = [];
+
+    //                     items.forEach(item => {
+    //                         const typedItem: CadastroPaciente = item.payload.val();
+    //                         typedItem['cpf'] = item.key;
+    //                         typedItems.push(typedItem);
+    //                     });
+
+    //                     resolve(typedItems);
+    //                 },
+    //                 error => reject(error)
+    //             );
+    //     });
+    // }
+
+    
+
+
 }
 
 

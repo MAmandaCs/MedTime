@@ -20,6 +20,20 @@ export class FuncionarioComponent implements OnInit {
     this.listarPacientes();
     
   } 
+  
+  // buscarPaciente(){
+  //   return new Promise<void>((resolve, reject) => {
+  //     this.pacienteService.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
+  //         .then(pacientes => {
+  //             if (pacientes.length > 0) {
+  //                 reject('Paciente não encontrado no nosso banco de dados');
+  //             } else {
+  //                 this.database.remover(PATH, cpf)
+  //                     .then(() => resolve());
+  //             }
+  //         });
+  // });
+  // }
   ngOnInit(){
   
   }
@@ -31,7 +45,7 @@ export class FuncionarioComponent implements OnInit {
   private listarPacientes() {
     this.carregando = true;
 
-    this.pacienteService.listar()
+    this.pacienteService.lista()
       .then(pacienteDB => {
         this.pacientes = pacienteDB;
 
