@@ -11,7 +11,7 @@
           <div class="collapsible-body" >
               <div id="dBusca">
                   <span> Buscar por:</span>
-                 <input class="busca"  id="inputBusca" type="search" list=""/></div>
+                 <input class="busca"  id="inputBusca" type="search" name="pacTab" [(ngModel)]="buscarPaciente"/></div>
                  <table class="responsive-table" class="highlight" id="tabela"> 
                   <thead>
                     <tr>
@@ -22,7 +22,6 @@
                       <th>Email</th>
                       <th>Cidade</th>
                       <th>Bairro</th>
-              
                       <th></th>
                     </tr>
                   </thead>

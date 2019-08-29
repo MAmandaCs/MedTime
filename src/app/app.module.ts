@@ -30,6 +30,9 @@ import { PostoService } from './servicos/postoService';
 import { LoginService } from './servicos/loginService';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuard } from './guards/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,9 @@ import { AuthGuard } from './guards/auth.guard';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgxMaskModule
   ],
   providers: [DatabaseService, PacienteService, PostoService, LoginService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]

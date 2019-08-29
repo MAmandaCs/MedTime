@@ -82,7 +82,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/inputmask/dist/jquery.inputmask.bundle.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

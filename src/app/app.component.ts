@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Route } from '@angular/router';
 
+
 declare var $: any;
 
 @Component({

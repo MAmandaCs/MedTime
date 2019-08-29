@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
 import { PacienteService } from '../servicos/pacienteService';
-declare var $: any;
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { reject } from 'q';
+
+
 @Component({
   selector: 'app-funcionario',
   templateUrl: './funcionario.component.html',
@@ -12,28 +17,34 @@ export class FuncionarioComponent implements OnInit {
   paciente: CadastroPaciente;
   pacientes: CadastroPaciente[];
   carregando = true;
+ // pacientes$: Observable<CadastroPaciente[]>;
 
   
-  constructor(private pacienteService: PacienteService){
+  constructor(private pacienteService: PacienteService, private http: HttpClient){
     this.paciente = new CadastroPaciente();
-
-    this.listarPacientes();
     
   } 
   
-  // buscarPaciente(){
+  //  buscarPaciente(){
+  //    return new Promise<void>((resolve, reject) => {
+  //      this.pacienteService.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
+  //          .then(pacientes => {
+  //              if (pacientes.length > 0) {
+  //                  reject('Paciente não encontrado no nosso banco de dados');
+  //              } else {
+  //                  this.database.remover(PATH, cpf)
+  //                      .then(() => resolve());
+  //              }
+  //          });
+  //  });
+  //  }
+
+  // buscarPaciente(value: any, arg: any){
+  //   this.http.get('https://medtime-9ea7b.firebaseio.com/pacientes.json')
   //   return new Promise<void>((resolve, reject) => {
-  //     this.pacienteService.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
-  //         .then(pacientes => {
-  //             if (pacientes.length > 0) {
-  //                 reject('Paciente não encontrado no nosso banco de dados');
-  //             } else {
-  //                 this.database.remover(PATH, cpf)
-  //                     .then(() => resolve());
-  //             }
-  //         });
-  // });
-  // }
+  //     this.pacienteService.buscar<CadastroPaciente>('paciente', )
+  //   });
+
   ngOnInit(){
   
   }
@@ -53,8 +64,8 @@ export class FuncionarioComponent implements OnInit {
     });
   }
 
-  remover(uid: string) {
-    this.pacienteService.remover(uid)
+  remover(cpf: string) {
+    this.pacienteService.remover(cpf)
       .then(() => {
         alert('Paciente foi excluído');
         this.listarPacientes();
@@ -82,6 +93,7 @@ export class FuncionarioComponent implements OnInit {
 // selecionarPaciente(paciente) {
 //   this.pacienteSelecionado = paciente;
 //  }
+     
 
 }
 

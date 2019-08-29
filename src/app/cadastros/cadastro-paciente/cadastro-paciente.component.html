@@ -12,7 +12,7 @@
      <input class="inputCad2" id="inputCPF" name="inputCPF" type="text"placeholder="000.000.000-00" [(ngModel)]="paciente.cpf"/>
      <p></p>
      <label class="labelCad1">Data de Nasc: </label>
-     <input [(ngModel)]="dataNascimento" id="inputDate" name="inputDate" type="date"/>
+     <input id="inputDate" name="inputDate" type="date" [(ngModel)]="dataNascimento"/>
      <label class="labelCad2">Telefone: </label>
      <input class="inputCad2"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="paciente.telefone"/>
      <p></p>
@@ -65,7 +65,7 @@
      <label class="labelCad1">Confirmar Senha: </label>
      <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="paciente.confSenha"/>
    </div>
-   <button id="button" type="submit" (click)="cadastrar()">Cadastrar</button>
+   <button id="button" type="submit" (click)="addPaciente()">Cadastrar</button>
 
 
 </form>  
