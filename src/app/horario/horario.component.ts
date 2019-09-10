@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 
 declare var $: any;
 @Component({
@@ -13,7 +12,7 @@ export class HorarioComponent implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder,) {
+  constructor() {
   // this.horarios = [
   //     { profissional: 'Dentista', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'},
   //     { profissional: 'Clinico', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'},
@@ -27,8 +26,8 @@ export class HorarioComponent implements OnInit {
       
   }
 
-  buildHorarios() {
-    const values = this.horarios.map(v => new FormControl(false));
-    return this.formBuilder.array(values);
-  }
+  // buildHorarios() {
+  //   const values = this.horarios.map(v => new FormControl(false));
+  //   return this.formBuilder.array(values);
+  // }
 }

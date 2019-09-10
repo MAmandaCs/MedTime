@@ -37,7 +37,7 @@ const routes: Routes = [
   {path: 'preNatal', component: PreNatalComponent},
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
-  {path: 'funcionarios', component: FuncionarioComponent}
+  {path: 'funcionario', component: FuncionarioComponent}
 
 
 ];

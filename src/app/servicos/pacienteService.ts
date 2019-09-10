@@ -32,29 +32,26 @@ export class PacienteService {
         });
     }
 
-    // buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
-    //     return new Promise<CadastroPaciente[]>((resolve, reject) => {
-    //         this.database.listar<CadastroPaciente>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
-    //             .snapshotChanges()
-    //             .subscribe(
-    //                 items => {
-    //                     const typedItems: CadastroPaciente[] = [];
+    //  buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
+    //      return new Promise<CadastroPaciente[]>((resolve, reject) => {
+    //          this.database.listar<CadastroPaciente>(caminho, propriedade, valor)
+    //              .snapshotChanges()
+    //              .subscribe(
+    //                  items => {
+    //                      const typedItems: CadastroPaciente[] = [];
 
-    //                     items.forEach(item => {
-    //                         const typedItem: CadastroPaciente = item.payload.val();
-    //                         typedItem['cpf'] = item.key;
-    //                         typedItems.push(typedItem);
-    //                     });
+    //                      items.forEach(item => {
+    //                          const typedItem: CadastroPaciente = item.payload.val();
+    //                          typedItem['cpf'] = item.key;
+    //                          typedItems.push(typedItem);
+    //                      });
 
-    //                     resolve(typedItems);
-    //                 },
-    //                 error => reject(error)
-    //             );
-    //     });
-    // }
-
-    
-
+    //                      resolve(typedItems);
+    //                  },
+    //                  error => reject(error)
+    //              );
+    //      });
+    //  }
 
 }
 

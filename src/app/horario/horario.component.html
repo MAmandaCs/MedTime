@@ -30,8 +30,9 @@
           <div class="editaHoararios">
             <p id="txtAtualizacao">Atualize aqui os horários:</p>
             <div class="edit"><p id="profissional">Clínico Geral:</p>
-              <div class="input-field col s12" id="select">
-                  <select multiple>
+              <div class="input-field col s12" id="select" formArryName="horarios">
+                *ngFor="let item of "  
+                <select multiple>
                     <option value="1">Segunda </option>
                     <option value="2">Terça </option>
                     <option value="3">Quarta </option>
@@ -47,7 +48,7 @@
                       <input type="text" class="timepicker">
                       <label>Término</label> </div>
             </div>
-            <div class="edit"><p id="profDent">Dentista:</p>
+           <!--  <div class="edit"><p id="profDent">Dentista:</p>
               <div class="input-field col s12" id="select">
                   <select multiple>
                     <option value="1">Segunda </option>
@@ -136,8 +137,8 @@
                       <div class="input-field col s12" id="select2">
                       <input type="text" class="timepicker">
                       <label>Término</label> </div>
-                      <button>AAA</button>
-            </div>
+                      
+            </div> -->
           </div>
 
 

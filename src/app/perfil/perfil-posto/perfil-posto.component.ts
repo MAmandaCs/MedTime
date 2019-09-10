@@ -27,22 +27,22 @@ export class PerfilPostoComponent implements OnInit {
    }
 
    ngOnInit(): void {
-  setTimeout(() => {
-    // tslint:disable-next-line: only-arrow-functions
-          $(document).ready( function() {
-            $('.collapsible').collapsible();
-          }),
+  // setTimeout(() => {
+  //   // tslint:disable-next-line: only-arrow-functions
+  //         $(document).ready( function() {
+  //           $('.collapsible').collapsible();
+  //         }),
 
-    // tslint:disable-next-line: only-arrow-functions
-          $(document).ready( function() {
-            $('.tabs').tabs();
-          });
+  //   // tslint:disable-next-line: only-arrow-functions
+  //         $(document).ready( function() {
+  //           $('.tabs').tabs();
+  //         });
 
 
-        }, 100);
+  //       }, 100);
 
-      }
-
+  //     }
+   }
 
   }
 
