@@ -24,7 +24,8 @@ export class LoginService {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
 
     }
-        public logout() {
-                return this.afAuth.auth.signOut();
-            } 
+
+    public logout() {
+        return this.afAuth.auth.signOut();
+    } 
 }

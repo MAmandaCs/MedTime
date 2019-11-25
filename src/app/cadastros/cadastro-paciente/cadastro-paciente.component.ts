@@ -24,6 +24,7 @@ export class CadastroPacienteComponent implements OnInit {
   }
   
   ngOnInit() {
+    
   }
 
   cadastrar() {

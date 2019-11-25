@@ -28,6 +28,7 @@ import { DatabaseService } from './servicos/databaseService';
 import { PacienteService } from './servicos/pacienteService';
 import { PostoService } from './servicos/postoService';
 import { LoginService } from './servicos/loginService';
+import { HorarioService } from './servicos/horarioService';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuard } from './guards/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
@@ -64,7 +65,7 @@ import { NgxMaskModule } from 'ngx-mask';
     HttpClientModule,
     NgxMaskModule
   ],
-  providers: [DatabaseService, PacienteService, PostoService, LoginService, AngularFireAuth, AuthGuard],
+  providers: [DatabaseService, PacienteService, PostoService, LoginService, HorarioService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
 

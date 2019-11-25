@@ -1,15 +1,24 @@
+.button-item:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.05);
+  margin-bottom: 1vw;
+}
+
 #txt1{
   font-size: 170%;
   margin-left: 3vw;
   }
-  #txt2{
-    font-size: 130%;
-    margin-left: 8vw;
-    margin-top: 10vh;
-    }
+
+#txt2{
+  font-size: 130%;
+  margin-left: 8vw;
+  margin-top: 10vh;
+  }
+
 .conteudo{
   margin-top: 8vh;
 }
+
 #controleConsultas1{
   width: 35vw;
   margin-top: 0vh;
@@ -17,19 +26,38 @@
   float: left;
 }
 
-  .collection-item{
-    background: #0e808f!important;
-    color: white!important;
-
-  }
-  #img{
-    width: 2vw;
-    height: 2,1vh;
-    margin-right: 1.5vw;
-  }
-.tabela{
-width: 30vw;
+#menulateral{
+  position: relative;
+  width: 30vw;
+  float: left;
 }
+
+.collection-item{
+  background: #0e808f!important;
+  color: white!important;
+
+}
+
+#img{
+  width: 2vw;
+  height: 2,1vh;
+  margin-right: 1.5vw;
+  margin-left: 2vw;
+}
+
+.tabela{
+  position: fixed !important;
+  left: 50vw !important;
+  width: 30vw;
+  height: 50vh !important;
+  overflow: scroll;
+}
+
+.tabelaAgendamento{
+  height: 50vh;
+  overflow: scroll;
+}
+
 .agend{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 100%;
@@ -37,6 +65,7 @@ width: 30vw;
   color: black;
 
 }
+
 .busca{
   width: 20vw!important;
   margin-left: 8vw!important;
@@ -45,6 +74,7 @@ width: 30vw;
 
 table.highlight {
   cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .selecionado {
@@ -54,5 +84,4 @@ table.highlight {
 .opcoes{
   width: 70vw!important;
   margin-left: 15vw;
-
 }

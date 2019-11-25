@@ -11,7 +11,14 @@ export class MeusDadosComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  remover(){
+    
+  }
+
 alerta() {
   alert('deseja excluir esse perfil?');
 }
+
+
 }

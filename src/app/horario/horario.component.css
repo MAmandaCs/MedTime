@@ -11,6 +11,10 @@ font-size: 130%;
   font-size: 100%;
   margin-top: 0vh;
 }
+#calendario{
+  width: 20vw !important;
+  float: left;
+}
 #select{
   width: 26vw;
   float: left;

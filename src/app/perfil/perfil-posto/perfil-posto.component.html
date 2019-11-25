@@ -1,286 +1,381 @@
-<div class="conteudo">
-  <h1 id="txt1">Portal do Administrador</h1>
-  <h2 id="txt2">Marcações do dia:</h2>
-<ul class="collapsible" id="controleConsultas1">
-  <li>
-    <div class="collapsible-header"><a><img id="img" src="/assets/img/med.png"/></a>Clínico Geral</div>
-    <div class="collapsible-body">
-        <div class="input-field col s12">
-            <div class="tabela">
-                <label class="agend">Procurar por:</label>
-                <input class="busca"  id="inputBusca" type="search" list=""/>
-                <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                        <th>Prontuário</th>
-                        <th>Nome</th>
-                        <th></th>
+<h1 id="txt1">Portal do Administrador</h1>
+    <h2 id="txt2">Marcações do dia:</h2>
 
-                    </tr>
-                  </thead>
+<div class="row" style="margin-top: 10vh">
 
-                  <tbody>
-                      <tr *ngFor="let agendamento of agendamentos">
-                      <td>{{agendamento.prontuario}}
-                      </td>
-                      <td>{{agendamento.nome}}
-
-                      </td>
-                      <td> <form action="#">
-
-                        <label>
-                          <input  name="group1" type="radio" />
-                          <span>presente</span>
-                        </label>
-                        <p></p>
-                          <label>
-                              <input  name="group1" type="radio" />
-                            <span>ausente</span>
-                          </label>
-
-                     </form></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-          </div>
+  <div class="col l5" >
+    <div (click)="clinicoSelecionado()" class="button-item"><a><img id="img"
+          src="/assets/img/med.png" /></a>Clínico Geral
     </div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">accessibility</i>Fisioterapia</div>
-    <div class="collapsible-body">
-        <div class="input-field col s12">
-            <div class="tabela">
-                <label class="agend">Procurar por:</label>
-                <input class="busca"  id="inputBusca" type="search" list=""/>
-                <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                        <th>Prontuário</th>
-                        <th>Nome</th>
-                        <th></th>
 
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                      <tr *ngFor="let agendamento of agendamentos">
-                      <td>{{agendamento.prontuario}}
-                      </td>
-                      <td>{{agendamento.nome}}
-
-                      </td>
-                      <td><form action="#">
-
-                        <label>
-                            <input  name="group1" type="radio" />
-                          <span>presente</span>
-                        </label>
-                        <p></p>
-                          <label>
-                              <input  name="group1" type="radio" />
-                            <span>ausente</span>
-                          </label>
-
-                     </form></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-          </div>
+    <div (click)="dentistaSelecionado()" class="button-item"><a><img id="img"
+          src="/assets/img/dente.png" /></a>Dentista
     </div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">local_hospital</i>Enfermaria</div>
-    <div class="collapsible-body">
-        <div class="input-field col s12">
-            <div class="tabela">
-                <label class="agend">Procurar por:</label>
-                <input class="busca"  id="inputBusca" type="search" list=""/>
-                <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                        <th>Prontuário</th>
-                        <th>Nome</th>
-                        <th></th>
 
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                      <tr *ngFor="let agendamento of agendamentos">
-
-                      <td>{{agendamento.prontuario}}
-                      </td>
-                      <td>{{agendamento.nome}}
-
-                      </td>
-                      <td> <form action="#">
-
-                        <label>
-                            <input  name="group1" type="radio" />
-                          <span>presente</span>
-                        </label>
-                        <p></p>
-                          <label>
-                              <input  name="group1" type="radio" />
-                            <span>ausente</span>
-                          </label>
-
-                     </form></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-          </div>
+    <div (click)="enfermariaSelecionado()" class="button-item"><i class="material-icons">local_hospital</i>Enfermaria
     </div>
-  </li>
-</ul>
 
-<ul class="collapsible" id="controleConsultas1">
-  <li>
-    <div class="collapsible-header"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
-    <div class="collapsible-body">
-        <div class="input-field col s12">
-            <div class="tabela">
-                <label class="agend">Procurar por:</label>
-                <input class="busca"  id="inputBusca" type="search" list=""/>
-                <table class="responsive-table highlight">
-                  <thead>
-                    <tr>
-                        <th>Prontuário</th>
-                        <th>Nome</th>
-                        <th></th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                      <tr *ngFor="let agendamento of agendamentos">
-
-                      <td>{{agendamento.prontuario}}
-                      </td>
-                      <td>{{agendamento.nome}}
-
-                      </td>
-                      <td> <form action="#">
-
-                        <label>
-                            <input  name="group1" type="radio" />
-                          <span>presente</span>
-                        </label>
-                        <p></p>
-                          <label>
-                              <input  name="group1" type="radio" />
-                            <span>ausente</span>
-                          </label>
-
-                     </form></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-          </div>
+    <div (click)="fisioSelecionado()" class="button-item"><i class="material-icons">accessibility</i>Fisioterapia
     </div>
-  </li>
 
-    <li>
-        <div class="collapsible-header"><i class="material-icons">pregnant_woman</i>Pré-natal</div>
-        <div class="collapsible-body">
-          <div class="input-field col s12">
-              <div class="tabela">
-                  <label class="agend">Procurar por:</label>
-                  <input class="busca"  id="inputBusca" type="search" list=""/>
-                  <table class="responsive-table highlight">
-                    <thead>
-                      <tr>
-                          <th>Prontuário</th>
-                          <th>Nome</th>
-                          <th></th>
+    <div (click)="pediatriaSelecionado()" class="button-item"><i class="material-icons">pregnant_woman</i>Pediatria
+    </div>
 
-                      </tr>
-                    </thead>
+    <div (click)="psicologoSelecionado()" class="button-item"><i class="material-icons">people</i>Psicologo
+    </div>
 
-                    <tbody>
-                        <tr *ngFor="let agendamento of agendamentos">
-                        <td>{{agendamento.prontuario}}
-                        </td>
-                        <td>{{agendamento.nome}}
+  </div>
 
-                        </td>
-                        <td> <form action="#">
+  <div class="col l7" class="tabelaAgendamento">
+    <div *ngIf="agendamentosSelecionado" class="row">
+      <div clas="col l12">
+        <label class="agend">Procurar por:</label>
+        <input class="busca" id="inputBusca" type="search" list="" />
+      </div>
 
-                          <label>
-                              <input  name="group1" type="radio" />
-                            <span>presente</span>
-                          </label>
-                          <p></p>
-                            <label>
-                                <input  name="group1" type="radio" />
-                              <span>ausente</span>
-                            </label>
+      <div class="col l12">
+        <table class="responsive-table highlight">
+          <thead>
+            <tr>
+              <th>Prontuário</th>
+              <th>Nome</th>
+              <th></th>
 
-                       </form></td>
-                      </tr>
+            </tr>
+          </thead>
 
-                    </tbody>
-                  </table>
+          <tbody>
+            <tr *ngFor="let agendamento of agendamentosSelecionado">
+              <td>{{agendamento.prontuario}}
+              </td>
+              <td>{{agendamento.nome}}
+
+              </td>
+              <td>
+                <div class="switch">
+                  <label>
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Presente
+                  </label>
                 </div>
-          </div></div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="conteudo">
+  <div id="menulateral">
+    <h1 id="txt1">Portal do Administrador</h1>
+    <h2 id="txt2">Marcações do dia:</h2>
+
+
+    <ul class="collapsible" id="controleConsultas1">
+      <li>
+
+
+        <div class="collapsible-header"><a><img id="img" src="/assets/img/med.png" /></a>Clínico Geral</div>
+        <div class="collapsible-body">
+          <div class="input-field col s10">
+          </div>
+
+        </div>
+
       </li>
       <li>
-          <div class="collapsible-header"><i class="material-icons">people</i>Psicologo</div>
-          <div class="collapsible-body">
-              <div class="input-field col s12">
-                  <div class="tabela">
-                      <label class="agend">Procurar por:</label>
-                      <input class="busca"  id="inputBusca" type="search" list=""/>
-                      <table class="responsive-table highlight">
-                        <thead>
-                          <tr>
-                              <th>Prontuário</th>
-                              <th>Nome</th>
-                              <th></th>
-
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr *ngFor="let agendamento of agendamentos">
-
-                            <td>{{agendamento.prontuario}}
-                            </td>
-                            <td>{{agendamento.nome}}
-
-                            </td>
-                            <td> <form action="#">
-
-                                  <label>
-                                      <input  name="group1" type="radio" />
-                                    <span>presente</span>
-                                  </label>
-                                  <p></p>
-                                    <label>
-                                        <input  name="group1" type="radio" />
-                                      <span>ausente</span>
-                                    </label>
-
-                               </form>
-                               </td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-                    </div>
-                </div>
+        <div class="collapsible-header"><i class="material-icons">accessibility</i>Fisioterapia</div>
+        <div class="collapsible-body">
+          <div class="input-field col s12">
           </div>
-        </li>
-</ul>
-<div class="opcoes">
+          <div class="tabela">
+            <label class="agend">Procurar por:</label>
+            <input class="busca" id="inputBusca" type="search" list="" />
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Prontuário</th>
+                  <th>Nome</th>
+                  <th></th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let agendamento of agendamentos">
+                  <td>{{agendamento.prontuario}}
+                  </td>
+                  <td>{{agendamento.nome}}
+
+                  </td>
+                  <td>
+                    <form action="#">
+
+                      <label>
+                        <input name="group1" type="radio" />
+                        <span>presente</span>
+                      </label>
+                      <p></p>
+                      <label>
+                        <input name="group1" type="radio" />
+                        <span>ausente</span>
+                      </label>
+
+                    </form>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">local_hospital</i>Enfermaria</div>
+        <div class="collapsible-body">
+          <div class="input-field col s12">
+            <div class="tabela">
+              <label class="agend">Procurar por:</label>
+              <input class="busca" id="inputBusca" type="search" list="" />
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let agendamento of agendamentos">
+
+                    <td>{{agendamento.prontuario}}
+                    </td>
+                    <td>{{agendamento.nome}}
+
+                    </td>
+                    <td>
+                      <form action="#">
+
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>presente</span>
+                        </label>
+                        <p></p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>ausente</span>
+                        </label>
+
+                      </form>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </li>
+
+
+      <li>
+        <div class="collapsible-header"><a><img id="img" src="/assets/img/dente.png" /></a>Dentista</div>
+        <div class="collapsible-body">
+          <div class="input-field col s12">
+            <div class="tabela">
+              <label class="agend">Procurar por:</label>
+              <input class="busca" id="inputBusca" type="search" list="" />
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let agendamento of agendamentos">
+
+                    <td>{{agendamento.prontuario}}
+                    </td>
+                    <td>{{agendamento.nome}}
+
+                    </td>
+                    <td>
+                      <form action="#">
+
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>presente</span>
+                        </label>
+                        <p></p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>ausente</span>
+                        </label>
+
+                      </form>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="collapsible-header"><i class="material-icons">pregnant_woman</i>Pediatria</div>
+        <div class="collapsible-body">
+          <div class="input-field col s12">
+            <div class="tabela">
+              <label class="agend">Procurar por:</label>
+              <input class="busca" id="inputBusca" type="search" list="" />
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let agendamento of agendamentos">
+                    <td>{{agendamento.prontuario}}
+                    </td>
+                    <td>{{agendamento.nome}}
+
+                    </td>
+                    <td>
+                      <form action="#">
+
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>presente</span>
+                        </label>
+                        <p></p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>ausente</span>
+                        </label>
+
+                      </form>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">people</i>Psicologo</div>
+        <div class="collapsible-body">
+          <div class="input-field col s12">
+            <div class="tabela">
+              <label class="agend">Procurar por:</label>
+              <input class="busca" id="inputBusca" type="search" list="" />
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Prontuário</th>
+                    <th>Nome</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let agendamento of agendamentos">
+
+                    <td>{{agendamento.prontuario}}
+                    </td>
+                    <td>{{agendamento.nome}}
+
+                    </td>
+                    <td>
+                      <form action="#">
+
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>presente</span>
+                        </label>
+                        <p></p>
+                        <label>
+                          <input name="group1" type="radio" />
+                          <span>ausente</span>
+                        </label>
+
+                      </form>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="opcoes">
 <div class="row">
     <div class="col s12">
       <ul class="tabs">
@@ -290,8 +385,8 @@
       </ul>
     </div>
     <div id="test1" class="col s12"><app-exames></app-exames></div>
-    <div id="test2" class="col s12"><app-funcionario></app-funcionario></div>
-    <div id="test3" class="col s12"><app-horario></app-horario></div>
+   <div id="test2" class="col s12"><app-funcionario></app-funcionario></div> 
+    <div id="test3" class="col s12"><app-horario></app-horario></div> 
   </div>
 </div>
-</div>
+</div> -->

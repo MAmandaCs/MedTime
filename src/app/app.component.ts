@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Route } from '@angular/router';
+import * as $ from 'jquery';
+
 
 
 declare var $: any;
