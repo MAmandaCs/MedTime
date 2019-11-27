@@ -1,5 +1,11 @@
 <h1 id="txt1">Portal do Administrador</h1>
+<div  id="divopcBotoes">
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/exames"><i class="material-icons left">library_books</i>Exames</a>
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/horario"><i class="material-icons left">access_time</i>Horário</a>
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/funcionario"><i class="material-icons left">contacts</i>Pacientes</a>
+</div>
     <h2 id="txt2">Marcações do dia:</h2>
+
 
 <div class="row" style="margin-top: 10vh">
 
@@ -18,7 +24,7 @@
     <div (click)="fisioSelecionado()" class="button-item"><i class="material-icons">accessibility</i>Fisioterapia
     </div>
 
-    <div (click)="pediatriaSelecionado()" class="button-item"><i class="material-icons">pregnant_woman</i>Pediatria
+    <div (click)="pediatraSelecionado()" class="button-item"><i class="material-icons" id>pregnant_woman</i>Pediatria
     </div>
 
     <div (click)="psicologoSelecionado()" class="button-item"><i class="material-icons">people</i>Psicologo
@@ -385,8 +391,8 @@
       </ul>
     </div>
     <div id="test1" class="col s12"><app-exames></app-exames></div>
-   <div id="test2" class="col s12"><app-funcionario></app-funcionario></div> 
-    <div id="test3" class="col s12"><app-horario></app-horario></div> 
+   <div id="test2" class="col s12"><app-funcionario></app-funcionario></div>
+    <div id="test3" class="col s12"><app-horario></app-horario></div>
   </div>
 </div>
 </div> -->

@@ -8,12 +8,25 @@
   font-size: 170%;
   margin-left: 3vw;
   }
+  #opcBotoes{
+   margin-right: 1vw;
+  background-color: #0e808f;
+  }
+#divopcBotoes{
+  margin-left: 60vw;
+}
 
 #txt2{
   font-size: 130%;
   margin-left: 8vw;
   margin-top: 10vh;
   }
+
+.material-icons{
+  height: 2vh;
+  margin-right: 1.5vw;
+  margin-left: 1vw;
+}
 
 .conteudo{
   margin-top: 8vh;
@@ -42,7 +55,8 @@
   width: 2vw;
   height: 2,1vh;
   margin-right: 1.5vw;
-  margin-left: 2vw;
+  margin-top: 0.2vh;
+  margin-left: 1vw;
 }
 
 .tabela{

@@ -1,4 +1,9 @@
-
+#divExa{
+  margin-left: 5vw;
+}
+#pFiltro{
+  font-size: 2vw;
+}
 #dRadio{
   float: left;
 }
@@ -15,4 +20,8 @@ table.highlight {
 
 .selecionado {
   background-color: #999;
+}
+
+#tabela3{
+  width: 50vw;
 }

@@ -54,3 +54,12 @@ font-size: 130%;
   width: 50vw;
   margin-left: 8vh;
 }
+#conTabela{
+  margin-left: 3vw;
+}
+#txtHorario{
+  font-size: 2vw;
+}
+.editaHoararios{
+  margin-left: 3vw;
+}

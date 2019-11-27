@@ -13,11 +13,7 @@ export class PerfilPostoComponent implements OnInit {
   agendamentosFisio: any[];
   agendamentosPediatra: any[];
   agendamentosPiscologo: any[];
-  
   agendamentosSelecionado: any[];
-
-  
-
 
   constructor() {
     this.agendamentosClinico = [
@@ -75,7 +71,6 @@ export class PerfilPostoComponent implements OnInit {
     ];
 
    }
-   
    clinicoSelecionado() {
     this.agendamentosSelecionado = this.agendamentosClinico;
   }
@@ -91,7 +86,7 @@ export class PerfilPostoComponent implements OnInit {
   fisioSelecionado() {
      this.agendamentosSelecionado = this.agendamentosFisio;
   }
-  
+
   pediatraSelecionado() {
     this.agendamentosSelecionado = this.agendamentosPediatra;
   }
@@ -99,9 +94,9 @@ export class PerfilPostoComponent implements OnInit {
   psicologoSelecionado() {
     this.agendamentosSelecionado = this.agendamentosPiscologo;
   }
-   
 
-   
+
+
 
    ngOnInit(): void {
   setTimeout(() => {
@@ -121,5 +116,5 @@ export class PerfilPostoComponent implements OnInit {
       }
    }
 
-  
+
 
