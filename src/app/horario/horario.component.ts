@@ -27,7 +27,7 @@ export class HorarioComponent implements OnInit {
   //      { profissional: 'Psicologo', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '09:00-12:00', sexta: '09:00-12:00'},
   //      { profissional: 'Fisoterapeuta', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'},
   //      { profissional: 'Enfermeiro ', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'}
-  //    ]; 
+  //    ];
 }
     ngOnInit(){
 
@@ -37,12 +37,12 @@ export class HorarioComponent implements OnInit {
           format: 'ddd',
           disableWeekends: true
         });
-        
+
       });
 
       $(document).ready(function(){
         $('.timepicker').timepicker();
-        
+
       });
   }
 
@@ -57,7 +57,7 @@ export class HorarioComponent implements OnInit {
      this.horario = new Horario();
    }
 
-   
+
 
 
 }

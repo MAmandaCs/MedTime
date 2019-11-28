@@ -1,0 +1,22 @@
+
+#divExa{
+  width: 40vw;
+  margin-top: 9vh;
+  margin-left: 3vw;
+}
+#txtAgend{
+  font-size: 2vw;
+}
+#tabela3{
+  width: 50vw;
+  height:1vh!important;
+  margin-left: 3vw;
+}
+
+table.highlight {
+  cursor: pointer;
+}
+
+.selecionado {
+  background-color: #999;
+}

@@ -12,11 +12,12 @@ import { FisioterapiaComponent } from './fisioterapia/fisioterapia.component';
 import { HistoricoComponent } from './historico/historico.component';
 import { HorarioComponent } from './horario/horario.component';
 import { PsicologoComponent } from './psicologo/psicologo.component';
-import { PreNatalComponent } from './pre-natal/pre-natal.component';
+import { PreNatalComponent } from './pediatria/pre-natal.component';
 import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { PerfilPostoComponent } from './perfil/perfil-posto/perfil-posto.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
-import { CadastroPacienteComponent } from "./cadastros/cadastro-paciente/cadastro-paciente.component";
+import { CadastroPacienteComponent } from './cadastros/cadastro-paciente/cadastro-paciente.component';
+import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
 import { LoginService } from './servicos/loginService';
 
 
@@ -37,7 +38,9 @@ const routes: Routes = [
   {path: 'preNatal', component: PreNatalComponent},
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
-  {path: 'funcionario', component: FuncionarioComponent}
+  {path: 'funcionario', component: FuncionarioComponent},
+  {path: 'examePac', component:ExamePacienteComponent }
+
 
 
 ];

@@ -1,6 +1,24 @@
- <div class="conteudo">
-    <p id="pText1">Aqui está seu agendamento:</p>
-   </div>
+<div id="divAgen">
+    <p id="txtAgend">Meu(s) Agendamento(s):</p>
+     <table class="responsive-table highlight" id="tabela2" >
+        <thead>
+          <tr>
+              <th>Profissional</th>
+              <th>Horário</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr  [class.selecionado]="agendamento.profissional === agendamentoSelecionado.profissional"  (click)="selecionarAgendamento(agendamento)"*ngFor="let agendamento of agendamentos">
+            <td>{{agendamento.profissional}}</td>
+            <td>{{agendamento.horario}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+
+<button id="button" type="submit">Cancelar</button>
+</div>
 
 <router-outlet></router-outlet>
 
