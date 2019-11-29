@@ -27,7 +27,7 @@ export class DatabaseService {
 
     }
 
-    
+
 
     // atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
     //     return this.db.object(`${caminho}/${uid}`).update(objeto);
