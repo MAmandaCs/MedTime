@@ -1,9 +1,26 @@
+#menuProfissionais{
+  margin-top: 5vh;
+  left: 20vw;
+  position: relative;
+}
+
+#tabH{
+  margin-top: 10vh;
+  margin-left: 30vh;
+  width: 70vw;
+}
+
+.desabilitado {
+  background: #eee;
+}
+
 #txtAtualizacao{
   margin-top: 8vh;
-font-size: 130%;
+  font-size: 130%;
 }
+
 .edit{
-  margin-right: 10vw;
+  margin-right: 20vw;
 }
 #profissional{
   margin-left: 3vw;
@@ -11,18 +28,22 @@ font-size: 130%;
   font-size: 100%;
   margin-top: 0vh;
 }
+
 #calendario{
   width: 20vw !important;
   float: left;
 }
+
 #select{
   width: 26vw;
   float: left;
 }
+
 #select2{
   width: 10vw;
   float: left;
 }
+
 #profDent{
   margin-left: 3vw;
   float: left;
@@ -37,6 +58,7 @@ font-size: 130%;
   margin-top: 0vh;
   margin-right: 2.4vw;
 }
+
 #profEnfe{
   margin-left: 3vw;
   float: left;
@@ -44,11 +66,14 @@ font-size: 130%;
   margin-top: 0vh;
   margin-right: 1.8vw;
 }
+
 #profPsi{ margin-left: 3vw;
   float: left;
   font-size: 100%;
   margin-top: 0vh;
-  margin-right: 1.5vw;}
+  margin-right: 1.5vw;
+}
+
 #tabela{
   font-size: 90%;
   width: 50vw;

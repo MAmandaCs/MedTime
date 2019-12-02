@@ -16,8 +16,18 @@ export class HorarioComponent implements OnInit {
 
   horario: Horario;
 
-  constructor(private horarioService: HorarioService){
+  horarios: any[];
 
+  constructor(private horarioService: HorarioService){
+    this.horarios = [
+      { indice: 1, nome: 'Segunda-feira', possuiAtendimento: false, inicio: '', termino: '' },
+      { indice: 2, nome: 'Terça-feira', possuiAtendimento: false, inicio: '', termino: '' },
+      { indice: 3, nome: 'Quarta-feira', possuiAtendimento: false, inicio: '', termino: '' },
+      { indice: 4, nome: 'Quinta-feira', possuiAtendimento: false, inicio: '', termino: '' },
+      { indice: 5, nome: 'Sexta-feira', possuiAtendimento: false, inicio: '', termino: '' },
+      { indice: 6, nome: 'Sábado', possuiAtendimento: false, inicio: '', termino: '' },
+    
+    ]
     this.horario = new Horario();
 
   //  this.horarios = [
@@ -31,21 +41,33 @@ export class HorarioComponent implements OnInit {
 }
     ngOnInit(){
 
-      $(document).ready(function(){
-        $('.datepicker').datepicker({
-          autoClose: true,
-          format: 'ddd',
-          disableWeekends: true
-        });
+      // $(document).ready(function(){
+      //   $('.datepicker').datepicker({
+      //     autoClose: true,
+      //     format: 'ddd',
+      //     disableWeekends: true
+      //   });
         
-      });
+      // });
 
-      $(document).ready(function(){
-        $('.timepicker').timepicker();
+      // $(document).ready(function(){
+      //   $('.timepicker').timepicker();
         
-      });
-  }
+      // });
 
+  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
+  $('.inicioSelect').change(function inicioChange(){
+    console.log($(this).val());
+});
+
+$('.terminoSelect').change(function terminoChange(){
+  console.log($(this).val());
+});
+
+    }
 // buildHorarios() {
 //   const values = this.horarios.map(v => new FormControl(false));
 //   return this.formBuilder.array(values);
@@ -57,7 +79,6 @@ export class HorarioComponent implements OnInit {
      this.horario = new Horario();
    }
 
-   
 
 
 }

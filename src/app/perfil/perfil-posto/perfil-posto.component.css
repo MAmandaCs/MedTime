@@ -1,8 +1,11 @@
 .button-item:hover {
   cursor: pointer;
   background: rgba(0,0,0,0.05);
-  margin-bottom: 1vw;
+  border: #0e808f;
+  width: 20vw;
+  height: 6vh;
 }
+
 
 #txt1{
   font-size: 170%;

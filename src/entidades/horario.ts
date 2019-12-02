@@ -1,5 +1,5 @@
 export class Horario{
-    dia: string;
+    //dia: string;
     inicio: number;
     termino: number;
 

@@ -99,9 +99,6 @@ export class PerfilPostoComponent implements OnInit {
   psicologoSelecionado() {
     this.agendamentosSelecionado = this.agendamentosPiscologo;
   }
-   
-
-   
 
    ngOnInit(): void {
   setTimeout(() => {
