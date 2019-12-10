@@ -19,7 +19,7 @@ export class MeusDadosComponent implements OnInit {
 
   async ngOnInit() {
     this.emailUsuario = await this.loginService.getUser();
-    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[0];
+    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[horario];
   }
 
 

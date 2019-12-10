@@ -35,24 +35,24 @@
                     </label>
                   </p>
                 </td>
-                <!-- <td>
+                 <td>
                   <select [disabled]="!horario.possuiAtendimento" name="{{horario.indice}}"  [(ngModel)]="horario.inicio"
                   class="inicioSelect" onchange="inicioChange()" style="display: flex;">
                     <option value="">-</option>
                     <option class="optionInicio" *ngFor="let x of [8, 9, 10, 11, 12]" [value]="x">{{x}}</option>
                   </select>
-                </td> -->
-                <input placeholder="Início" name="check-{{horario.indice}}" id="inicio" type="number" class="validate"
+                </td> 
+                <input placeholder="Início" name="check-{{horario.indice}}" type="number" class="validate"
           [(ngModel)]="horario.inicio">
-                <input placeholder="Término" name="check-{{horario.indice}}" id="termino" type="number" class="validate"
+                <input placeholder="Término" name="check-{{horario.indice}}" type="number" class="validate"
           [(ngModel)]="horario.termino">
-                <!-- <td>
+                 <td>
                   <select style="display: flex;" class="terminoSelect" name="{{horario.indice}}" 
                    [(ngModel)]="horario.termino" onchange="terminoChange()">
                     <option value="">-</option>
                     <option *ngFor="let x of [8, 9, 10, 11, 12]" [value]="x">{{x}}</option>
                   </select>
-                </td> -->
+                </td>
               </tr>
             </tbody>
           </table>
