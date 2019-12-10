@@ -12,4 +12,5 @@ export class CadastroPaciente {
     confSenha: string;
     nSUS: string;
     nProntuario: string;
+    uid: string;
 }

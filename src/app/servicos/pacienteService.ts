@@ -20,23 +20,23 @@ export class PacienteService {
 
      atualizar(paciente: CadastroPaciente): Promise<void> {
       // tslint:disable-next-line: max-line-length
-      return this.database.atualizar(PATH, paciente.email, { nome: paciente.nome , cpf: paciente.cpf , email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,
+      return this.database.atualizar(PATH , paciente.uid, { nome: paciente.nome , cpf: paciente.cpf , email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,
       uf: paciente.uf , bairro: paciente.bairro , rua: paciente.rua , nSUS: paciente.nSUS , nProntuario: paciente.nProntuario   });
   }
-     remover(cpf: string): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-            this.database.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
-                .then(pacientes => {
-                    if (pacientes.length > 0) {
-                        reject('Paciente não foi encontrado no nosso banco de dados');
-                    } else {
-                        this.database.remover(PATH, cpf)
-                            .then(() => resolve());
-                    }
-                });
-        });
-    }
-
+  remover(uid: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+        this.database.buscar<CadastroPaciente>('pacientes', 'uid', uid)
+            .then(pacientes => {
+                if (pacientes.length > 0) {
+                    reject('Não é possível remover o paciente.');
+                } else {
+                    this.database.remover(PATH, uid)
+                        .then(() => resolve());
+                }
+            });
+    });
+}
+}
     //  buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
     //      return new Promise<CadastroPaciente[]>((resolve, reject) => {
     //          this.database.listar<CadastroPaciente>(caminho, propriedade, valor)
@@ -58,6 +58,6 @@ export class PacienteService {
     //      });
     //  }
 
-}
+
 
 

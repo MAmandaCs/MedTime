@@ -15,6 +15,15 @@
          <label class="labelCad2">CPF: </label>
          <input class="inputCad2" id="inputCPF" name="inputCPF" type="text"placeholder="000.000.000-00" [(ngModel)]="cadastroPaciente.cpf"/>
          <p></p>
+
+
+     <label class="labelCad1">Número de prontuário: </label>
+     <input class="inputCad3" id="inputProntuario" name="inputProntuario" type="text" placeholder="nº de prontuário" [(ngModel)]="cadastroPaciente.nProntuario"/>
+     <p></p>
+     <label class="labelCad1">Número do SUS: </label>
+     <input class="inputCad4" id="inputSUS" name="inputSUS" type="text" placeholder="nº do SUS" [(ngModel)]="cadastroPaciente.nSUS"/>
+     <p></p>
+
          <label class="labelCad1">Data de Nasc: </label>
          <input id="inputDate" name="inputDate" type="date"/>
          <label class="labelCad2">Telefone: </label>
@@ -70,8 +79,7 @@
          <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="cadastroPaciente.confSenha"/>
        </div>
        <button id="button1" type="submit" (click)="atualizar(cadastroPaciente)" >editar</button>
-       <button id="button2" type="submit" >salvar</button>
-       <button id="button3" type="submit" (click)="remover()" >excluir</button>
+       <button id="button3" type="submit" (click)="remover(cadastroPaciente.uid)" >excluir</button>
     </form>
 </div>
 <router-outlet></router-outlet>

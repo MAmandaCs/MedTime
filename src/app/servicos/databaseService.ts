@@ -40,9 +40,13 @@ export class DatabaseService {
 
 
 
-     atualizar(caminho: string, email: string, objeto: any): Promise<void> {
-         return this.db.object(`${caminho}/${email}`).update(objeto);
+     atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
+         return this.db.object(`${caminho}/${uid}`).update(objeto);
      }
+
+     remover(caminho: string, uid: string): Promise<void> {
+      return this.db.object(`${caminho}/${uid}`).remove();
+  }
 
 
 
@@ -107,8 +111,6 @@ export class DatabaseService {
         });
     }
 
-    remover(caminho: string, cpf: string): Promise<void> {
-        return this.db.object(`${caminho}/${cpf}`).remove();
-    }
+
 
 }

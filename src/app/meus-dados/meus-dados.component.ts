@@ -22,17 +22,24 @@ export class MeusDadosComponent implements OnInit {
   async ngOnInit() {
     this.emailUsuario = await this.loginService.getUser();
     this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[0];
+
   }
-
- remover(){
-
- }
  atualizar(cadastroPaciente) {
   this.pacienteService.atualizar(cadastroPaciente)
     .then(() => {
       alert('usuário atualizado com sucesso');
     });
   }
+
+  remover(uid: string) {
+    this.pacienteService.remover(uid)
+      .then(() => {
+        alert('Paceinte removido com sucesso');
+      }).catch(error => alert(error));
+  }
+
+
+
   onSubmit(){
 
   }
