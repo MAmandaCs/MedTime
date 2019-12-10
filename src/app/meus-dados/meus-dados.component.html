@@ -3,7 +3,10 @@
   <form (ngSubmit)="onSubmit">
       <div id="divCad">
        </div>
-       <div id="divCadastro">
+        <div *ngIf="!cadastroPaciente" class="progress">
+            <div class="indeterminate"></div>
+        </div>
+       <div *ngIf="cadastroPaciente" id="divCadastro">
          <label class="labelCad1">Nome: </label>
          <input class="inputCad1" id="inputNome" name="inputNome" type="text" placeholder="Nome completo" [(ngModel)]="cadastroPaciente.nome"/>
          <p></p>

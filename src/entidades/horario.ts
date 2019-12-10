@@ -1,5 +1,7 @@
 export class Horario{
-    //dia: string;
+    indice: number;
+    dia: string;
+    possuiAtendimento: boolean;
     inicio: number;
     termino: number;
 

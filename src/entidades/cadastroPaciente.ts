@@ -10,4 +10,6 @@ export class CadastroPaciente {
     rua: string;
     senha: string;
     confSenha: string;
+    nSUS: string;
+    nProntuario: string;
 }

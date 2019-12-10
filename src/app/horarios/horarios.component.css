@@ -1,0 +1,21 @@
+#menuProfissionais{
+    margin-top: 5vh;
+    left: 20vw;
+    position: relative;
+  }
+  
+  #inicio{
+    width: 10vw;
+  }
+  
+  #termino{
+    margin-left: 5vw;
+    width: 10vw;
+  }
+  
+  #tabH{
+    margin-top: 10vh;
+    margin-left: 30vh;
+    width: 70vw;
+  }
+  

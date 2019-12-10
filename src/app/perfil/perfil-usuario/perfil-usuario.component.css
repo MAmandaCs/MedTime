@@ -33,7 +33,22 @@
   width: 30vw;
   float: left;
 }
+#divAcess{
+  width: 50vw;
+  position: relative;
+  float: inline-start;
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+#opcBotoes{
+  margin-right: 1vw;
+  background-color: #0e808f;
 
+}
+#divopcBotoes{
+  margin-bottom: 2.5vh;
+}
+/*
 #divAgen{
   width: 25vw;
   position: absolute;
@@ -102,7 +117,7 @@ table.highlight {
 
 .selecionado {
   background-color: #999;
-}
+} */
 #img{
   width: 2vw;
   height: 4vh;

@@ -1,7 +1,13 @@
 <h1 id="txt1">Portal do Administrador</h1>
+<div  id="divopcBotoes">
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/exames"><i class="material-icons left">library_books</i>Exames</a>
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/horario"><i class="material-icons left">access_time</i>Horário</a>
+    <a class="waves-effect waves-light btn" id="opcBotoes" href="/funcionario"><i class="material-icons left">contacts</i>Pacientes</a>
+</div>
     <h2 id="txt2">Marcações do dia:</h2>
+<div class="col l7">
 
-<div class="row">
+<div class="row" style="margin-top: 10vh">
 
   <div class="col l5" >
     <div (click)="clinicoSelecionado()" class="button-item"><a><img id="img"
@@ -29,7 +35,7 @@
   <div class="col l7" class="tabelaAgendamento">
     <div *ngIf="agendamentosSelecionado" class="row">
       <div clas="col l12">
-        <label class="agend">Procurar por:</label>
+        <label class="agend"> -- Procurar por:</label>
         <input class="busca" id="inputBusca" type="search" list="" />
       </div>
 
@@ -384,9 +390,15 @@
         <li class="tab col s4 "><a href="#test3">Horário</a></li>
       </ul>
     </div>
+<<<<<<< HEAD
     <div id="test1" ><app-exames></app-exames></div>
    <div id="test2" class="col s12"><app-funcionario></app-funcionario></div> 
     <div id="test3" class="col s12"><app-horario></app-horario></div> 
+=======
+    <div id="test1" class="col s12"><app-exames></app-exames></div>
+   <div id="test2" class="col s12"><app-funcionario></app-funcionario></div>
+    <div id="test3" class="col s12"><app-horario></app-horario></div>
+>>>>>>> 6c13aa67ba11fead1967c9a18e3b963fe2adc448
   </div>
 </div>
 </div> -->

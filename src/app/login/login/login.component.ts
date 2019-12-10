@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
     this.loginService.login(email, senha)
     .then(() => {
       this.router.navigate(['perfil'])
+      
+      
     });
+
+    
     
   }
 

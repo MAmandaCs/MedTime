@@ -1,0 +1,19 @@
+
+<div id="divExa">
+    <p id="txtAgend">Meu(s) exame(s):</p>
+    <table class="responsive-table highlight"  id="tabela3" >
+        <thead>
+          <tr>
+              <th>Exame</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
+              <td>{{exame.exame}}</td>
+          </tr>
+        </tbody>
+
+    </table>
+</div>
+

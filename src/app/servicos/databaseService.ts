@@ -27,7 +27,18 @@ export class DatabaseService {
 
     }
 
-    
+    inserirHorarios<Horarios>(caminho: string, objeto: Horarios): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.db.list<Horarios>(caminho)
+                .push(objeto)
+                .then(item => resolve(item.key));
+        });
+
+    }
+
+
+
+
 
     // atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
     //     return this.db.object(`${caminho}/${uid}`).update(objeto);

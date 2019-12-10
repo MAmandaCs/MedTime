@@ -1,6 +1,6 @@
 
 <div class="cabeçalho" (mouseover)="alerta()">
-  <h1 id="txtBemVindo">Perfil de </h1>
+  <h1 id="txtBemVindo">Perfil de Lourdes Silva</h1>
 </div>
 <div class="conteudo">
       <div id="menulateral">
@@ -59,7 +59,7 @@
               </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">pregnant_woman</i>Pré-natal</div>
+                <div class="collapsible-header"><i class="material-icons">child_care</i>Pediatria</div>
                 <div class="collapsible-body">
                   <div class="input-field col s12">
                     <select>
@@ -113,46 +113,12 @@
             </tr>
           </tbody>
         </table></div>
-
-<div id="divAgen">
-    <p id="txtAgend">Meu(s) Agendamento(s):</p>
-     <table class="responsive-table highlight" id="tabela2" >
-        <thead>
-          <tr>
-              <th>Profissional</th>
-              <th>Horário</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr  [class.selecionado]="agendamento.profissional === agendamentoSelecionado.profissional"  (click)="selecionarAgendamento(agendamento)"*ngFor="let agendamento of agendamentos">
-            <td>{{agendamento.profissional}}</td>
-            <td>{{agendamento.horario}}</td>
-          </tr>
-        </tbody>
-
-    </table>
-
-<button id="button" type="submit">Cancelar</button>
-</div>
-<div id="divExa">
-    <p id="txtAgend">Meu(s) exame(s):</p>
-    <table class="responsive-table highlight"  id="tabela3" >
-        <thead>
-          <tr>
-              <th>Exame</th>
-
-          </tr>
-        </thead>
-        <tbody>
-            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
-              <td>{{exame.exame}}</td>
-          </tr>
-        </tbody>
-
-    </table>
-</div>
-
-</div>
+  <div id="divAcess">
+    <p id="txtAcess">Acessar:</p>
+    <div  id="divopcBotoes">
+        <a class="waves-effect waves-light btn" id="opcBotoes" href="/agendamento"><i class="material-icons left">list</i>Agendamento(s)</a>
+        <a class="waves-effect waves-light btn" id="opcBotoes" href="/examePac"><i class="material-icons left">library_books</i>Exame(s)</a>
+      </div>
+  </div>
 <router-outlet></router-outlet>
 

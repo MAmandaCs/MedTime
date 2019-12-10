@@ -28,4 +28,12 @@ export class LoginService {
     public logout() {
         return this.afAuth.auth.signOut();
     } 
+
+    getUser(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.afAuth.authState.subscribe(authState => {
+                resolve(authState.email);
+            });
+        })
+    }
 }

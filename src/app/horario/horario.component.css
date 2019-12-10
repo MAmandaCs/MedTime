@@ -4,6 +4,15 @@
   position: relative;
 }
 
+#inicio{
+  width: 10vw;
+}
+
+#termino{
+  margin-left: 5vw;
+  width: 10vw;
+}
+
 #tabH{
   margin-top: 10vh;
   margin-left: 30vh;
@@ -78,4 +87,13 @@
   font-size: 90%;
   width: 50vw;
   margin-left: 8vh;
+}
+#conTabela{
+  margin-left: 3vw;
+}
+#txtHorario{
+  font-size: 2vw;
+}
+.editaHoararios{
+  margin-left: 3vw;
 }

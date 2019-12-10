@@ -1,6 +1,5 @@
 
 #pCad{
-  font-family: 'Times New Roman', Times, serif;
   font-size: 200%;
 }
 
@@ -12,7 +11,6 @@
 }
 
 .labelCad1{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 100%;
   margin-top: 5vh;
   color: black;
@@ -20,13 +18,14 @@
 }
 
 .labelCad2{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   font-size: 100%;
   margin-top: 1vh;
   margin-left: 1vw;
   color: black;
 
 }
+
 
 .inputCad1{
   width: 30vw!important;
@@ -36,6 +35,15 @@
   width: 13.8vw!important;
   height: 3vh!important;
 }
+.inputCad3{
+  width: 21vw!important;
+  height: 3vh!important;
+}
+.inputCad4{
+  width: 24vw!important;
+  height: 3vh!important;
+}
+
 
 #divCadastro{
   margin-left: 30vw;
@@ -95,5 +103,5 @@ text-shadow:
   0px -1px 0px rgba(000,000,000,0.2),
       0px 1px 0px rgba(255,255,255,0.3);
 
-margin-bottom: 0vh;
+margin-bottom: 4vh;
 }

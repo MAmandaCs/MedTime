@@ -5,17 +5,17 @@ import { HttpClient } from '@angular/common/http';
 import { Horarios } from 'src/entidades/horarios';
 
 
-    const PATH = 'horarios';
+    const PATH = 'horarioss';
 
 @Injectable()
-export class HorarioService{
+export class HorariosService{
 
 
     constructor(private database: DatabaseService, private http: HttpClient) {
 
     }
 
-    inserirHorario(horario: Horario): Promise<string> {
-        return this.database.inserirH(PATH, horario);
+    inserirHorarios(horarios: Horarios): Promise<string> {
+        return this.database.inserirHorarios(PATH, horarios);
     }
 }
