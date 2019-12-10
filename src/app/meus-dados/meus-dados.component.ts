@@ -15,21 +15,25 @@ export class MeusDadosComponent implements OnInit {
   private emailUsuario: string;
   cadastroPaciente: CadastroPaciente;
 
-  constructor(private loginService: LoginService, private dbService: DatabaseService) { }
+
+
+  constructor(private loginService: LoginService, private dbService: DatabaseService, private pacienteService: PacienteService ) { }
 
   async ngOnInit() {
     this.emailUsuario = await this.loginService.getUser();
-    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[horario];
+    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[0];
   }
 
+ remover(){
 
-  remover(){
-    
+ }
+ atualizar(cadastroPaciente) {
+  this.pacienteService.atualizar(cadastroPaciente)
+    .then(() => {
+      alert('usuário atualizado com sucesso');
+    });
   }
+  onSubmit(){
 
-alerta() {
-  alert('deseja excluir esse perfil?');
-}
-
-
+  }
 }

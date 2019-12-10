@@ -19,12 +19,12 @@ export class FuncionarioComponent implements OnInit {
   carregando = true;
  // pacientes$: Observable<CadastroPaciente[]>;
 
-  
+
   constructor(private pacienteService: PacienteService, private http: HttpClient){
     this.paciente = new CadastroPaciente();
-    
-  } 
-  
+
+  }
+
   //  buscarPaciente(){
   //    return new Promise<void>((resolve, reject) => {
   //      this.pacienteService.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)
@@ -46,7 +46,7 @@ export class FuncionarioComponent implements OnInit {
   //   });
 
   ngOnInit(){
-  
+
   }
 
   editar(paciente) {
@@ -93,7 +93,7 @@ export class FuncionarioComponent implements OnInit {
 // selecionarPaciente(paciente) {
 //   this.pacienteSelecionado = paciente;
 //  }
-     
+
 
 }
 

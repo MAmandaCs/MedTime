@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/servicos/loginService';
   styleUrls: ['./cadastro-paciente.component.css']
 })
 export class CadastroPacienteComponent implements OnInit {
-  
+
   paciente: CadastroPaciente;
   pacientes: CadastroPaciente[];
   carregando = true;
@@ -20,11 +20,10 @@ export class CadastroPacienteComponent implements OnInit {
     this.paciente = new CadastroPaciente();
 
     this.listarPacientes();
-    
   }
-  
+
   ngOnInit() {
-    
+
   }
 
   cadastrar() {
@@ -35,7 +34,7 @@ export class CadastroPacienteComponent implements OnInit {
         this.paciente = new CadastroPaciente();
         this.dataNascimento = new Date();
         alert('Paciente inserido no posto');
-      
+
     });
   }
 
@@ -71,5 +70,5 @@ export class CadastroPacienteComponent implements OnInit {
         this.carregando = false;
     });
   }
-  
+
 }

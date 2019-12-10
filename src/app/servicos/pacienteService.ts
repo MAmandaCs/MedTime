@@ -18,6 +18,11 @@ export class PacienteService {
          return this.database.listar<CadastroPaciente>(PATH);
      }
 
+     atualizar(paciente: CadastroPaciente): Promise<void> {
+      // tslint:disable-next-line: max-line-length
+      return this.database.atualizar(PATH, paciente.email, { nome: paciente.nome , cpf: paciente.cpf , email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,
+      uf: paciente.uf , bairro: paciente.bairro , rua: paciente.rua , nSUS: paciente.nSUS , nProntuario: paciente.nProntuario   });
+  }
      remover(cpf: string): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this.database.buscar<CadastroPaciente>('pacientes', 'cpf', cpf)

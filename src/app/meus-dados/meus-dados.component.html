@@ -1,6 +1,6 @@
 <div class="conteudo">
   <p id="txtDados">Seus Dados:</p>
-  <form (ngSubmit)="onSubmit">
+  <form (ngSubmit)="onSubmit()">
       <div id="divCad">
        </div>
         <div *ngIf="!cadastroPaciente" class="progress">
@@ -69,9 +69,9 @@
          <label class="labelCad1">Confirmar Senha: </label>
          <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="cadastroPaciente.confSenha"/>
        </div>
-       <button id="button1" type="submit" >editar</button>
+       <button id="button1" type="submit" (click)="atualizar(cadastroPaciente)" >editar</button>
        <button id="button2" type="submit" >salvar</button>
-       <button id="button3" type="submit" (onclick)="remover()" >excluir</button>
+       <button id="button3" type="submit" (click)="remover()" >excluir</button>
     </form>
 </div>
 <router-outlet></router-outlet>

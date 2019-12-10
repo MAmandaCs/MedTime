@@ -40,9 +40,11 @@ export class DatabaseService {
 
 
 
-    // atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
-    //     return this.db.object(`${caminho}/${uid}`).update(objeto);
-    // }
+     atualizar(caminho: string, email: string, objeto: any): Promise<void> {
+         return this.db.object(`${caminho}/${email}`).update(objeto);
+     }
+
+
 
      get<Type>(caminho: string): Promise<Type> {
          return new Promise<Type>((resolve, reject) => {
