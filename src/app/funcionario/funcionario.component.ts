@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { reject } from 'q';
-
+import { DatabaseService } from '../servicos/databaseService';
+declare var $: any;
 
 @Component({
   selector: 'app-funcionario',
@@ -14,16 +15,39 @@ import { reject } from 'q';
 })
 export class FuncionarioComponent implements OnInit {
 
-  paciente: CadastroPaciente;
+  novoPaciente: CadastroPaciente;
   pacientes: CadastroPaciente[];
   carregando = true;
- // pacientes$: Observable<CadastroPaciente[]>;
-
-
-  constructor(private pacienteService: PacienteService, private http: HttpClient){
-    this.paciente = new CadastroPaciente();
-
+  constructor(private dbService: DatabaseService, private pacienteService: PacienteService) {
+    this.novoPaciente = new CadastroPaciente();
+    this.carregarPacientes();
   }
+
+
+  ngOnInit(): void {
+           setTimeout(() => {
+             // tslint:disable-next-line: only-arrow-functions
+                   $(document).ready( function() {
+                     $('.collapsible').collapsible();
+                   });
+      }, 100);
+  }
+
+  private carregarPacientes() {
+    this.carregando = true;
+
+    this.pacienteService.lista()
+      .then(pacientessDB => {
+        this.pacientes = pacientessDB;
+       this.pacientes.forEach(paciente => paciente['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
+      this.carregando = false;
+    });
+  }
+
+
+
+
+
 
   //  buscarPaciente(){
   //    return new Promise<void>((resolve, reject) => {
@@ -44,33 +68,6 @@ export class FuncionarioComponent implements OnInit {
   //   return new Promise<void>((resolve, reject) => {
   //     this.pacienteService.buscar<CadastroPaciente>('paciente', )
   //   });
-
-  ngOnInit(){
-
-  }
-
-  editar(paciente) {
-    paciente.editando = true;
-  }
-
-  private listarPacientes() {
-    this.carregando = true;
-
-    this.pacienteService.lista()
-      .then(pacienteDB => {
-        this.pacientes = pacienteDB;
-
-        this.carregando = false;
-    });
-  }
-
-  remover(cpf: string) {
-    this.pacienteService.remover(cpf)
-      .then(() => {
-        alert('Paciente foi excluído');
-        this.listarPacientes();
-      }).catch(error => alert(error));
-  }
 
 
 //   pacientes: any;

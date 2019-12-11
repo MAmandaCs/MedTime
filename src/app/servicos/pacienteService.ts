@@ -18,6 +18,7 @@ export class PacienteService {
          return this.database.listar<CadastroPaciente>(PATH);
      }
 
+
      atualizar(paciente: CadastroPaciente): Promise<void> {
       // tslint:disable-next-line: max-line-length
       return this.database.atualizar(PATH , paciente.uid, { nome: paciente.nome , cpf: paciente.cpf , email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,

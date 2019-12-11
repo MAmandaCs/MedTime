@@ -3,7 +3,7 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">add</i>Novo Paciente</div>
             <app-cadastro-paciente></app-cadastro-paciente>
-          
+
           <div class="collapsible-body">
            <app-cadastro-paciente></app-cadastro-paciente>
           </div>
@@ -13,13 +13,15 @@
           <div class="collapsible-body" >
               <div id="dBusca">
                   <span> Buscar por:</span>
-                 <input class="busca"  id="inputBusca" type="search" name="pacTab" [(ngModel)]="buscarPaciente"/></div>
-                 <table class="responsive-table" class="highlight" id="tabela"> 
+                 <input class="busca"  id="inputBusca" type="search" name="pacTab" [(ngModel)]="carregarPacientes"/></div>
+                 <table class="responsive-table" class="highlight" id="tabela">
                   <thead>
                     <tr>
                       <th>Nome</th>
                       <th>RG</th>
                       <th>CPF</th>
+                      <th>Nº Prontuário</th>
+                      <th>Nº SUS</th>
                       <th>Telefone</th>
                       <th>Email</th>
                       <th>Cidade</th>
@@ -30,48 +32,58 @@
                   <tbody>
                     <tr *ngFor="let paciente of pacientes">
                       <td>
-                        <span *ngIf="!paciente.editando">{{paciente.nome}}</span>
-                        <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.nome" name="nome-{{paciente.nome}}">
+                        <span>{{paciente.nome}}</span>
+                        <input  type="text" [(ngModel)]="paciente.nome" name="nome-{{paciente.nome}}">
                       </td>
-              
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.rg}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.nome" name="rg-{{paciente.rg}}">
+                          <span>{{paciente.rg}}</span>
+                          <input type="text" [(ngModel)]="paciente.nome" name="rg-{{paciente.rg}}">
                       </td>
-              
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.cpf}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.cpf" name="cpf-{{paciente.cpf}}">
+                          <span>{{paciente.cpf}}</span>
+                          <input type="text" [(ngModel)]="paciente.cpf" name="cpf-{{paciente.cpf}}">
                       </td>
-              
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.telefone}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.telefone" name="telefone-{{paciente.telefone}}">
-                      </td>
-              
+                        <span>{{paciente.nProntuario}}</span>
+                        <input type="text" [(ngModel)]="paciente.nProntuario" name="cpf-{{paciente.nProntuario}}">
+                    </td>
+
+                    <td>
+                      <span>{{paciente.nSUS}}</span>
+                      <input type="text" [(ngModel)]="paciente.nSUS" name="cpf-{{paciente.nSUS}}">
+                  </td>
+
+                    <!--  <td>
+                          <span>{{paciente.telefone}}</span>
+                          <input type="text" [(ngModel)]="paciente.telefone" name="telefone-{{paciente.telefone}}">
+                      </td>-->
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.email}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.email" name="email-{{paciente.email}}">
+                          <span>{{paciente.email}}</span>
+                          <input  type="text" [(ngModel)]="paciente.email" name="email-{{paciente.email}}">
                       </td>
-              
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.cidade}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.cidade" name="cidade-{{paciente.cidade}}">
+                          <span>{{paciente.cidade}}</span>
+                          <input type="text" [(ngModel)]="paciente.cidade" name="cidade-{{paciente.cidade}}">
                       </td>
-              
+
                       <td>
-                          <span *ngIf="!paciente.editando">{{paciente.bairro}}</span>
-                          <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.bairro" name="bairro-{{paciente.bairro}}">
+                          <span >{{paciente.bairro}}</span>
+                          <input type="text" [(ngModel)]="paciente.bairro" name="bairro-{{paciente.bairro}}">
                       </td>
-              
-              
+
+
                       </tr>
               </tbody>
-              </table> 
+              </table>
             </div>
         </li>
         <li>
-          
+
           <!-- <div class="collapsible-header"><i class="material-icons">clear</i>Deletar Paciente</div>
           <div class="collapsible-body">
               <div id="dBusca">
