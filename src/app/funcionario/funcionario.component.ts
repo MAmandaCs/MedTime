@@ -39,8 +39,8 @@ export class FuncionarioComponent implements OnInit {
     this.pacienteService.lista()
       .then(pacientessDB => {
         this.pacientes = pacientessDB;
-       this.pacientes.forEach(paciente => paciente['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
-      this.carregando = false;
+      // this.pacientes.forEach(paciente => paciente['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
+      //this.carregando = false;
     });
   }
 

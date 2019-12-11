@@ -146,6 +146,12 @@ table.highlight {
   }
 
 #tabela{
-  width: 200px !important;
-  height: 200px !important;
+  width: 80vw !important;
+  font-size: small;
+}
+#conteudo{
+  width: 90vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+
 }
