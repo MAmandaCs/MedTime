@@ -17,27 +17,23 @@ export class PacienteService {
      lista(): Promise<CadastroPaciente[]> {
          return this.database.listar<CadastroPaciente>(PATH);
      }
+ 
 
-
-     atualizar(paciente: CadastroPaciente): Promise<void> {
+    /* atualizar(paciente: CadastroPaciente): Promise<void> {
       // tslint:disable-next-line: max-line-length
-      return this.database.atualizar(PATH , paciente.uid, { nome: paciente.nome , cpf: paciente.cpf , email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,
-      uf: paciente.uf , bairro: paciente.bairro , rua: paciente.rua , nSUS: paciente.nSUS , nProntuario: paciente.nProntuario   });
+      return this.database.atualizar(PATH , paciente.uid, { nome: paciente.nome , cpf: paciente.cpf ,
+      email: paciente.email , dtNasc: paciente.dtNasc , cidade: paciente.cidade ,
+      uf: paciente.uf , bairro: paciente.bairro , rua: paciente.rua , 
+      nSUS: paciente.nSUS , nProntuario: paciente.nProntuario   });*/
   }
-  remover(uid: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-        this.database.buscar<CadastroPaciente>('pacientes', 'uid', uid)
-            .then(pacientes => {
-                if (pacientes.length > 0) {
-                    reject('Não é possível remover o paciente.');
-                } else {
-                    this.database.remover(PATH, uid)
-                        .then(() => resolve());
-                }
-            });
-    });
+ /* remover(uid: string): Promise<void> {
+    return this.database.remover(PATH, uid);
+    
 }
-}
+  
+}*/
+
+
     //  buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
     //      return new Promise<CadastroPaciente[]>((resolve, reject) => {
     //          this.database.listar<CadastroPaciente>(caminho, propriedade, valor)

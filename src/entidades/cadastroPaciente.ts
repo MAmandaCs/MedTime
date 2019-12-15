@@ -2,10 +2,10 @@ export class CadastroPaciente {
     nome: string;
     rg: string;
     cpf: string;
-    dtNasc: number;
+    //dtNasc: string;
     email: string;
     cidade: string;
-    uf: string;
+    //uf: string;
     bairro: string;
     rua: string;
     senha: string;
@@ -13,4 +13,5 @@ export class CadastroPaciente {
     nSUS: string;
     nProntuario: string;
     uid: string;
+    telefone: string;
 }

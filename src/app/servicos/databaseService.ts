@@ -37,17 +37,27 @@ export class DatabaseService {
     }
 
 
+    update(entity: string, uid: string, object): Promise<void> {
+        return this.db.object(`/${entity}/${uid}`).update(object);
+    }
 
 
+    updateList(entity: string, uid: string, object): Promise<void> {
+        return this.db.object(`/${entity}/${uid}`).set(object);
+    }
 
-     atualizar(caminho: string, uid: string, objeto: any): Promise<void> {
-         return this.db.object(`${caminho}/${uid}`).update(objeto);
-     }
+    remove(entity: string, uid: string): Promise<void> {
+        return this.db.object(`/${entity}/${uid}`).remove();
+    }
 
-     remover(caminho: string, uid: string): Promise<void> {
-      return this.db.object(`${caminho}/${uid}`).remove();
-  }
-
+  /*  this.user = new Usuario(this.autenticacao.getUser().uid,
+    this.usuario.nome, this.usuario.username,
+    this.usuario.email, this.usuario.genero, this.usuario.idade,
+     this.usuario.senha,this.usuario.nomeM, this.pontosP,
+     this.usuario.pontosMemoria, this.usuario.pontosArrasta, this.qt,
+      this.usuario.qtMemoria, this.usuario.qtArrasta);
+  this.rota.navigate([url]);
+  this.bdService.update('/usuarios', this.usuario.uid, this.user);*/
 
 
      get<Type>(caminho: string): Promise<Type> {
@@ -75,7 +85,7 @@ export class DatabaseService {
 
                           items.forEach(item => {
                               const typedItem: Type = item.payload.val();
-                              typedItem['key'] = item.key;
+                              typedItem.key = item.key;
                               typedItems.push(typedItem);
                           });
 
@@ -100,7 +110,7 @@ export class DatabaseService {
 
                         items.forEach(item => {
                             const typedItem: CadastroPaciente = item.payload.val();
-                            typedItem['cpf'] = item.key;
+                            typedItem.rg = item.key;
                             typedItems.push(typedItem);
                         });
 

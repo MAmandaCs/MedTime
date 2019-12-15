@@ -16,7 +16,7 @@ export class CadastroPacienteComponent implements OnInit {
   carregando = true;
   dataNascimento: any;
 
-  constructor(private pacienteService: PacienteService, private loginService: LoginService){
+  constructor(private pacienteService: PacienteService, private loginService: LoginService) {
     this.paciente = new CadastroPaciente();
 
     this.listarPacientes();
@@ -27,29 +27,27 @@ export class CadastroPacienteComponent implements OnInit {
   }
 
   cadastrar() {
-    this.paciente.dtNasc = new Date(this.dataNascimento).getTime();
     this.pacienteService.inserir(this.paciente)
       .then(() => {
         this.loginService.criarUser(this.paciente.email, this.paciente.senha);
         this.paciente = new CadastroPaciente();
-        this.dataNascimento = new Date();
         alert('Paciente inserido no posto');
 
     });
   }
 
-  verificarSenha(senha: string, confSenha: string){
-    if(senha === confSenha){
+  verificarSenha(senha: string, confSenha: string) {
+    if (senha === confSenha) {
       return true;
     }
     return false;
   }
 
-  addPaciente(){
+  addPaciente() {
     this.verificarSenha(this.paciente.senha, this.paciente.confSenha);
-    if(this.verificarSenha(this.paciente.senha, this.paciente.confSenha) == true){
-      this.cadastrar()
-    }else{
+    if (this.verificarSenha(this.paciente.senha, this.paciente.confSenha) == true) {
+      this.cadastrar();
+    } else {
       alert('Digite a mesma senha nos campos "Senha" e "Confirmar Senha"');
       this.paciente.senha = '';
       this.paciente.confSenha = '';
