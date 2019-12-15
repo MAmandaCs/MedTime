@@ -83,31 +83,15 @@
             </div>
         </li>
         <li>
+            <div class="collapsible-header"><i class="material-icons">border_color</i>Editar</div>
+  
+  
+            <div class="collapsible-body">
+             <app-cadastro-paciente></app-cadastro-paciente>
+            </div>
+          </li>
 
-          <!-- <div class="collapsible-header"><i class="material-icons">clear</i>Deletar Paciente</div>
-          <div class="collapsible-body">
-              <div id="dBusca">
-                  <span> Buscar por:</span>
-                 <input class="busca"  id="inputBusca" type="search" list=""/></div>
-          <table class="responsive-table highlight"  id="tabela2" >
-              <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                  <tr  [class.selecionado]="paciente.nome === pacienteSelecionado.nome"  (click)="selecionarPaciente(paciente)"*ngFor="let paciente of pacientes">
-                    <td>{{paciente.nome}}</td>
-                    <td>{{paciente.cpf}}</td>
-                </tr>
-              </tbody>
-
-          </table>
-          <button id="buttDeleta" type="submit" >Deletar</button>
-          </div>
-        </li> -->
+         
       </ul>
 
 </div>
