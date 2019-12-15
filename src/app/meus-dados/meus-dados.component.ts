@@ -1,46 +1,66 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from '../servicos/loginService';
 import { PacienteService } from '../servicos/pacienteService';
 import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
 import { DatabaseService } from '../servicos/databaseService';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-meus-dados',
   templateUrl: './meus-dados.component.html',
   styleUrls: ['./meus-dados.component.css'],
-  providers: [LoginService, DatabaseService]
+  providers: [LoginService, DatabaseService, PacienteService ]
 })
 export class MeusDadosComponent implements OnInit {
 
   private emailUsuario: string;
   cadastroPaciente: CadastroPaciente;
+  carregando: boolean;
 
 
 
-  constructor(private loginService: LoginService, private dbService: DatabaseService, private pacienteService: PacienteService ) { }
+  constructor(private loginService: LoginService, private dbService: DatabaseService, private pacienteService: PacienteService ) {
+
+  }
 
   async ngOnInit() {
-    this.emailUsuario = await this.loginService.getUser();
-    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('pacientes', 'email', this.emailUsuario))[0];
+    this.emailUsuario = await this.loginService.getUser().email;
+    this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes', 'email', this.emailUsuario))[0];
 
   }
- atualizar(cadastroPaciente) {
-  this.pacienteService.atualizar(cadastroPaciente)
-    .then(() => {
-      alert('usuário atualizado com sucesso');
-    });
+
+@ViewChild('atualizar') form: NgForm;
+
+update(atualizar) {
+    this.cadastroPaciente = {
+      nome: atualizar.inputNome,
+      rg: atualizar.inputRg,
+      cpf: atualizar.inputCPF,
+      email: atualizar.inputEmail,
+      cidade: atualizar.inputCidade,
+      bairro: atualizar.inputBairro,
+      rua: atualizar.inputRua,
+      senha: atualizar.inputSenha,
+      confSenha: atualizar.inputConfSenha,
+      nSUS: atualizar.inputSUS,
+      nProntuario: atualizar.inputProntuario,
+      uid: this.loginService.getUser().uid,
+      telefone: atualizar.telefone
+    };
+    this.dbService.update('/pacientes', this.cadastroPaciente.uid, this.cadastroPaciente);
+    console.log(this.cadastroPaciente.email);
   }
 
-  remover(uid: string) {
-    this.pacienteService.remover(uid)
-      .then(() => {
-        alert('Paceinte removido com sucesso');
-      }).catch(error => alert(error));
-  }
+remover() {
+  this.cadastroPaciente.uid = this.loginService.getUser().uid;
+  this.dbService.remove('/pacientes', this.cadastroPaciente.uid);
+  console.log('Excluiu ');
+
+}
 
 
 
-  onSubmit(){
+  onSubmit() {
 
   }
 }
