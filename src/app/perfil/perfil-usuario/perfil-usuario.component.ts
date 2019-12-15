@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
+import { LoginService } from 'src/app/servicos/loginService';
+import { DatabaseService } from 'src/app/servicos/databaseService';
+
 declare var $: any;
 
 @Component({
@@ -9,8 +13,10 @@ declare var $: any;
 export class PerfilUsuarioComponent implements OnInit {
   horarios: any;
   exibiuAlerta: boolean;
+ private uidPac: string;
+ paciente: CadastroPaciente;
 
-  constructor() {
+  constructor(private loginService: LoginService, private dbService: DatabaseService) {
   this.horarios = [
       { profissional: 'Dentista', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'},
       { profissional: 'Clinico', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'},
@@ -20,8 +26,10 @@ export class PerfilUsuarioComponent implements OnInit {
       { profissional: ' ', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00'}
     ];
   }
-  ngOnInit(): void {
-    setTimeout(() => {
+  async ngOnInit() {
+  this.uidPac = await this.loginService.getUser().uid;
+  console.log(this.uidPac);
+  setTimeout(() => {
 // tslint:disable-next-line: only-arrow-functions
       $(document).ready( function() {
         $('.collapsible').collapsible();
