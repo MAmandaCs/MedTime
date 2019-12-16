@@ -46,7 +46,7 @@ export class LoginService {
       }
 
     getUser() {
-        if (this.isLoggedIn()) {
+      if (this.isLoggedIn()) {
         return this.pacienteDetails; }
       }
 

@@ -31,8 +31,8 @@ export class MeusDadosComponent implements OnInit {
 
 @ViewChild('atualizar') form: NgForm;
 
-update(atualizar) {
-    this.cadastroPaciente = {
+async update(atualizar) {
+    const dadpsAtualizados = {
       nome: atualizar.inputNome,
       rg: atualizar.inputRg,
       cpf: atualizar.inputCPF,
@@ -44,10 +44,9 @@ update(atualizar) {
       confSenha: atualizar.inputConfSenha,
       nSUS: atualizar.inputSUS,
       nProntuario: atualizar.inputProntuario,
-      uid: this.loginService.getUser().uid,
       telefone: atualizar.telefone
     };
-    this.dbService.update('/pacientes', this.cadastroPaciente.uid, this.cadastroPaciente);
+    await this.dbService.update('/pacientes', this.cadastroPaciente.uid, this.cadastroPaciente);
     console.log(this.cadastroPaciente.email);
   }
 

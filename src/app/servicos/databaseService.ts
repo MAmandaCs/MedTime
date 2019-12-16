@@ -75,32 +75,52 @@ export class DatabaseService {
     //     return this.db.object<Type>(path).valueChanges();
     // }
 
-      listar<Type>(path: string): Promise<Type[]> {
-          return new Promise<Type[]>((resolve, reject) => {
-              this.db.list<Type>(path)
-                  .snapshotChanges()
-                  .subscribe(
-                      items => {
-                          const typedItems: Type[] = [];
+    listar<Type>(path: string): Promise<Type[]> {
+      return new Promise<Type[]>((resolve, reject) => {
+          this.db.list<Type>(path)
+              .snapshotChanges()
+              .subscribe(
+                  items => {
+                      const typedItems: Type[] = [];
 
-                          items.forEach(item => {
-                              const typedItem: Type = item.payload.val();
-                              typedItem.key = item.key;
-                              typedItems.push(typedItem);
-                          });
+                      items.forEach(item => {
+                          const typedItem: Type = item.payload.val();
+                          typedItem['uid'] = item.key;
+                          typedItems.push(typedItem);
+                      });
 
-                          resolve(typedItems);
-                      },
-                      error => reject(error)
-                  );
-          });
-      }
+                      resolve(typedItems);
+                  },
+                  error => reject(error)
+              );
+      });
+  }
+
 
      listarSincronizado<CadastroPaciente>(caminho: string): Observable<CadastroPaciente[]> {
         return this.db.list<CadastroPaciente>(caminho).valueChanges();
      }
+buscar<Type>(caminho: string, propriedade: string, valor: any): Promise<Type[]> {
+        return new Promise<Type[]>((resolve, reject) => {
+            this.db.list<Type>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
+                .snapshotChanges()
+                .subscribe(
+                    items => {
+                        const typedItems: Type[] = [];
 
-     buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
+                        items.forEach(item => {
+                            const typedItem: Type = item.payload.val();
+                            typedItem['uid'] = item.key;
+                            typedItems.push(typedItem);
+                        });
+
+                        resolve(typedItems);
+                    },
+                    error => reject(error)
+                );
+        });
+    }
+   /*  buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
         return new Promise<CadastroPaciente[]>((resolve, reject) => {
             this.db.list<CadastroPaciente>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
                 .snapshotChanges()
@@ -110,7 +130,7 @@ export class DatabaseService {
 
                         items.forEach(item => {
                             const typedItem: CadastroPaciente = item.payload.val();
-                            typedItem.rg = item.key;
+                            typedItem.['cpf'] = item.key;
                             typedItems.push(typedItem);
                         });
 
@@ -121,6 +141,6 @@ export class DatabaseService {
         });
     }
 
-
+*/
 
 }
