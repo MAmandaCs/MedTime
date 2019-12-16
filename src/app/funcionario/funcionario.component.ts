@@ -16,8 +16,10 @@ export class FuncionarioComponent implements OnInit {
 
   novoPaciente: CadastroPaciente;
   pacientes: CadastroPaciente[];
-  carregando = true;
+  carregando: boolean;
   removeList: any[] = [];
+  term: string;
+
   constructor(private dbService: DatabaseService, private pacienteService: PacienteService) {
     this.novoPaciente = new CadastroPaciente();
     this.carregarPacientes();
@@ -33,14 +35,15 @@ export class FuncionarioComponent implements OnInit {
       }, 100);
   }
 
-   carregarPacientes() {
+  private carregarPacientes() {
     this.carregando = true;
 
-    this.pacienteService.lista()
+    this.dbService.listar<CadastroPaciente>('pacientes')
       .then(pacientessDB => {
         this.pacientes = pacientessDB;
-      // this.pacientes.forEach(paciente => paciente['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
-      // this.carregando = false;
+        this.pacientes.forEach(paciente => paciente ['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
+
+        this.carregando = false;
     });
   }
 
@@ -50,6 +53,7 @@ export class FuncionarioComponent implements OnInit {
       this.dbService.remove('/pacientes', el);
       console.log('Excluiu ');
       alert('Paciente(s) excluido(s)');
+      this.carregarPacientes();
 
     });
   }

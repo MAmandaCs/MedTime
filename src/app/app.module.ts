@@ -37,6 +37,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
 import { HorarioClinicoComponent } from './horario-clinico/horario-clinico.component';
 import { HorariosService } from './servicos/horariosService';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import { HorariosService } from './servicos/horariosService';
     FormsModule,
     HttpClientModule,
     NgxMaskModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    Ng2SearchPipeModule
+
   ],
   providers: [DatabaseService, PacienteService, PostoService, LoginService, HorarioService, HorariosService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]

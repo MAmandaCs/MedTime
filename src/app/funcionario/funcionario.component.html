@@ -11,9 +11,22 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Vizualizar Paciente</div>
           <div class="collapsible-body" >
-              <div id="dBusca">
-                  <span> Buscar por:</span>
-                 <input class="busca" id="inputBusca" type="search" name="pacTab" [(ngModel)]="carregarPacientes"/></div>
+
+  <div *ngIf="carregando" class="progress">
+    <div class="indeterminate"></div>
+  </div>
+
+  <h6 *ngIf="!pacientes && !carregando">Não há  pacientes</h6>
+
+  <div *ngIf="pacientes">
+
+    <div id="dBusca">
+      <span> Buscar por:</span>
+      <input id="inputB" type="text" name="search" [(ngModel)]="term">
+    </div>
+
+
+
                  <table class="responsive-table" class="highlight" id="tabela">
                   <thead>
                     <tr>
@@ -31,7 +44,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let paciente of pacientes">
+
+                    <tr *ngFor="let paciente of pacientes | filter:term">
                      <td>
                       <form action="#">
                         <p>
@@ -88,11 +102,19 @@
 
                       </tr>
               </tbody>
-              </table> <button id="button1" (click)="remover()" >excluir</button>
-            </div>
+              </table>
+    </div>
+    <button id="button1" (click)="remover()" >excluir</button>
+  </div>
+
+
+
+
+
+
 
         </li>
-        <li>
+        <!--<li>
             <div class="collapsible-header"><i class="material-icons">border_color</i>Editar</div>
 
 
@@ -101,7 +123,7 @@
             </div>
           </li>
 
-
+        -->
       </ul>
 
 </div>
