@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 import { reject } from 'q';
 import { DatabaseService } from '../servicos/databaseService';
 declare var $: any;
-
 @Component({
   selector: 'app-funcionario',
   templateUrl: './funcionario.component.html',
@@ -18,6 +17,7 @@ export class FuncionarioComponent implements OnInit {
   novoPaciente: CadastroPaciente;
   pacientes: CadastroPaciente[];
   carregando = true;
+  removeList: any[] = [];
   constructor(private dbService: DatabaseService, private pacienteService: PacienteService) {
     this.novoPaciente = new CadastroPaciente();
     this.carregarPacientes();
@@ -33,20 +33,40 @@ export class FuncionarioComponent implements OnInit {
       }, 100);
   }
 
-  private carregarPacientes() {
+   carregarPacientes() {
     this.carregando = true;
 
     this.pacienteService.lista()
       .then(pacientessDB => {
         this.pacientes = pacientessDB;
       // this.pacientes.forEach(paciente => paciente['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
-      //this.carregando = false;
+      // this.carregando = false;
     });
   }
 
+  remover() {
+    this.removeList.forEach(el => {
+      console.log(el);
+      this.dbService.remove('/pacientes', el);
+      console.log('Excluiu ');
+      alert('Paciente(s) excluido(s)');
 
+    });
+  }
+  funcDumb(event) {
+    if (event.target.checked === false) {
+      const filter = this.removeList.filter(el => el !== event.target.value);
+      this.removeList = [];
+      this.removeList = filter;
+    }
 
+    if (this.removeList.filter(el => el === event.target.value).length === 0) {
+      if (event.target.checked === true) {
+        this.removeList.push(event.target.value);
+      }
+    }
 
+  }
 
 
   //  buscarPaciente(){

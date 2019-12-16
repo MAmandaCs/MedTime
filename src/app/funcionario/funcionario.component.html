@@ -13,7 +13,7 @@
           <div class="collapsible-body" >
               <div id="dBusca">
                   <span> Buscar por:</span>
-                 <input class="busca"  id="inputBusca" type="search" name="pacTab" [(ngModel)]="carregarPacientes"/></div>
+                 <input class="busca" id="inputBusca" type="search" name="pacTab" [(ngModel)]="carregarPacientes"/></div>
                  <table class="responsive-table" class="highlight" id="tabela">
                   <thead>
                     <tr>
@@ -36,7 +36,7 @@
                       <form action="#">
                         <p>
                           <label>
-                            <input type="checkbox"  />
+                            <input (change)="funcDumb($event)" type="checkbox" name="checkboxs" value={{paciente.uid}}  />
                             <span></span>
                           </label>
                         </p>
@@ -66,10 +66,10 @@
 
                   </td>
 
-                    <!--  <td>
+                     <td>
                           <span>{{paciente.telefone}}</span>
-                          <input type="text" [(ngModel)]="paciente.telefone" name="telefone-{{paciente.telefone}}">
-                      </td>-->
+
+                      </td>
 
                       <td>
                           <span>{{paciente.email}}</span>
@@ -88,8 +88,9 @@
 
                       </tr>
               </tbody>
-              </table>
+              </table> <button id="button1" (click)="remover()" >excluir</button>
             </div>
+
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">border_color</i>Editar</div>
