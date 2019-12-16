@@ -17,6 +17,7 @@
                  <table class="responsive-table" class="highlight" id="tabela">
                   <thead>
                     <tr>
+                      <th></th>
                       <th>Nome</th>
                       <th>RG</th>
                       <th>CPF</th>
@@ -31,29 +32,38 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let paciente of pacientes">
+                     <td>
+                      <form action="#">
+                        <p>
+                          <label>
+                            <input type="checkbox"  />
+                            <span></span>
+                          </label>
+                        </p>
+                      </form></td>
                       <td>
                         <span>{{paciente.nome}}</span>
-                        <input  type="text" [(ngModel)]="paciente.nome" name="nome-{{paciente.nome}}">
+
                       </td>
 
                       <td>
                           <span>{{paciente.rg}}</span>
-                          <input type="text" [(ngModel)]="paciente.nome" name="rg-{{paciente.rg}}">
+
                       </td>
 
                       <td>
                           <span>{{paciente.cpf}}</span>
-                          <input type="text" [(ngModel)]="paciente.cpf" name="cpf-{{paciente.cpf}}">
+
                       </td>
 
                       <td>
                         <span>{{paciente.nProntuario}}</span>
-                        <input type="text" [(ngModel)]="paciente.nProntuario" name="cpf-{{paciente.nProntuario}}">
+
                     </td>
 
                     <td>
                       <span>{{paciente.nSUS}}</span>
-                      <input type="text" [(ngModel)]="paciente.nSUS" name="cpf-{{paciente.nSUS}}">
+
                   </td>
 
                     <!--  <td>
@@ -63,17 +73,16 @@
 
                       <td>
                           <span>{{paciente.email}}</span>
-                          <input  type="text" [(ngModel)]="paciente.email" name="email-{{paciente.email}}">
+
                       </td>
 
                       <td>
                           <span>{{paciente.cidade}}</span>
-                          <input type="text" [(ngModel)]="paciente.cidade" name="cidade-{{paciente.cidade}}">
+
                       </td>
 
                       <td>
                           <span >{{paciente.bairro}}</span>
-                          <input type="text" [(ngModel)]="paciente.bairro" name="bairro-{{paciente.bairro}}">
                       </td>
 
 
@@ -84,14 +93,14 @@
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">border_color</i>Editar</div>
-  
-  
+
+
             <div class="collapsible-body">
-             <app-cadastro-paciente></app-cadastro-paciente>
+
             </div>
           </li>
 
-         
+
       </ul>
 
 </div>
