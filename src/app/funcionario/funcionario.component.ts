@@ -22,6 +22,7 @@ export class FuncionarioComponent implements OnInit {
   alteraList: any [] = [];
   term: string;
   cadastroPaciente: CadastroPaciente;
+  pac: CadastroPaciente [];
 
   constructor(private dbService: DatabaseService, private pacienteService: PacienteService) {
     this.novoPaciente = new CadastroPaciente();
@@ -91,7 +92,8 @@ export class FuncionarioComponent implements OnInit {
   }
  async mostraPaciente() {
       console.log(this.alteraList);
-      this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ', 'uid ', this.alteraList[0]))[0];
+      //this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ','uid' ,this.alteraList[0]))[0];
+
       console.log( this.cadastroPaciente);
      // this.carregarPacientes();
  }

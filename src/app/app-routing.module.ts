@@ -21,6 +21,7 @@ import { ExamePacienteComponent } from './exame-paciente/exame-paciente.componen
 import { LoginService } from './servicos/loginService';
 import { HorariosComponent } from './horarios/horarios.component';
 import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
+import { DadosPostoComponent } from './dados-posto/dados-posto.component';
 
 
 
@@ -43,8 +44,9 @@ const routes: Routes = [
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
   {path: 'funcionario', component: FuncionarioComponent},
-  {path: 'examePac', component:ExamePacienteComponent},
-  {path: 'tabelaHorarios', component:TabelaHorariosComponent}
+  {path: 'examePac', component: ExamePacienteComponent},
+  {path: 'tabelaHorarios', component: TabelaHorariosComponent},
+  {path: 'dadosPosto', component: DadosPostoComponent}
 
 
 

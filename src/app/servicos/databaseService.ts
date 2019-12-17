@@ -101,6 +101,7 @@ export class DatabaseService {
         return this.db.list<CadastroPaciente>(caminho).valueChanges();
     }
 
+
     buscar<Type>(caminho: string, propriedade: string, valor: any): Promise<Type[]> {
         return new Promise<Type[]>((resolve, reject) => {
             this.db.list<Type>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))
@@ -149,20 +150,22 @@ export class DatabaseService {
                  .subscribe(
                      items => {
                          const typedItems: CadastroPaciente[] = [];
- 
+
                          items.forEach(item => {
                              const typedItem: CadastroPaciente = item.payload.val();
                              typedItem.['cpf'] = item.key;
                              typedItems.push(typedItem);
                          });
- 
+
                          resolve(typedItems);
                      },
                      error => reject(error)
                  );
          });
      }
- 
+
  */
+
+
 
 }
