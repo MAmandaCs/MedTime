@@ -50,11 +50,11 @@ export class LoginService {
         return this.pacienteDetails; }
       }
 
-  /*  getUser(): Promise<string> {
+    getUserEmail(): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             this.afAuth.authState.subscribe(authState => {
                 resolve(authState.email);
             });
         })
-    }*/
+    }
 }

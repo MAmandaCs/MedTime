@@ -18,6 +18,7 @@ export class PerfilUsuarioComponent implements OnInit {
   exibiuAlerta: boolean;
   private uidPac: string;
   paciente: CadastroPaciente;
+  emailUsuario: string;
 
   constructor(private loginService: LoginService, private dbService: DatabaseService) {
     this.horarios = [
@@ -30,6 +31,9 @@ export class PerfilUsuarioComponent implements OnInit {
     ];
   }
   async ngOnInit() {
+
+    this.pacienteLogado();
+
     this.uidPac = await this.loginService.getUser().uid;
     console.log(this.uidPac);
     setTimeout(() => {
@@ -53,14 +57,11 @@ export class PerfilUsuarioComponent implements OnInit {
     }
   }
 
+  async pacienteLogado() {
 
-    async pacienteLogado() {
+    this.emailUsuario = await this.loginService.getUser().email;
+    this.pacLogado = (await this.dbService.buscar<CadastroPaciente>('/pacientes', 'email', this.nomeUsuario))[0];
 
-      this.nomeUsuario = await this.loginService.getUser().email;
-      return this.nomeUsuario;
-    // console.log(this.pacLogado.nome);
-    // console.log(this.loginS.getUser());
-
-  }
+   }
 
 }

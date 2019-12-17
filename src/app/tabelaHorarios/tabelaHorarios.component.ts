@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { HorarioService } from 'src/app/servicos/horarioService';
 import { Horario } from 'src/entidades/horario';
 import { DatabaseService } from '../servicos/databaseService';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tabelaHorarios',
@@ -17,7 +18,7 @@ import { DatabaseService } from '../servicos/databaseService';
     vagas: number[];
     dias: string[];
 
-    constructor(private horarioService: HorarioService, private dbService: DatabaseService){
+    constructor(private horarioService: HorarioService, private dbService: DatabaseService, private router: Router){
       this.dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']
     }
 
@@ -40,6 +41,12 @@ import { DatabaseService } from '../servicos/databaseService';
 
       });
     }
+
+    voltar() {
+      this.router.navigate(['horario']);
+    
+  }
+
 
     // private carregarHorarios() {
     //   this.carregando = true;
