@@ -20,7 +20,7 @@ import { CadastroPacienteComponent } from './cadastros/cadastro-paciente/cadastr
 import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
 import { LoginService } from './servicos/loginService';
 import { HorariosComponent } from './horarios/horarios.component';
-import { HorarioClinicoComponent } from './horario-clinico/horario-clinico.component';
+
 
 
 const routes: Routes = [
@@ -37,7 +37,6 @@ const routes: Routes = [
   {path: 'historico', component: HistoricoComponent},
   {path: 'horario', component: HorarioComponent},
   {path: 'horarios', component: HorariosComponent},
-  {path: 'horarioCli', component: HorarioClinicoComponent},
   {path: 'psicologo', component: PsicologoComponent},
   {path: 'preNatal', component: PreNatalComponent},
   {path: 'meusDados', component: MeusDadosComponent},

@@ -1,0 +1,26 @@
+<div *ngIf="horarios">
+<table>
+
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Especialidade</th>
+      <th>Início</th>
+      <th>Término</th>
+
+    </tr>
+  </thead>
+
+    <tbody>
+      <tr *ngFor="let horario of horarios">
+          <td>{{horario.dia}}</td>
+          <td>{{horario.especialidade}}</td>
+          <td>{{horario.inicio}}</td>
+          <td>{{horario.termino}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+
+<button type="submit" (click)="quantVagas()">AAAAAAAA</button>

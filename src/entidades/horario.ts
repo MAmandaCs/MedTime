@@ -4,6 +4,6 @@ export class Horario{
     possuiAtendimento: boolean;
     inicio: number;
     termino: number;
-
+    especialidade: string;
     
 }

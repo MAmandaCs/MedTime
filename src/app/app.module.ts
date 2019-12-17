@@ -35,7 +35,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
 import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
-import { HorarioClinicoComponent } from './horario-clinico/horario-clinico.component';
 import { HorariosService } from './servicos/horariosService';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -60,8 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PerfilPostoComponent,
     FuncionarioComponent,
     CadastroPacienteComponent,
-    ExamePacienteComponent,
-    HorarioClinicoComponent
+    ExamePacienteComponent
   ],
   imports: [
     BrowserModule,
