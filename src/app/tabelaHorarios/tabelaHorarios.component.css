@@ -1,0 +1,14 @@
+#tabelaH{
+    margin-left: 17vw;
+    margin-top: 8vh;
+    width: 65vw;
+    height: 50vh !important;
+    overflow: scroll;
+}
+
+#pHorario{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 200%;
+    margin-top: 8vh;
+    margin-left: 40vw;
+  }

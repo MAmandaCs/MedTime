@@ -1,0 +1,31 @@
+<p id="pHorario">Quadro de Horários</p>
+  <div id="tabelaH">
+<table class="responsive-table highlight">
+
+  <thead>
+    <tr>
+      <th></th>
+      <th>Segunda</th>
+      <th>Terça</th>
+      <th>Quarta</th>
+      <th>Quinta</th>
+      <th>Sexta</th>
+
+    </tr>
+  </thead>
+
+    <tbody>
+      <tr *ngFor="let horario of horarios; let i = index">
+          <td>{{horario.especialidade}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+
+<button type="submit" (click)="quantVagas()">AAAAAAAA</button>

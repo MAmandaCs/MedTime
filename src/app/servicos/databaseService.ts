@@ -120,6 +120,27 @@ buscar<Type>(caminho: string, propriedade: string, valor: any): Promise<Type[]> 
                 );
         });
     }
+
+    listarHorariosDB<Type>(path: string): Promise<Type[]> {
+        return new Promise<Type[]>((resolve, reject) => {
+            this.db.list<Type>(path)
+                .snapshotChanges()
+                .subscribe(
+                    items => {
+                        const typedItems: Type[] = [];
+    
+                        items.forEach(item => {
+                            const typedItem: Type = item.payload.val();
+                            typedItem['uid'] = item.key;
+                            typedItems.push(typedItem);
+                        });
+    
+                        resolve(typedItems);
+                    },
+                    error => reject(error)
+                );
+        });
+    }
    /*  buscar<CadastroPaciente>(caminho: string, propriedade: string, valor: any): Promise<CadastroPaciente[]> {
         return new Promise<CadastroPaciente[]>((resolve, reject) => {
             this.db.list<CadastroPaciente>(caminho, ref => ref.orderByChild(propriedade).equalTo(valor))

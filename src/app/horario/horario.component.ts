@@ -17,15 +17,15 @@ export class HorarioComponent implements OnInit {
   // formBuilder: any;
 
   horarios: Horario[];
+  especialidade: string;
 
   constructor(private horarioService: HorarioService){
     this.horarios = [
-      { indice: 1, dia: 'Segunda-feira', possuiAtendimento: false, inicio: null, termino: null },
-      { indice: 2, dia: 'Terça-feira', possuiAtendimento: false, inicio: null, termino: null },
-      { indice: 3, dia: 'Quarta-feira', possuiAtendimento: false, inicio: null, termino: null},
-      { indice: 4, dia: 'Quinta-feira', possuiAtendimento: false, inicio: null, termino: null },
-      { indice: 5, dia: 'Sexta-feira', possuiAtendimento: false, inicio: null, termino: null },
-      { indice: 6, dia: 'Sábado', possuiAtendimento: false, inicio: null, termino: null },
+      { indice: 1, dia: 'Segunda-feira', possuiAtendimento: false, inicio: null, termino: null, especialidade: ''},
+      { indice: 2, dia: 'Terça-feira', possuiAtendimento: false, inicio: null, termino: null, especialidade: ''},
+      { indice: 3, dia: 'Quarta-feira', possuiAtendimento: false, inicio: null, termino: null, especialidade: ''},
+      { indice: 4, dia: 'Quinta-feira', possuiAtendimento: false, inicio: null, termino: null, especialidade: ''},
+      { indice: 5, dia: 'Sexta-feira', possuiAtendimento: false, inicio: null, termino: null, especialidade: ''}
     
     ]
     //this.horarios = new Horario();
@@ -83,17 +83,31 @@ export class HorarioComponent implements OnInit {
       });
 
     }
+
+    addHorario(){
+      for(let horario of this.horarios){ 
+      this.horarioService.inserirHorario(horario);
+      horario.possuiAtendimento = false;
+      horario.inicio = null;
+      horario.termino = null;
+      horario.especialidade = '';
+      }
+      alert("horário alterado");
+    
+     }
+ 
+     selecionarEsp(espec: string){
+       this.especialidade = espec;
+       console.log(this.especialidade);
+       for(let horario of this.horarios){ 
+         horario.especialidade = this.especialidade;
+       }
+       
+     }
   
 // buildHorarios() {
 //   const values = this.horarios.map(v => new FormControl(false));
 //   return this.formBuilder.array(values);
 //    }
-
-    addHorario(){
-     for(let horario of this.horarios){ 
-     this.horarioService.inserirHorario(horario);
-     console.log("eee");}
-   
-    }
   
 }

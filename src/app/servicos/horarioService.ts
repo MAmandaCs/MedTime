@@ -18,4 +18,7 @@ export class HorarioService{
     inserirHorario(horario: Horario): Promise<string> {
         return this.database.inserirH(PATH, horario);
     }
+    listarHorarios(){
+        return this.database.listarHorariosDB(PATH);
+    }
 }
