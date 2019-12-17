@@ -8,6 +8,12 @@
   float: left;
 }
 
+#opcBotoes{
+  margin-left: 76vw;
+  margin-top: 5vh;
+  background-color: #0e808f;
+}
+
 .busca{
   width: 20vw!important;
   margin-left: 0vw!important;

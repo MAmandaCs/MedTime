@@ -7,6 +7,12 @@
   height: 20vh !important;
 }
 
+#opcBotoes{
+  margin-left: 65vw;
+  margin-top: 5vh;
+  background-color: #0e808f;
+}
+
 .labelCad1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 100%;

@@ -11,6 +11,12 @@
 #opcBotoes{
   margin-top: 5vh;
   margin-left: 67vw;
+  background-color: #0e808f;
+}
+
+#opcBotoes2{
+  margin-top: 5vh;
+  background-color: #0e808f;
 }
 
 #button1 {

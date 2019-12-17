@@ -104,6 +104,7 @@ export class HorarioComponent implements OnInit {
        }
        
      }
+
   
 // buildHorarios() {
 //   const values = this.horarios.map(v => new FormControl(false));
