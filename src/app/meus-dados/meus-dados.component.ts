@@ -17,8 +17,6 @@ export class MeusDadosComponent implements OnInit {
   cadastroPaciente: CadastroPaciente;
   carregando: boolean;
 
-
-
   constructor(private loginService: LoginService, private dbService: DatabaseService, private pacienteService: PacienteService ) {
 
   }

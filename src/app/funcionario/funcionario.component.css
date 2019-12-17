@@ -57,6 +57,13 @@
 #tabela1{
     font-size: 90%;
 }
+
+
+#tabela2{
+
+  font-size: 90%;
+
+}
 .busca{
   width: 20vw!important;
   margin-left: 0vw!important;
@@ -192,3 +199,7 @@ table.highlight {
   height: 3vh;
 
 }
+#dBusca{
+  margin-bottom: 2vh;
+}
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
 import { PacienteService } from '../servicos/pacienteService';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { reject } from 'q';
 import { DatabaseService } from '../servicos/databaseService';
+import { NgForm } from '@angular/forms';
 declare var $: any;
 @Component({
   selector: 'app-funcionario',
@@ -18,7 +19,9 @@ export class FuncionarioComponent implements OnInit {
   pacientes: CadastroPaciente[];
   carregando: boolean;
   removeList: any[] = [];
+  alteraList: any [] = [];
   term: string;
+  cadastroPaciente: CadastroPaciente;
 
   constructor(private dbService: DatabaseService, private pacienteService: PacienteService) {
     this.novoPaciente = new CadastroPaciente();
@@ -41,7 +44,7 @@ export class FuncionarioComponent implements OnInit {
     this.dbService.listar<CadastroPaciente>('pacientes')
       .then(pacientessDB => {
         this.pacientes = pacientessDB;
-        this.pacientes.forEach(paciente => paciente ['nome'] = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
+        this.pacientes.forEach(paciente => paciente.nome = this.pacientes.filter(u => u.uid === paciente.uid)[0].nome);
 
         this.carregando = false;
     });
@@ -72,6 +75,49 @@ export class FuncionarioComponent implements OnInit {
 
   }
 
+  funcAl(event) {
+    if (event.target.checked === false) {
+      const filter = this.alteraList.filter(el => el !== event.target.value);
+      this.alteraList = [];
+      this.alteraList = filter;
+    }
+
+    if (this.alteraList.filter(el => el === event.target.value).length === 0) {
+      if (event.target.checked === true) {
+        this.alteraList.push(event.target.value);
+      }
+    }
+
+  }
+ async mostraPaciente() {
+      console.log(this.alteraList);
+      this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ', ' ', this.alteraList[0]))[0];
+      console.log('Buscou ');
+      this.carregarPacientes();
+ }
+
+@ViewChild('atualizar') form: NgForm;
+
+async update(atualizar) {
+    const dadpsAtualizados = {
+      nome: atualizar.inputNome,
+      rg: atualizar.inputRg,
+      cpf: atualizar.inputCPF,
+      email: atualizar.inputEmail,
+      cidade: atualizar.inputCidade,
+      bairro: atualizar.inputBairro,
+      rua: atualizar.inputRua,
+      senha: atualizar.inputSenha,
+      confSenha: atualizar.inputConfSenha,
+      nSUS: atualizar.inputSUS,
+      nProntuario: atualizar.inputProntuario,
+      telefone: atualizar.telefone
+    };
+    await this.dbService.update('/pacientes', this.cadastroPaciente.uid, this.cadastroPaciente);
+    console.log(this.cadastroPaciente.email);
+    alert('Paciente Atualizado');
+    this.carregarPacientes();
+  }
 
   //  buscarPaciente(){
   //    return new Promise<void>((resolve, reject) => {
