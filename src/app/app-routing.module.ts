@@ -20,6 +20,7 @@ import { CadastroPacienteComponent } from './cadastros/cadastro-paciente/cadastr
 import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
 import { LoginService } from './servicos/loginService';
 import { HorariosComponent } from './horarios/horarios.component';
+import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
 
 
 
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
   {path: 'funcionario', component: FuncionarioComponent},
-  {path: 'examePac', component:ExamePacienteComponent }
+  {path: 'examePac', component:ExamePacienteComponent},
+  {path: 'tabelaHorarios', component:TabelaHorariosComponent}
 
 
 

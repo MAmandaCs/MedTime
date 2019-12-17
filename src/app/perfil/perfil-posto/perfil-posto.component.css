@@ -6,6 +6,10 @@
   height: 6vh;
 }
 
+#tabelaAgend{
+  width: 60vw !important;
+  height: 40vh !important;
+}
 
 #txt1{
   font-size: 170%;

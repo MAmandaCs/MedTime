@@ -1,5 +1,11 @@
+#tabelaPac{
+  width: 70vw !important;
+  margin-left: 16vw;
+}
 
-
+#tabelaListagem{
+  height: 20vh !important;
+}
 
 .labelCad1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -181,6 +187,7 @@ table.highlight {
     0px -1px 0px rgba(000,000,000,0.2),
     0px 1px 0px rgba(255,255,255,0.3);
 
+  position: relative;
   margin-left: 78vw;
   margin-top: 5vh;
   margin-bottom: 2vh;

@@ -1,22 +1,27 @@
-<div *ngIf="horarios">
-<table>
+<p id="pHorario">Quadro de Horários</p>
+  <div id="tabelaH">
+<table class="responsive-table highlight">
 
   <thead>
     <tr>
-      <th>Dia</th>
-      <th>Especialidade</th>
-      <th>Início</th>
-      <th>Término</th>
+      <th></th>
+      <th>Segunda</th>
+      <th>Terça</th>
+      <th>Quarta</th>
+      <th>Quinta</th>
+      <th>Sexta</th>
 
     </tr>
   </thead>
 
     <tbody>
-      <tr *ngFor="let horario of horarios">
-          <td>{{horario.dia}}</td>
+      <tr *ngFor="let horario of horarios; let i = index">
           <td>{{horario.especialidade}}</td>
-          <td>{{horario.inicio}}</td>
-          <td>{{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
+          <td>{{horario.inicio}} - {{horario.termino}}</td>
       </tr>
     </tbody>
   </table>

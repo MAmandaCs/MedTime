@@ -37,6 +37,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ExamePacienteComponent } from './exame-paciente/exame-paciente.component';
 import { HorariosService } from './servicos/horariosService';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PerfilPostoComponent,
     FuncionarioComponent,
     CadastroPacienteComponent,
-    ExamePacienteComponent
+    ExamePacienteComponent,
+    TabelaHorariosComponent
   ],
   imports: [
     BrowserModule,

@@ -15,15 +15,17 @@ import { DatabaseService } from '../servicos/databaseService';
     carregando = true;
     vaga: number;
     vagas: number[];
+    dias: string[];
 
     constructor(private horarioService: HorarioService, private dbService: DatabaseService){
-
+      this.dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']
     }
 
 
     ngOnInit(){
 
       this.carregarHorarios();
+      this.dias;
 
     }
 
