@@ -1,4 +1,4 @@
-<div id="conteudo" id="tabelaPac">
+<div id="conteudo">
     <ul class="collapsible">
         <li>
           <div class="collapsible-header"><i class="material-icons">add</i>Novo Paciente</div>
@@ -10,9 +10,9 @@
         </li>
         <li>
           <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Vizualizar Paciente</div>
-          <div class="collapsible-body" style="display:block;overflow:auto;height: 50vh;">
+          <div class="collapsible-body" >
 
-  <div *ngIf="carregando" class="progress" id="tabelaListagem">
+  <div *ngIf="carregando" class="progress">
     <div class="indeterminate"></div>
   </div>
 
@@ -27,7 +27,7 @@
 
 
 
-                 <table class="responsive-table" class="highlight" id="tabela">
+                 <table class="responsive-table" class="highlight" id="tabela1">
                   <thead>
                     <tr>
                       <th></th>
@@ -104,7 +104,7 @@
               </tbody>
               </table>
     </div>
-    <button id="button1" (click)="remover()">excluir</button>
+    <button id="button1" (click)="remover()" >excluir</button>
   </div>
 
 
@@ -114,16 +114,150 @@
 
 
         </li>
-        <!--<li>
-            <div class="collapsible-header"><i class="material-icons">border_color</i>Editar</div>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">border_color</i>Editar dados do Paciente</div>
 
 
             <div class="collapsible-body">
+              <div *ngIf="carregando" class="progress">
+                <div class="indeterminate"></div>
+              </div>
 
+              <h6 *ngIf="!pacientes && !carregando">Não há  pacientes</h6>
+
+              <div *ngIf="pacientes" class="divTab">
+
+                <div id="dBusca">
+                  <span> Buscar por:</span>
+                  <input id="inputB" type="text" name="search" [(ngModel)]="term">
+                </div>
+
+                             <table class="responsive-table" class="highlight" id="tabela">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Nome</th>
+                                  <th>CPF</th>
+                                  <th>Nº SUS</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <tr *ngFor="let paciente of pacientes | filter:term">
+                                 <td>
+                                  <form action="#">
+                                    <p>
+                                      <label>
+                                        <input (change)="funcAl($event)" type="checkbox" name="checkboxs" value={{paciente.uid}}  />
+                                        <span></span>
+                                      </label>
+                                    </p>
+                                  </form></td>
+                                  <td>
+                                    <span>{{paciente.nome}}</span>
+
+                                  </td>
+
+                                  <td>
+                                      <span>{{paciente.cpf}}</span>
+
+                                  </td>
+
+                                <td>
+                                  <span>{{paciente.nSUS}}</span>
+
+                              </td>
+
+
+                                  </tr>
+                          </tbody>
+                          </table>
+                </div>
+                <button id="button1" (click)="mostraPaciente()" >editar</button>
+
+                <div class="conteudo">
+                  <p id="txtDados">Dados paciente:</p>
+                  <form #atualizar='ngForm'(ngSubmit)="update(atualizar.value)">
+                      <div id="divCad">
+                       </div>
+                        <div *ngIf="!cadastroPaciente" class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+                       <div *ngIf="cadastroPaciente" id="divCadastro">
+                         <label class="labelCad1">Nome: </label>
+                         <input class="inputCad1" id="inputNome" name="inputNome" type="text" placeholder="Nome completo" [(ngModel)]="cadastroPaciente.nome" />
+                         <p></p>
+                         <label class="labelCad1">RG: </label>
+                         <input class="inputCad2" id="inputRg" name="inputRg" type="text" placeholder="000.000.000" [(ngModel)]="cadastroPaciente.rg" />
+                         <label class="labelCad2">CPF: </label>
+                         <input class="inputCad2" id="inputCPF" name="inputCPF" type="text"placeholder="000.000.000-00" [(ngModel)]="cadastroPaciente.cpf" />
+                         <p></p>
+
+
+                     <label class="labelCad1">Número de prontuário: </label>
+                     <input class="inputCad3" id="inputProntuario" name="inputProntuario" type="text" placeholder="nº de prontuário" [(ngModel)]="cadastroPaciente.nProntuario" />
+                     <p></p>
+                     <label class="labelCad1">Número do SUS: </label>
+                     <input class="inputCad4" id="inputSUS" name="inputSUS" type="text" placeholder="nº do SUS" [(ngModel)]="cadastroPaciente.nSUS" />
+                     <p></p>
+
+                        <!-- <label class="labelCad1">Data de Nasc: </label>
+                         <input id="inputDate" name="inputDate" type="date"/>-->
+                         <label class="labelCad2">Telefone: </label>
+                         <input class="inputCad2"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="cadastroPaciente.telefone" />
+                         <p></p>
+                         <label class="labelCad1">E-mail:</label>
+                         <input class="inputCad1" id="inputEmail" name="inputEmail" type="text"placeholder="text@text.com" [(ngModel)]="cadastroPaciente.email" />
+                         <p></p>
+                         <label class="labelCad1">Cidade: </label>
+                         <input class="inputCad2" id="inputCidade" name="inputCidade" type="text" placeholder="ex.: Garanhuns" [(ngModel)]="cadastroPaciente.cidade" />
+                         <label class="labelCad2">UF: </label>
+                        <!--<input id="inputUF" name="inputUF" type="search" list="estados">
+                         <datalist id="estados" style="display: hidden;">
+                         <option value="AC"></option>
+                         <option value="AL"></option>
+                         <option value="AP"></option>
+                         <option value="AM"></option>
+                         <option value="BA"></option>
+                         <option value="CE"></option>
+                         <option value="DF"></option>
+                         <option value="ES"></option>
+                         <option value="GO"></option>
+                         <option value="MA"></option>
+                         <option value="MT"></option>
+                         <option value="MS"></option>
+                         <option value="MG"></option>
+                         <option value="PA"></option>
+                         <option value="PB"></option>
+                         <option value="PR"></option>
+                         <option value="PE"></option>
+                         <option value="PI"></option>
+                         <option value="RJ"></option>
+                         <option value="RN"></option>
+                         <option value="RS"></option>
+                         <option value="RO"></option>
+                         <option value="RR"></option>
+                         <option value="SC"></option>
+                         <option value="SP"></option>
+                         <option value="SE"></option>
+                         <option value="TO"></option>
+                         </datalist>
+                         <p></p>-->
+                         <label class="labelCad1">Bairro: </label>
+                         <input class="inputCad1" id="inputBairro" name="inputBairro" type="text"placeholder="ex.: Heliópolis" [(ngModel)]="cadastroPaciente.bairro" />
+                         <p></p>
+                         <label class="labelCad1">Rua: </label>
+                         <input class="inputCad1" id="inputRua" name="inputRua" type="text" placeholder="ex.: Epitácio Coimbra" [(ngModel)]="cadastroPaciente.rua" />
+                         <p></p>
+                        </div>
+                        <button id="button1" type="submit">Salvar</button>
+                     </form>
+                </div>
             </div>
           </li>
 
-        -->
+
       </ul>
       <a class="waves-effect waves-light btn" id="opcBotoes" href="/posto">Voltar</a>
 </div>
