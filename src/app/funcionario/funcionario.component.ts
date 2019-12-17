@@ -29,7 +29,7 @@ export class FuncionarioComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
+   ngOnInit(): void {
            setTimeout(() => {
              // tslint:disable-next-line: only-arrow-functions
                    $(document).ready( function() {
@@ -91,9 +91,9 @@ export class FuncionarioComponent implements OnInit {
   }
  async mostraPaciente() {
       console.log(this.alteraList);
-      this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ', ' ', this.alteraList[0]))[0];
-      console.log('Buscou ');
-      this.carregarPacientes();
+      this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ', 'uid ', this.alteraList[0]))[0];
+      console.log( this.cadastroPaciente);
+     // this.carregarPacientes();
  }
 
 @ViewChild('atualizar') form: NgForm;
