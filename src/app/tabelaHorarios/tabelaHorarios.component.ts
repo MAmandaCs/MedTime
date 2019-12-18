@@ -42,10 +42,8 @@ import { Router } from '@angular/router';
       });
     }
 
-    voltar() {
-      this.router.navigate(['horario']);
     
-  }
+  
 
 
     // private carregarHorarios() {

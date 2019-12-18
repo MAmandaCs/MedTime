@@ -39,6 +39,9 @@ import { HorariosService } from './servicos/horariosService';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
 import { DadosPostoComponent } from './dados-posto/dados-posto.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { LoginAdmComponent } from './login-adm/login-adm.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import { DadosPostoComponent } from './dados-posto/dados-posto.component';
     CadastroPacienteComponent,
     ExamePacienteComponent,
     TabelaHorariosComponent,
-    DadosPostoComponent
+    DadosPostoComponent,
+   InicioComponent,
+    LoginAdmComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Route } from '@angular/router';
 import * as $ from 'jquery';
+import { LoginService } from './servicos/loginService';
 
 
 
@@ -21,9 +22,10 @@ export class AppComponent implements OnInit {
   exibirBotaoDados: boolean;
   exibirBotaoHistorico: boolean;
   exibirBotaoPerfil: boolean;
-
-
+ 
+ 
   constructor(private router: Router) {
+
     this.router.events.subscribe((e) => {
       if (this.router.url.includes('login')) {
         this.exibirMenu = false;
