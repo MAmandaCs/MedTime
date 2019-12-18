@@ -1,12 +1,57 @@
 <div class="row" id="tab">
-  <div class="col s12">
+  <div class="col s12 ">
     <ul class="tabs">
-      <li class="tab col s3"><a class="active"href="#test1">Admin</a></li>
-      <li class="tab col s3"><a href="#test2">Novo Funcionário</a></li>
-      <li class="tab col s3"><a href="#test4">Funcionários</a></li>
+      <li class="tab col s4"><a class="active"href="#test1">Admin</a></li>
+      <li class="tab col s4"><a href="#test2">Novo Funcionário</a></li>
+      <li class="tab col s4"><a href="#test4">Funcionários</a></li>
     </ul>
   </div>
-  <div id="test1" class="col s12">Test 1</div>
-  <div id="test2" class="col s12">Test 2</div>
-  <div id="test4" class="col s12">Test 4</div>
+  <div id="test1" class="col s12">
+    <div class="conteudo">
+      <p id="txtDados">Seus dados:</p>
+      <form #atualizar='ngForm'(ngSubmit)="update(atualizar.value)">
+          <div id="divCad">
+           </div>
+            <div *ngIf="!cadastroPosto" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+           <div *ngIf="cadastroPosto" id="divCadastro">
+
+             <span class="spanCad1">Nome: </span>
+             <input class="inputCad1" id="inputNome" name="nome" type="text"  [(ngModel)]="cadastroPosto.nome"/>
+             <p></p>
+             <span class="spanCad1">RG: </span>
+             <input class="inputCad2"  id="inputRg" name="rg" type="text"  [(ngModel)]="cadastroPosto.rg"/>
+             <span class="spanCad2">CPF: </span>
+             <input class="inputCad2" id="inputCPF" name="cpf" type="text"  [(ngModel)]="cadastroPosto.cpf"/>
+             <p></p>
+             <span class="spanCad1">Data de Nasc: </span>
+             <input id="inputDate" name="dtNasc" type="text" [(ngModel)]="cadastroPosto.dtNasc"/>
+             <p></p>
+             <span class="spanCad1">E-mail:</span>
+             <input class="inputCad1" id="inputEmail" name="email" type="text" [(ngModel)]="cadastroPosto.email"/>
+             <p></p>
+             <span class="spanCad1">Função:</span>
+             <input class="inputCad1" id="inputFuncao" name="funcao" type="text"  [(ngModel)]="cadastroPosto.funcao"/>
+             <p></p>
+             <span class="spanCad1">Senha: </span>
+             <input class="inputCad2"id="inputSenha" name="senha" type="password" [(ngModel)]="cadastroPosto.senha"/>
+             <p></p>
+             <span class="spanCad1">Confirmar Senha: </span>
+             <input class="inputCad2" id="inputConfSenha" name="confSenha" type="password" [(ngModel)]="cadastroPosto.confSenha"/>
+             </div>
+
+            <button id="button1" type="submit">editar</button>
+         </form>
+         <button id="button3" (click)="remover()" >excluir</button>
+     </div>
+
+
+
+  <div id="test2" class="col s12">
+    <app-cadastro-paciente></app-cadastro-paciente>
+  </div>
+  <div id="test4" class="col s12">
+
+  </div>
 </div>
