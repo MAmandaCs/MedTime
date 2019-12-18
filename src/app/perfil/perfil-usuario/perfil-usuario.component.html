@@ -7,16 +7,17 @@
           <p id="txtProfiss">Profissionais:</p>
       <ul class="collapsible" id="opcoesLateral">
           <li>
-            <div class="collapsible-header"  ><a><img id="img" src="/assets/img/med.png"/></a>Clínico Geral</div>
+            <div class="collapsible-header"  (click)="listarC()"><a><img id="img" src="/assets/img/med.png"/></a>Clínico Geral</div>
             <div class="collapsible-body">
                 <div class="input-field col s12">
-                  <select>
-                   <option *ngFor="let horario of horariosC" value="">
-                      {{horario.dia}}
 
-                   </option>
+                <select class="browser-default">
+                  <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                  <option *ngFor="let horario of horarioCli"> {{horario}}</option>
                 </select>
+
                   </div>
+
             </div>
           </li>
           <li>

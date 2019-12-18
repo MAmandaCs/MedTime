@@ -21,11 +21,11 @@ export class PerfilUsuarioComponent implements OnInit {
   paciente: CadastroPaciente;
   emailUsuario: string;
 
-  teste: any[];
+  selected:any;
 
   horariosC: Horario [];
 
-  horarioCli: Horario;
+  horarioCli: any[];
   constructor(private loginService: LoginService, private dbService: DatabaseService) {
     this.horarios = [
       { profissional: 'Dentista', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' },
@@ -62,9 +62,14 @@ async listarC() {
     .then(hoariosDB => {
       this.horariosC = hoariosDB;
       let bbb = this.horariosC.filter(horario => horario.especialidade === 'Dentista' );
-      this.horariosC = bbb;
+
+
+      let aaa = bbb.map(el => {
+        return el.dia
+      });
+      this.horarioCli = aaa;
     });
-    console.log( this.horariosC);
+    console.log( this.horarioCli);
   }
 
   alerta() {
