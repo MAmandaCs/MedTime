@@ -11,11 +11,11 @@
             <div class="collapsible-body">
                 <div class="input-field col s12">
 
-                <select class="browser-default">
+                <select class="browser-default" (change)="filterChanged($event.target.value)">
                   <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                  <option *ngFor="let horario of horarioCli"> {{horario}}</option>
+                  <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                 </select>
-
+                    <button (click) ="marcar()">marcar</button>
                   </div>
 
             </div>

@@ -92,13 +92,13 @@ export class FuncionarioComponent implements OnInit {
   }
  async mostraPaciente() {
 
-      if(this.alteraList.length > 1){
+      if (this.alteraList.length > 1){
         alert('Você só pode selecionar um');
-      }else{
+      } else {
       await this.dbService.listar<CadastroPaciente>('pacientes')
       .then(pacientessDB => {
         this.pacientes = pacientessDB;
-        let bbb = this.pacientes.filter(paciente => paciente.uid === this.alteraList[0])
+        let bbb = this.pacientes.filter(paciente => paciente.uid === this.alteraList[0]);
         this.cadastroPaciente = bbb[0];
       console.log( 'buscou');
       });

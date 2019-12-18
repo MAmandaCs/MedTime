@@ -36,6 +36,16 @@ export class DatabaseService {
 
     }
 
+    inserirP<Type>(caminho: string, objeto: Type): Promise<string> {
+      return new Promise<string>((resolve, reject) => {
+          this.db.list<Type>(caminho)
+              .push(objeto)
+              .then(item => resolve(item.key));
+      });
+  }
+
+
+
 
     update(entity: string, uid: string, object): Promise<void> {
         return this.db.object(`/${entity}/${uid}`).update(object);
