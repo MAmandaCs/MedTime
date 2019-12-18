@@ -42,23 +42,22 @@ import { Router } from '@angular/router';
       });
     }
 
-    
-  
+
+
 
 
     // private carregarHorarios() {
     //   this.carregando = true;
-  
+
     //   this.dbService.listarHorariosDB<Horario>('horarios')
     //   .then(horarioDB => {
     //     this.horarios = horarioDB;
-  
+
     //     this.horarios.forEach(contato => contato['nomeUsuario'] = this.usuarios.filter(u => u.uid === contato.uiHorario)[0].nome);
-  
+
     //     this.carregando = false;
     //   });
     // }
 
-  
+
 }
-  

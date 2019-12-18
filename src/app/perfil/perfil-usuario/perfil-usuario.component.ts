@@ -1,3 +1,4 @@
+import { Horario } from './../../../entidades/horario';
 import { Component, OnInit } from '@angular/core';
 import { CadastroPaciente } from 'src/entidades/cadastroPaciente';
 import { LoginService } from 'src/app/servicos/loginService';
@@ -20,6 +21,11 @@ export class PerfilUsuarioComponent implements OnInit {
   paciente: CadastroPaciente;
   emailUsuario: string;
 
+  teste: any[];
+
+  horariosC: Horario [];
+
+  horarioCli: Horario;
   constructor(private loginService: LoginService, private dbService: DatabaseService) {
     this.horarios = [
       { profissional: 'Dentista', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' },
@@ -29,12 +35,13 @@ export class PerfilUsuarioComponent implements OnInit {
       { profissional: 'Fisoterapeuta', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' },
       { profissional: ' ', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' }
     ];
+
   }
   async ngOnInit() {
 
-    this.pacienteLogado();
+    //this.pacienteLogado();
 
-    this.uidPac = await this.loginService.getUser().uid;
+    //this.uidPac = await this.loginService.getUser().uid;
     console.log(this.uidPac);
     setTimeout(() => {
       // tslint:disable-next-line: only-arrow-functions
@@ -48,6 +55,16 @@ export class PerfilUsuarioComponent implements OnInit {
       });
     }, 100);
 
+  }
+
+async listarC() {
+    await this.dbService.listar<Horario>('horarios')
+    .then(hoariosDB => {
+      this.horariosC = hoariosDB;
+      let bbb = this.horariosC.filter(horario => horario.especialidade === 'Dentista' );
+      this.horariosC = bbb;
+    });
+    console.log( this.horariosC);
   }
 
   alerta() {
