@@ -15,22 +15,22 @@ export class CadastroPostoComponent implements OnInit {
   carregando = true;
   dataNascimento: any;
 
-  constructor(private postoService: PostoService, private loginService: LoginService) { 
+  constructor(private postoService: PostoService, private loginService: LoginService) {
     this.funcPosto = new CadastroPosto();
   }
-  
+
   ngOnInit() {
   }
 
   cadastrar() {
-    this.funcPosto.dtNasc = new Date(this.dataNascimento).getTime();
+    //this.funcPosto.dtNasc = new Date(this.dataNascimento).getTime();
     this.postoService.inserir(this.funcPosto)
       .then(() => {
         this.loginService.criarUser(this.funcPosto.email, this.funcPosto.senha);
-        this.dataNascimento = new Date();
+       // this.dataNascimento = new Date();
         this.funcPosto = new CadastroPosto();
         alert('Funcionário inserido no posto');
-      
+
     });
   }
 
