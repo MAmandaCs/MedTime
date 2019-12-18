@@ -25,9 +25,10 @@ export class DadosPostoComponent implements OnInit {
 
   async ngOnInit() {
    // this.emailUsuario = await this.loginService.getUser().email;
-    this.cadastroPosto = (await this.dbService.buscar<CadastroPosto>('/funcionarios', 'email', this.emailUsuario))[0];
-    $(document).ready(function() {
-      $('.tabs').tabs();
+    //this.cadastroPosto = (await this.dbService.buscar<CadastroPosto>('/funcionarios', 'email', this.emailUsuario))[0];
+
+    $(document).ready(function(){
+      $('.collapsible').collapsible();
     });
   }
 

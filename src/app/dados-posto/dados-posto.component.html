@@ -1,4 +1,135 @@
-<div class="row" id="tab">
+
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Admin</div>
+      <div class="collapsible-body">
+        <div class="conteudo">
+          <p id="txtDados">Seus dados:</p>
+          <form #atualizar='ngForm'(ngSubmit)="update(atualizar.value)">
+              <div id="divCad">
+               </div>
+                <div *ngIf="!cadastroPosto" class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+               <div *ngIf="cadastroPosto" id="divCadastro">
+
+                 <span class="spanCad1">Nome: </span>
+                 <input class="inputCad1" id="inputNome" name="nome" type="text"  [(ngModel)]="cadastroPosto.nome"/>
+                 <p></p>
+                 <span class="spanCad1">RG: </span>
+                 <input class="inputCad2"  id="inputRg" name="rg" type="text"  [(ngModel)]="cadastroPosto.rg"/>
+                 <span class="spanCad2">CPF: </span>
+                 <input class="inputCad2" id="inputCPF" name="cpf" type="text"  [(ngModel)]="cadastroPosto.cpf"/>
+                 <p></p>
+                 <span class="spanCad1">Data de Nasc: </span>
+                 <input id="inputDate" name="dtNasc" type="text" [(ngModel)]="cadastroPosto.dtNasc"/>
+                 <p></p>
+                 <span class="spanCad1">E-mail:</span>
+                 <input class="inputCad1" id="inputEmail" name="email" type="text" [(ngModel)]="cadastroPosto.email"/>
+                 <p></p>
+                 <span class="spanCad1">Função:</span>
+                 <input class="inputCad1" id="inputFuncao" name="funcao" type="text"  [(ngModel)]="cadastroPosto.funcao"/>
+                 <p></p>
+                 <span class="spanCad1">Senha: </span>
+                 <input class="inputCad2"id="inputSenha" name="senha" type="password" [(ngModel)]="cadastroPosto.senha"/>
+                 <p></p>
+                 <span class="spanCad1">Confirmar Senha: </span>
+                 <input class="inputCad2" id="inputConfSenha" name="confSenha" type="password" [(ngModel)]="cadastroPosto.confSenha"/>
+                 </div>
+
+                <button id="button1" type="submit">editar</button>
+             </form>
+             <button id="button3" (click)="remover()" >excluir</button>
+         </div>
+
+
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Novo funcionário</div>
+      <div class="collapsible-body">
+
+        <app-cadastro-paciente></app-cadastro-paciente>
+
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Visualizar funcionários</div>
+      <div class="collapsible-body">
+
+        <div *ngIf="carregando" class="progress">
+          <div class="indeterminate"></div>
+        </div>
+
+        <h6 *ngIf="!funcionarios && !carregando">Não há funcionários</h6>
+
+        <div *ngIf="funcionarios">
+
+          <div id="dBusca">
+            <span> Buscar por:</span>
+            <input id="inputB" type="text" name="search" [(ngModel)]="term">
+          </div>
+
+
+
+                       <table class="responsive-table" class="highlight" id="tabela1">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Função</th>
+                            <th>Email</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr *ngFor="let funcionario of funcionarios | filter:term">
+                           <td>
+                            <form action="#">
+                              <p>
+                                <label>
+                                  <input (change)="funcDumb($event)" type="checkbox" name="checkboxs" value={{funcionario.uid}}  />
+                                  <span></span>
+                                </label>
+                              </p>
+                            </form></td>
+                            <td>
+                              <span>{{funcionario.nome}}</span>
+
+                            </td>
+
+                            <td>
+                                <span>{{funcionario.cpf}}</span>
+
+                            </td>
+                            <td>
+
+                              <span>{{funcionario.funcao}}</span>
+
+                          </td>
+
+                            <td>
+                                <span>{{funcionario.email}}</span>
+
+                            </td>
+
+
+
+                            </tr>
+                    </tbody>
+                    </table>
+          </div>
+          <button id="button1" (click)="removerF()" >excluir</button>
+
+
+      </div>
+    </li>
+  </ul>
+
+
+<!--<div class="row" id="tab">
   <div class="col s12 ">
     <ul class="tabs">
       <li class="tab col s4"><a class="active"href="#test1">Admin</a></li>
@@ -45,7 +176,7 @@
          </form>
          <button id="button3" (click)="remover()" >excluir</button>
      </div>
-
+  </div>
 
 
   <div id="test2" class="col s12">
@@ -120,4 +251,5 @@
       <button id="button1" (click)="removerF()" >excluir</button>
 
   </div>
-</div>
+
+-->

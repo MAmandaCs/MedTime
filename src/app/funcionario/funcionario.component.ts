@@ -91,10 +91,19 @@ export class FuncionarioComponent implements OnInit {
 
   }
  async mostraPaciente() {
-      console.log(this.alteraList);
-      //this.cadastroPaciente = (await this.dbService.buscar<CadastroPaciente>('/pacientes ','uid' ,this.alteraList[0]))[0];
 
-      console.log( this.cadastroPaciente);
+      if(this.alteraList.length > 1){
+        alert('Você só pode selecionar um');
+      }else{
+      await this.dbService.listar<CadastroPaciente>('pacientes')
+      .then(pacientessDB => {
+        this.pacientes = pacientessDB;
+        let bbb = this.pacientes.filter(paciente => paciente.uid === this.alteraList[0])
+        this.cadastroPaciente = bbb[0];
+      console.log( 'buscou');
+      });
+
+    }
      // this.carregarPacientes();
  }
 
