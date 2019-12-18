@@ -63,6 +63,12 @@ margin-bottom: 0vh;
 
 }
 
+#opcBotoes{
+    margin-left: 76vw;
+    margin-top: 5vh;
+    background-color: #0e808f;
+  }
+
 #imgLogin{
   width: 5%;
   height: 3%;

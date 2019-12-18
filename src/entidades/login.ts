@@ -1,5 +1,5 @@
 export class Login {
 
-    cpf: string;
+    email: string;
     senha: string;
 }

@@ -40,6 +40,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginAdmComponent } from './login-adm/login-adm.component';
+import { LoginAdmService } from './servicos/loginAdmService';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { LoginAdmComponent } from './login-adm/login-adm.component';
     Ng2SearchPipeModule
 
   ],
-  providers: [DatabaseService, PacienteService, PostoService, LoginService, HorarioService, HorariosService, AngularFireAuth, AuthGuard],
+  providers: [DatabaseService, PacienteService, PostoService, LoginService, LoginAdmService, HorarioService, 
+    HorariosService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
 
