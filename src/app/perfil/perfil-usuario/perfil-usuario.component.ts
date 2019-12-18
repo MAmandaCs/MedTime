@@ -47,6 +47,12 @@ export class PerfilUsuarioComponent implements OnInit {
     this.emailUsuario = await this.loginService.getUser().email;
     this.pacienteM = (await this.dbService.buscar<CadastroPaciente>('/pacientes', 'email', this.emailUsuario))[0];
     console.log(this.pacienteM.email);
+
+
+
+
+
+
     //this.pacienteLogado();
 
     //this.uidPac = await this.loginService.getUser().uid;
