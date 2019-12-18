@@ -21,12 +21,10 @@ import { ExamePacienteComponent } from './exame-paciente/exame-paciente.componen
 import { LoginService } from './servicos/loginService';
 import { HorariosComponent } from './horarios/horarios.component';
 import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.component';
-<<<<<<< HEAD
 import { DadosPostoComponent } from './dados-posto/dados-posto.component';
-=======
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginAdmComponent } from './login-adm/login-adm.component';
->>>>>>> 05394d30d06b6aa354ce124fad96fc390d80920d
+
 
 
 
@@ -49,17 +47,11 @@ const routes: Routes = [
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'posto', component: PerfilPostoComponent},
   {path: 'funcionario', component: FuncionarioComponent},
-<<<<<<< HEAD
-  {path: 'examePac', component: ExamePacienteComponent},
-  {path: 'tabelaHorarios', component: TabelaHorariosComponent},
-  {path: 'dadosPosto', component: DadosPostoComponent}
-
-=======
+  {path: 'dadosPosto', component: DadosPostoComponent},
   {path: 'examePac', component:ExamePacienteComponent},
   {path: 'tabelaHorarios', component:TabelaHorariosComponent},
   {path: 'inicio', component:InicioComponent},
   {path: 'loginAdm', component:LoginAdmComponent}
->>>>>>> 05394d30d06b6aa354ce124fad96fc390d80920d
 
 
 ];

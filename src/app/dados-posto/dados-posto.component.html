@@ -51,7 +51,73 @@
   <div id="test2" class="col s12">
     <app-cadastro-paciente></app-cadastro-paciente>
   </div>
+
   <div id="test4" class="col s12">
+    <div *ngIf="carregando" class="progress">
+      <div class="indeterminate"></div>
+    </div>
+
+    <h6 *ngIf="!funcionarios && !carregando">Não há funcionários</h6>
+
+    <div *ngIf="funcionarios">
+
+      <div id="dBusca">
+        <span> Buscar por:</span>
+        <input id="inputB" type="text" name="search" [(ngModel)]="term">
+      </div>
+
+
+
+                   <table class="responsive-table" class="highlight" id="tabela1">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Função</th>
+                        <th>Email</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr *ngFor="let funcionario of funcionarios | filter:term">
+                       <td>
+                        <form action="#">
+                          <p>
+                            <label>
+                              <input (change)="funcDumb($event)" type="checkbox" name="checkboxs" value={{funcionario.uid}}  />
+                              <span></span>
+                            </label>
+                          </p>
+                        </form></td>
+                        <td>
+                          <span>{{funcionario.nome}}</span>
+
+                        </td>
+
+                        <td>
+                            <span>{{funcionario.cpf}}</span>
+
+                        </td>
+                        <td>
+
+                          <span>{{funcionario.funcao}}</span>
+
+                      </td>
+
+                        <td>
+                            <span>{{funcionario.email}}</span>
+
+                        </td>
+
+
+
+                        </tr>
+                </tbody>
+                </table>
+      </div>
+      <button id="button1" (click)="removerF()" >excluir</button>
 
   </div>
 </div>
