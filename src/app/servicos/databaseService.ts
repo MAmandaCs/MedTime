@@ -36,7 +36,7 @@ export class DatabaseService {
 
     }
 
-    inserirP<Type>(caminho: string, objeto: Type): Promise<string> {
+    inserirE<Type>(caminho: string, objeto: Type): Promise<string> {
       return new Promise<string>((resolve, reject) => {
           this.db.list<Type>(caminho)
               .push(objeto)

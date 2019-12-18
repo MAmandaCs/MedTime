@@ -1,4 +1,5 @@
-export class Horario{
+export class Horario {
+    
     indice: number;
     dia: string;
     possuiAtendimento: boolean;

@@ -1,4 +1,5 @@
 export class CadastroPaciente {
+    
     nome: string;
     rg: string;
     cpf: string;

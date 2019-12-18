@@ -42,6 +42,8 @@ import { DadosPostoComponent } from './dados-posto/dados-posto.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginAdmComponent } from './login-adm/login-adm.component';
 import { LoginAdmService } from './servicos/loginAdmService';
+import { TesteComponent } from './teste/teste.component';
+import { EspecialidadeService } from './servicos/especialidadeService';
 
 
 @NgModule({
@@ -68,8 +70,9 @@ import { LoginAdmService } from './servicos/loginAdmService';
     ExamePacienteComponent,
     TabelaHorariosComponent,
     DadosPostoComponent,
-   InicioComponent,
-    LoginAdmComponent
+    InicioComponent,
+    LoginAdmComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,7 @@ import { LoginAdmService } from './servicos/loginAdmService';
 
   ],
   providers: [DatabaseService, PacienteService, PostoService, LoginService, LoginAdmService, HorarioService, 
-    HorariosService, AngularFireAuth, AuthGuard],
+    HorariosService, EspecialidadeService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
 

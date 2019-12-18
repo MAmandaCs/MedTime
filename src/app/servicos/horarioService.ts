@@ -4,9 +4,7 @@ import { DatabaseService } from './databaseService';
 import { HttpClient } from '@angular/common/http';
 import { Horarios } from 'src/entidades/horarios';
 
-
     const PATH = 'horarios';
-    
 
 @Injectable()
 export class HorarioService{

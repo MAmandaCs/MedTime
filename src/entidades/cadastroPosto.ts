@@ -1,4 +1,5 @@
-export class CadastroPosto{
+export class CadastroPosto {
+
     nome: string;
     rg: string;
     cpf: string;

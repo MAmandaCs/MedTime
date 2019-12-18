@@ -107,13 +107,13 @@ async listarC() {
     }
 
 
-marcar(){
+// marcar(){
 
-     this.dentista.dia = this.selected;
-     this.dentista.paciente = this.pacienteM;
-    // this.dbService.inserirP<Dentista>('dentista', this.dentista);
-     console.log(this.dentista.dia);
+//      this.dentista.dia = this.selected;
+//      this.dentista.paciente = this.pacienteM;
+//     // this.dbService.inserirP<Dentista>('dentista', this.dentista);
+//      console.log(this.dentista.dia);
 
-}
+// }
 
 }

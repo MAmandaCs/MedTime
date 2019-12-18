@@ -24,6 +24,7 @@ import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.compone
 import { DadosPostoComponent } from './dados-posto/dados-posto.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginAdmComponent } from './login-adm/login-adm.component';
+import { TesteComponent } from './teste/teste.component';
 
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path: 'examePac', component:ExamePacienteComponent},
   {path: 'tabelaHorarios', component:TabelaHorariosComponent},
   {path: 'inicio', component:InicioComponent},
-  {path: 'loginAdm', component:LoginAdmComponent}
+  {path: 'loginAdm', component:LoginAdmComponent},
+  {path: 'teste', component:TesteComponent}
 
 
 ];
@@ -60,4 +62,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
