@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginAdmService } from '../servicos/loginAdmService';
 
 @Component({
   selector: 'app-login-adm',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginAdmComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private loginAdmService: LoginAdmService) { }
 
   ngOnInit() {
+  }
+
+  loginAdm({ email, senha }: { email; senha; }) {
+    this.loginAdmService.login(email, senha)
+    .then(() => {
+      this.router.navigate(['posto']);
+    });
   }
 
 }

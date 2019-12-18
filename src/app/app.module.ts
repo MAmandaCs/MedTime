@@ -41,6 +41,7 @@ import { TabelaHorariosComponent } from './tabelaHorarios/tabelaHorarios.compone
 import { DadosPostoComponent } from './dados-posto/dados-posto.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginAdmComponent } from './login-adm/login-adm.component';
+import { LoginAdmService } from './servicos/loginAdmService';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { LoginAdmComponent } from './login-adm/login-adm.component';
     Ng2SearchPipeModule
 
   ],
-  providers: [DatabaseService, PacienteService, PostoService, LoginService, HorarioService, HorariosService, AngularFireAuth, AuthGuard],
+  providers: [DatabaseService, PacienteService, PostoService, LoginService, LoginAdmService, HorarioService, 
+    HorariosService, AngularFireAuth, AuthGuard],
   bootstrap: [AppComponent]
 })
 
