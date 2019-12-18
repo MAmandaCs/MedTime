@@ -1,0 +1,28 @@
+<div id="divLogin">
+
+<div id="divImg">
+  <img id="imgLogin" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcLxN4sPGN4DqhATd35CpRXkpY6o8eYG5Bd6CaIRosqoz-f4Gx_w"/>
+  <p id="pLogin">Login</p>
+</div>
+
+<div id="divLogin1">
+    <span class="spanLogin">Email: </span>
+        <input id="input1" type="text" placeholder="text@text.com" #email/>
+    <p></p>
+    <span class="spanLogin">Senha: </span>
+        <input id="input2" type="password" #senha/>
+    </div>
+    <div id="divLogin2">
+    <button id="button" type="submit" (click)="login(email.value, senha.value)">Login</button>
+    <p></p>
+    <a id="link" href="cadastro">Ainda não é cadastrado? Crie sua conta aqui</a>
+    </div>
+</div>
+
+<a class="waves-effect waves-light btn" id="opcBotoes" href="/loginAdm">Entrar como administrador</a>
+<router-outlet></router-outlet>
+    <!-- <div id="divTabela">
+
+      <app-tabelaHorarios></app-tabelaHorarios>
+    </div> -->
+
