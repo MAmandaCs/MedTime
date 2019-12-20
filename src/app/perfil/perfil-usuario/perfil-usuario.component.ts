@@ -144,14 +144,19 @@ async listarC() {
 
  this.controle = (await this.dbService.buscar<Clinico>('/clinico', 'nProntuario',this.pacienteM.nProntuario ))[0];
  console.log(this.controle.nProntuario);
- //if(this.controle === null){
-// this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
- //this.espService.inserirClinico(this.clinico);
- //alert('Consulta marcada.');
- //console.log(' Consulta marcada');
-// }else{
-  // alert('Marcação não efetuada, pois já tem um membro da familia agendado para esse médico');
- //}
+
+ if(this.controle === null){
+ this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+ this.espService.inserirClinico(this.clinico);
+ alert('Consulta marcada.');
+ console.log(' Consulta marcada');
+
+}else{
+  if(this.controle.nome === this.pacientM.nome && this.){
+    alert('')
+  }
+ alert('Marcação não efetuada, pois já tem um membro da familia agendado para esse médico');
+ }
  }
 
 }
