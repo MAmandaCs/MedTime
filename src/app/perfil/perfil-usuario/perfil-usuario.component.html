@@ -11,76 +11,81 @@
             <div class="collapsible-body">
                 <div class="input-field col s12">
 
-                <select class="browser-default" (change)="filterChanged($event.target.value)">
+               <select class="browser-default" (change)="filterChanged($event.target.value)">
                   <option value="" disabled selected>Escolha o dia de atendimento:</option>
                   <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                 </select>
-                    <button (click) ="marcar()">marcar</button>
+                    <button type="submit" (click) ="marcarClin()">marcar</button>
                   </div>
 
             </div>
           </li>
           <li>
-            <div class="collapsible-header"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
+            <div class="collapsible-header" (click)="listarC()"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
             <div class="collapsible-body">
                 <div class="input-field col s12">
-                    <select>
-                      <option value="" disabled selected>Escolha o dia</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
+
+                  <select class="browser-default" (change)="filterChanged($event.target.value)">
+                    <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                    <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                  </select>
+                      <button type="submit" (click) ="marcarClin()">marcar</button>
+
                   </div>
             </div>
           </li>
           <li>
-            <div class="collapsible-header"><i class="material-icons">local_hospital</i>Enfermaria</div>
+            <div class="collapsible-header" (click)="listarC()"><i class="material-icons">local_hospital</i>Enfermaria</div>
             <div class="collapsible-body">
                 <div class="input-field col s12">
-                    <select>
-                      <option value="" disabled selected>Escolha o dia</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
+
+                  <select class="browser-default" (change)="filterChanged($event.target.value)">
+                    <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                    <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                  </select>
+                      <button type="submit" (click) ="marcarClin()">marcar</button>
+
                   </div>
             </div>
           </li>
           <li>
-              <div class="collapsible-header"><i class="material-icons">accessibility</i>Fisioterapia</div>
+              <div class="collapsible-header" (click)="listarC()"><i class="material-icons">accessibility</i>Fisioterapia</div>
               <div class="collapsible-body">
                   <div class="input-field col s12">
-                      <select>
-                        <option value="" disabled selected>Escolha o dia</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                      </select>
+
+                    <select class="browser-default" (change)="filterChanged($event.target.value)">
+                      <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                      <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                    </select>
+                        <button type="submit" (click) ="marcarClin()">marcar</button>
+
                     </div>
               </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">child_care</i>Pediatria</div>
+                <div class="collapsible-header" (click)="listarC()"><i class="material-icons">child_care</i>Pediatria</div>
                 <div class="collapsible-body">
                   <div class="input-field col s12">
-                    <select>
-                      <option value="" disabled selected>Escolha o dia</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+
+                    <select class="browser-default" (change)="filterChanged($event.target.value)">
+                      <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                      <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                     </select>
+                        <button type="submit" (click) ="marcarClin()">marcar</button>
+
                   </div></div>
               </li>
               <li>
-                  <div class="collapsible-header"><i class="material-icons">people</i>Psicologo</div>
+                  <div class="collapsible-header" (click)="listarC()"><i class="material-icons">people</i>Psicologo</div>
                   <div class="collapsible-body">
                       <div class="input-field col s12">
-                          <select>
-                            <option value="" disabled selected>Escolha o dia</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                          </select>
+
+                        <select class="browser-default" (change)="filterChanged($event.target.value)">
+                          <option value="" disabled selected>Escolha o dia de atendimento:</option>
+                          <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                        </select>
+                            <button type="submit" (click) ="marcarClin()">marcar</button>
+
                         </div>
                   </div>
                 </li>

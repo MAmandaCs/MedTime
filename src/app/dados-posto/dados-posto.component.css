@@ -1,7 +1,25 @@
-#tab{
-  margin-top: 10vh;
-  width: 80vw;
+#conteudo{
+  width: 90vw;
+  margin-left: 4vw;
+}
+#inputB{
+  width: 30vw;
+  margin-left: 0.5vw;
+  height: 3vh;
 
+}
+#dBusca{
+  margin-bottom: 2vh;
+}
+
+#tabela1{
+    font-size: 90%;
+}
+
+#opcBotoes{
+  margin-left: 83.3vw;
+  margin-top: 5vh;
+  background-color: #0e808f;
 }
 
 #button1 {
@@ -34,7 +52,7 @@
     0px -1px 0px rgba(000,000,000,0.2),
     0px 1px 0px rgba(255,255,255,0.3);
 
-  margin-left: 45vw;
+  margin-left: 75vw;
   margin-top: 3vh;
   margin-bottom: 2vh;
 
@@ -69,7 +87,7 @@
     0px -1px 0px rgba(000,000,000,0.2),
     0px 1px 0px rgba(255,255,255,0.3);
 
-  margin-left: 54vw;
+  margin-left: 68vw;
   margin-bottom: 2vh;
 
 }

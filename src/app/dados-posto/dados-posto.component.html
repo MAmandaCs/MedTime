@@ -1,7 +1,7 @@
-
+<div id="conteudo">
   <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Admin</div>
+      <div class="collapsible-header"><i class="material-icons">border_color</i>Admin dados</div>
       <div class="collapsible-body">
         <div class="conteudo">
           <p id="txtDados">Seus dados:</p>
@@ -46,15 +46,15 @@
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Novo funcionário</div>
+      <div class="collapsible-header"><i class="material-icons">add</i>Novo funcionário</div>
       <div class="collapsible-body">
 
-        <app-cadastro-paciente></app-cadastro-paciente>
+       <app-cadastro-posto></app-cadastro-posto>
 
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Visualizar funcionários</div>
+      <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Visualizar funcionários</div>
       <div class="collapsible-body">
 
         <div *ngIf="carregando" class="progress">
@@ -127,7 +127,8 @@
       </div>
     </li>
   </ul>
-
+  <a class="waves-effect waves-light btn" id="opcBotoes" href="/posto">Voltar</a>
+</div>
 
 <!--<div class="row" id="tab">
   <div class="col s12 ">

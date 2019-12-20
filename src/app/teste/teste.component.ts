@@ -30,10 +30,10 @@ export class TesteComponent implements OnInit {
   psicologo: Psicologo;
 
   constructor(private especialidadeService: EspecialidadeService, private database: DatabaseService) {}
-  
+
 
   ngOnInit() {
-    
+
   }
 
   //  cadastrar() {
@@ -43,7 +43,7 @@ export class TesteComponent implements OnInit {
   //    alert('Funcionário inserido no posto');
 
   // }
-
+/*
   teste1(dia: string, nome: string){
 
     this.clinico = {dia, nome};
@@ -86,4 +86,5 @@ export class TesteComponent implements OnInit {
     this.especialidadeService.inserirPsicologo(this.psicologo);
   }
 
+}*/
 }

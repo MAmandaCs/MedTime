@@ -61,7 +61,7 @@ export class DadosPostoComponent implements OnInit {
   private carregarFuncionarios() {
     this.carregando = true;
 
-    this.dbService.listar<CadastroPosto>('pacientes')
+    this.dbService.listar<CadastroPosto>('funcionarios')
       .then(funcionariosDB => {
         this.funcionarios = funcionariosDB;
         this.funcionarios.forEach(funcionario => funcionario.nome = this.funcionarios.filter(u => u.uid === funcionario.uid)[0].nome);
