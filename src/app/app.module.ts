@@ -22,8 +22,8 @@ import { CadastroPostoComponent } from './cadastros/cadastro-posto/cadastro-post
 import { PerfilPostoComponent } from './perfil/perfil-posto/perfil-posto.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CadastroPacienteComponent } from './cadastros/cadastro-paciente/cadastro-paciente.component';
 import { DatabaseService } from './servicos/databaseService';
 import { PacienteService } from './servicos/pacienteService';
@@ -44,6 +44,10 @@ import { LoginAdmComponent } from './login-adm/login-adm.component';
 import { LoginAdmService } from './servicos/loginAdmService';
 import { TesteComponent } from './teste/teste.component';
 import { EspecialidadeService } from './servicos/especialidadeService';
+import { AngularFirestore } from 'angularfire2/firestore'; 
+import { ExamesService } from './servicos/examesService';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 
 @NgModule({
@@ -78,17 +82,33 @@ import { EspecialidadeService } from './servicos/especialidadeService';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule,
     NgxMaskModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    AngularFireStorageModule
+    
   ],
-  providers: [DatabaseService, PacienteService, PostoService, LoginService, LoginAdmService, HorarioService, 
-    HorariosService, EspecialidadeService, AngularFireAuth, AuthGuard],
+  providers: [DatabaseService, 
+    PacienteService, 
+    PostoService, 
+    LoginService, 
+    LoginAdmService, 
+    HorarioService, 
+    HorariosService, 
+    EspecialidadeService, 
+    ExamesService, 
+    AngularFireAuth, 
+    AuthGuard,
+    AngularFirestore,
+    AngularFireStorage,
+    
+  ],
+    
   bootstrap: [AppComponent]
 })
 

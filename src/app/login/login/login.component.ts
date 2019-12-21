@@ -20,11 +20,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
   login(email, senha) {
-    this.loginService.login(email, senha)
+    console.log(this.loginService.login(email, senha)
     .then(() => {
       this.router.navigate(['perfil']);
-    });
+    }));
   }
 
 }
