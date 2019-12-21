@@ -15,13 +15,13 @@
                   <option value="" disabled selected>Escolha o dia de atendimento:</option>
                   <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                 </select>
-                    <button type="submit" (click) ="marcarClin()">marcar</button>
+                    <button class="button" type="submit" (click) ="marcarClin()" >marcar</button>
                   </div>
 
             </div>
           </li>
           <li>
-            <div class="collapsible-header" (click)="listarC()"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
+            <div class="collapsible-header" (click)="listarD()"><a><img id="img" src="/assets/img/dente.png"/></a>Dentista</div>
             <div class="collapsible-body">
                 <div class="input-field col s12">
 
@@ -29,13 +29,13 @@
                     <option value="" disabled selected>Escolha o dia de atendimento:</option>
                     <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                   </select>
-                      <button type="submit" (click) ="marcarClin()">marcar</button>
+                      <button type="submit" (click) ="marcarDen()">marcar</button>
 
                   </div>
             </div>
           </li>
           <li>
-            <div class="collapsible-header" (click)="listarC()"><i class="material-icons">local_hospital</i>Enfermaria</div>
+            <div class="collapsible-header" (click)="listarE()"><i class="material-icons">local_hospital</i>Enfermaria</div>
             <div class="collapsible-body">
                 <div class="input-field col s12">
 
@@ -43,13 +43,13 @@
                     <option value="" disabled selected>Escolha o dia de atendimento:</option>
                     <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                   </select>
-                      <button type="submit" (click) ="marcarClin()">marcar</button>
+                      <button type="submit" (click) ="marcarEnf()">marcar</button>
 
                   </div>
             </div>
           </li>
           <li>
-              <div class="collapsible-header" (click)="listarC()"><i class="material-icons">accessibility</i>Fisioterapia</div>
+              <div class="collapsible-header" (click)="listarF()"><i class="material-icons">accessibility</i>Fisioterapia</div>
               <div class="collapsible-body">
                   <div class="input-field col s12">
 
@@ -57,13 +57,13 @@
                       <option value="" disabled selected>Escolha o dia de atendimento:</option>
                       <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                     </select>
-                        <button type="submit" (click) ="marcarClin()">marcar</button>
+                        <button type="submit" (click) ="marcarFis()">marcar</button>
 
                     </div>
               </div>
             </li>
             <li>
-                <div class="collapsible-header" (click)="listarC()"><i class="material-icons">child_care</i>Pediatria</div>
+                <div class="collapsible-header" (click)="listarP()"><i class="material-icons">child_care</i>Pediatria</div>
                 <div class="collapsible-body">
                   <div class="input-field col s12">
 
@@ -71,12 +71,12 @@
                       <option value="" disabled selected>Escolha o dia de atendimento:</option>
                       <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                     </select>
-                        <button type="submit" (click) ="marcarClin()">marcar</button>
+                        <button type="submit" (click) ="marcarPed()">marcar</button>
 
                   </div></div>
               </li>
               <li>
-                  <div class="collapsible-header" (click)="listarC()"><i class="material-icons">people</i>Psicologo</div>
+                  <div class="collapsible-header" (click)="listarPs()"><i class="material-icons">people</i>Psicologo</div>
                   <div class="collapsible-body">
                       <div class="input-field col s12">
 
@@ -84,7 +84,7 @@
                           <option value="" disabled selected>Escolha o dia de atendimento:</option>
                           <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
                         </select>
-                            <button type="submit" (click) ="marcarClin()">marcar</button>
+                            <button type="submit" (click) ="marcarPsi()" >marcar</button>
 
                         </div>
                   </div>

@@ -13,7 +13,7 @@ export class EspecialidadeService{
 
     constructor(private database: DatabaseService, private http: HttpClient) {
 
-    }
+    } 
 
     inserirClinico(clinico: Clinico): Promise<string> {
         return this.database.inserirE('/clinico', clinico);
