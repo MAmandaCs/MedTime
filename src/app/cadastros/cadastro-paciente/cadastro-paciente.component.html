@@ -1,4 +1,4 @@
- <form>
+ <form id="formulario">
   <div id="divCad">
      <p id="pCad">Cadastre-se </p>
    </div>
@@ -42,7 +42,7 @@
      <label class="labelCad1">Confirmar Senha: </label>
      <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="paciente.confSenha"/>
    </div>
-   <button id="button" type="submit" (click)="addPaciente()">Cadastrar</button>
+   <button id="button" type="submit" [disabled]="!formulario" (click)="addPaciente()">Cadastrar</button>
 
 
 </form>
