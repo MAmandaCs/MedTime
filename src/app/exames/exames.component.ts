@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Observable } from 'rxjs';
 import { ExamesService } from '../servicos/examesService';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,17 +13,12 @@ import { AngularFireUploadTask, AngularFireStorage } from 'angularfire2/storage'
 })
 
 export class ExamesComponent implements OnInit {
-
-  ngOnInit() {
-    
-  }
-
   // exames: any;
   // exameSelecionado: any;
   formExame: FormGroup;
   labelButton: string;
   exame: Exames;
-  projects$: Observable<Exames[]>
+  examess$: Observable<Exames[]>
   edit: boolean;
   messages: string;
   id: string;
@@ -38,6 +32,13 @@ export class ExamesComponent implements OnInit {
   // this.exames = [{exame: 'ultrassom.pdf'}, { exame: 'ultrassonografia.pdf'}];
   // this.exameSelecionado = {};
   }
+  
+  ngOnInit() {
+    this.initForm()
+   // this.labelButton = 'Save';
+    this.examess$ = this.examesService.getAllProjects();
+    this.exame = new Exames();
+  }
 
   initForm() {
     this.formExame = this.form.group({
@@ -48,10 +49,10 @@ export class ExamesComponent implements OnInit {
 
   upload(event) {
     this.complete = false;
-    const pdf = event.target.pdf[0]
-    const path = `pdf/${pdf.name}`;
+    const file = event.target.files[0]
+    const path = `file/${file.name}`;
     const pdfRef = this.storage.ref(path.replace(/\s/g, ''));
-    this.task = this.storage.upload(path.replace(/\s/g, ''), pdf)
+    this.task = this.storage.upload(path.replace(/\s/g, ''), file)
     this.task.then(up => {
       pdfRef.getDownloadURL().subscribe(url => {
         this.complete = true

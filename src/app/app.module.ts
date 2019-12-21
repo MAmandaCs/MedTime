@@ -30,7 +30,7 @@ import { PacienteService } from './servicos/pacienteService';
 import { PostoService } from './servicos/postoService';
 import { LoginService } from './servicos/loginService';
 import { HorarioService } from './servicos/horarioService';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthGuard } from './guards/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
