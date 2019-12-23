@@ -5,10 +5,18 @@
     <a class="waves-effect waves-light btn" id="opcBotoes" href="/horario"><i class="material-icons left">access_time</i>Horário</a>
     <a class="waves-effect waves-light btn" id="opcBotoes" href="/funcionario"><i class="material-icons left">contacts</i>Pacientes</a>
 </div>
-    <h2 id="txt2">Marcações do dia:</h2>
 <div class="col l7">
-
-<div class="row" style="margin-top: 10vh">
+<div class="input-field col s12" id="divSe">
+  <select (change)="filterChanged($event.target.value)">
+    <option value="" disabled selected>Escolha o dia do atendimento:</option>
+    <option  value="Segunda-feira" >Segunda-feira</option>
+    <option  value="Terça-feira" >Terça-feira</option>
+    <option  value="Quarta-feira" >Quarta-feira</option>
+    <option  value="Quinta-feira" >Quinta-feira</option>
+    <option  value="Sexta-feira" >Sexta-feira</option>
+  </select>
+</div>
+<div class="row" style="margin-top: 5vh">
 
   <div class="col l5" >
     <div (click)="clinicoSelecionado()" class="button-item"><a><img id="img"
@@ -25,10 +33,22 @@
     <div (click)="fisioSelecionado()" class="button-item"><i class="material-icons" id="img">accessibility</i>Fisioterapia
     </div>
 
-    <div (click)="pediatriaSelecionado()" class="button-item"><i class="material-icons" id="img">pregnant_woman</i>Pediatria
+    <div (click)="pediatraSelecionado()" class="button-item"><i class="material-icons" id="img">pregnant_woman</i>Pediatria
     </div>
 
     <div (click)="psicologoSelecionado()" class="button-item"><i class="material-icons" id="img">people</i>Psicologo
+    </div>
+    <div class="input-field col s12" id="divSe">
+      <select (change)="filterChanged($event.target.value)">
+        <option value="" disabled selected>Escolha o dia do atendimento:</option>
+        <option  value='clinico' >Clínico</option>
+        <option  value='dentista' >Dentista</option>
+        <option  value='enfermaria' >Enfermaria</option>
+        <option  value='fisioterapia' >Fisioterapia</option>
+        <option  value='pediatria' >Pediatria</option>
+        <option  value='psicologo' >Psicólogo</option>
+      </select>
+      <button (click)="limpar()">Finalizar</button>
     </div>
 
   </div>
@@ -37,7 +57,7 @@
     <div *ngIf="agendamentosSelecionado" class="row">
       <div clas="col l12">
         <label class="agend"> -- Procurar por:</label>
-        <input class="busca" id="inputBusca" type="search" list="" />
+        <input id="inputB" type="text" name="search" [(ngModel)]="term">
       </div>
 
       <div class="col l12" id="tabelaAgend">
@@ -52,8 +72,8 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let agendamento of agendamentosSelecionado">
-              <td>{{agendamento.prontuario}}
+            <tr *ngFor="let agendamento of agendamentosSelecionado | filter:term">
+              <td>{{agendamento.nProntuario}}
               </td>
               <td>{{agendamento.nome}}
 
@@ -61,7 +81,7 @@
               <td>
                 <div class="switch">
                   <label>
-                    <input type="checkbox">
+                    <input (change)="controle($event)" type="checkbox" name="checkboxs" value={{agendamento.uid}}/>
                     <span class="lever"></span>
                     Presente
                   </label>
@@ -71,6 +91,7 @@
 
           </tbody>
         </table>
+
       </div>
     </div>
   </div>

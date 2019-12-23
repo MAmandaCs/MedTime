@@ -3,7 +3,7 @@
   background: rgba(0,0,0,0.05);
   border: #0e808f;
   width: 20vw;
-  height: 6vh;
+  height: 5vh;
 }
 
 #tabelaAgend{
@@ -56,7 +56,7 @@
 
 .collection-item{
   background: #0e808f!important;
-  color: white!important;
+  color: black!important;
 
 }
 
@@ -82,7 +82,7 @@
 }
 
 .agend{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   font-size: 100%;
   margin-top: 5vh;
   color: black;
@@ -97,7 +97,6 @@
 
 table.highlight {
   cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .selecionado {
@@ -107,4 +106,9 @@ table.highlight {
 .opcoes{
   width: 70vw!important;
   margin-left: 15vw;
+}
+#divSe{
+  width: 20vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
 }

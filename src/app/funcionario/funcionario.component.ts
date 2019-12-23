@@ -61,7 +61,7 @@ export class FuncionarioComponent implements OnInit {
 
     });
   }
-  funcDumb(event) {
+  funcEx(event) {
     if (event.target.checked === false) {
       const filter = this.removeList.filter(el => el !== event.target.value);
       this.removeList = [];

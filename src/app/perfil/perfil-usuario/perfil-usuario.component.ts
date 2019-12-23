@@ -1,3 +1,4 @@
+import { Enfermaria } from './../../../entidades/enfermaria';
 import { Horario } from 'src/entidades/horario';
 import { CadastroPaciente } from './../../../entidades/cadastroPaciente';
 import { PacienteService } from './../../servicos/pacienteService';
@@ -7,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/servicos/loginService';
 import { DatabaseService } from 'src/app/servicos/databaseService';
 import { Clinico } from 'src/entidades/clinico';
-import { Enfermaria } from 'src/entidades/enfermaria';
 import { Fisioterapia } from 'src/entidades/fisioterapia';
 import { Pediatria } from 'src/entidades/pediatria';
 import { Psicologo } from 'src/entidades/psicologo';
@@ -40,16 +40,17 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
 
-  selected:any;
-  pacienteM : CadastroPaciente;
-  controle:any;
-  controleC:any [];
+  selected: any;
+  pacienteM: CadastroPaciente;
+  controle: any;
+  controleC: any [];
 
   horariosC: Horario [];
   horarioCli: Horario[];
 
-  paC : Clinico [];
+  paC: Clinico [];
   paCli: Clinico [];
+
 
   horariosD: Horario [];
   horarioDen: Horario[];
@@ -89,18 +90,18 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
 
-    //this.pacienteLogado();
+    // this.pacienteLogado();
 
-    //this.uidPac = await this.loginService.getUser().uid;
-    //console.log(this.uidPac);
+    // this.uidPac = await this.loginService.getUser().uid;
+    // console.log(this.uidPac);
     setTimeout(() => {
       // tslint:disable-next-line: only-arrow-functions
-      $(document).ready(function () {
+      $(document).ready(function() {
         $('.collapsible').collapsible();
       });
 
       // tslint:disable-next-line: only-arrow-functions
-      $(document).ready(function () {
+      $(document).ready(function() {
         $('select').formSelect();
       });
     }, 100);
@@ -137,8 +138,8 @@ async listarC() {
 
    }
 
-   filterChanged(selectedValue:string) {
-    console.log('value is ',selectedValue);
+   filterChanged(selectedValue: string) {
+    console.log('value is ', selectedValue);
     this.selected = selectedValue;
 
     }
@@ -146,42 +147,47 @@ async listarC() {
 
    async marcarClin() {
 
+  /* await this.dbService.listar<Clinico>('clinico').then(pacDB =>{
+    this.paC = pacDB;
+    let a = this.
+
+   })*/
    await this.dbService.listar<Clinico>('clinico')
     .then(pacCliDB => {
       this.paC = pacCliDB;
       let bbb = this.paC.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
       this.paCli = bbb;
     });
- 
- console.log(this.paCli);
 
- if(this.paCli.length == 0 ){
+   console.log(this.paCli);
+
+   if (this.paCli.length === 0 ) {
  this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
  this.espService.inserirClinico(this.clinico);
-      alert('Consulta marcada.');
+ alert('Consulta marcada.');
 
- }else{
+ } else {
   this.paCli.forEach(el => {
-  if(el.nome !== this.pacienteM.nome && el.nProntuario == this.pacienteM.nProntuario && el.dia == this.selected ){ 
+  if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
     alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
 
-   }else if (el.nome == this.pacienteM.nome && el.nProntuario == this.pacienteM.nProntuario && el.dia == this.selected){
+   } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
      alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
 
-   }else{
+   } else {
 
   this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
   this.espService.inserirClinico(this.clinico);
-      alert('Consulta marcada.');
+  alert('Consulta marcada.');
    }
-    
+
   }
   );
 }
 
 
-   } 
- 
+   }
+
 
 async listarD() {
     await this.dbService.listar<Horario>('horarios')
@@ -260,12 +266,48 @@ async listarPs() {
     console.log( this.horarioPsi);
   }
 
-  
+
 
 async marcarDen() {
 
- this.controle = (await this.dbService.buscar<Dentista>('/dentista', 'nProntuario',this.pacienteM.nProntuario ))[0];
- console.log(this.controle.nProntuario);
+ /*this.controle = (await this.dbService.buscar<Dentista>('/dentista', 'nProntuario', this.pacienteM.nProntuario ))[0];
+ console.log(this.controle.nProntuario);*/
+
+ await this.dbService.listar<Dentista>('dentista')
+    .then(pacCliDB => {
+      this.paC = pacCliDB;
+      let bbb = this.paC.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+      this.paCli = bbb;
+    });
+
+ console.log(this.paCli);
+
+ if (this.paCli.length === 0 ) {
+ this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+ this.espService.inserirDentista(this.clinico);
+ alert('Consulta marcada.');
+
+ } else {
+  this.paCli.forEach(el => {
+  if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
+    alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
+
+   } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
+     alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
+
+   } else {
+
+  this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+  this.espService.inserirClinico(this.clinico);
+  alert('Consulta marcada.');
+   }
+
+  }
+  );
+
+
+ }
+
 
 
  }
@@ -273,34 +315,34 @@ async marcarDen() {
 
 async marcarEnf() {
 
- this.controle = (await this.dbService.buscar<Enfermaria>('/enfermaria', 'nProntuario',this.pacienteM.nProntuario ))[0];
+ this.controle = (await this.dbService.buscar<Enfermaria>('/enfermaria', 'nProntuario', this.pacienteM.nProntuario ))[0];
  console.log(this.controle.nProntuario);
 
  }
 async marcarFis() {
 
- this.controle = (await this.dbService.buscar<Fisioterapia>('/fisioterapia', 'nProntuario',this.pacienteM.nProntuario ))[0];
+ this.controle = (await this.dbService.buscar<Fisioterapia>('/fisioterapia', 'nProntuario', this.pacienteM.nProntuario ))[0];
  console.log(this.controle.nProntuario);
 
- 
+
  }
 
 async marcarPed() {
 
- this.controle = (await this.dbService.buscar<Pediatria>('/pediatria', 'nProntuario',this.pacienteM.nProntuario ))[0];
+ this.controle = (await this.dbService.buscar<Pediatria>('/pediatria', 'nProntuario', this.pacienteM.nProntuario ))[0];
  console.log(this.controle.nProntuario);
 
- 
+
  }
- 
+
 
 
  async marcarPsi() {
 
- this.controle = (await this.dbService.buscar<Psicologo>('/psicologo', 'nProntuario',this.pacienteM.nProntuario ))[0];
+ this.controle = (await this.dbService.buscar<Psicologo>('/psicologo', 'nProntuario', this.pacienteM.nProntuario ))[0];
  console.log(this.controle.nProntuario);
 
- 
+
  }
 
 }

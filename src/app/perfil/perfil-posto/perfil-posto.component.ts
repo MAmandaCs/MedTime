@@ -1,4 +1,11 @@
+import { Psicologo } from './../../../entidades/psicologo';
+import { Pediatria } from './../../../entidades/pediatria';
+import { Fisioterapia } from './../../../entidades/fisioterapia';
+import { Enfermaria } from './../../../entidades/enfermaria';
+import { Dentista } from './../../../entidades/dentista';
+import { Clinico } from './../../../entidades/clinico';
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/app/servicos/databaseService';
 declare var $: any;
 @Component({
   selector: 'app-perfil-posto',
@@ -15,84 +22,95 @@ export class PerfilPostoComponent implements OnInit {
   agendamentosPiscologo: any[];
   agendamentosSelecionado: any[];
 
-  constructor() {
-    this.agendamentosClinico = [
-      {  nome: 'Alvin', prontuario: '123456' },
-      {  nome: 'Fulano', prontuario: '21837982' },
-      {  nome: 'Beltrano', prontuario: '319782' },
-      {  nome: 'Cascata', prontuario: '5165' },
-      {  nome: 'Torrada', prontuario: '87987' }
+  term: string;
+  selected: any;
+  selecionado: any;
+  listaConsu: any[] = [];
+  finalizar: any [];
+  constructor(private dbService: DatabaseService) {   }
 
-    ];
+   filterChanged(selectedValue: string) {
+    console.log('value is ', selectedValue);
+    this.selected = selectedValue;
+    }
 
-    this.agendamentosDentista = [
-      {  nome: 'Brigadeiro', prontuario: '23123' },
-      {  nome: 'Empada', prontuario: '86848' },
-      {  nome: 'Coxinha', prontuario: '54414' },
-      {  nome: 'Espaguete', prontuario: '24946' },
-      {  nome: 'Bolo', prontuario: '081488' }
+    controle(event) {
+      if (this.listaConsu.filter(el => el === event.target.value).length === 0) {
+      if (event.target.checked === false) {
+        this.listaConsu.push(event.target.value);
+      }
+    }
+      if (this.listaConsu.filter(el => el === event.target.value).length === 0) {
+        if (event.target.checked === true) {
+          this.listaConsu.push(event.target.value);
+        }
+      }
+      console.log(this.listaConsu);
+    }
 
-    ];
+    funcEx(selectedValue: string) {
+      console.log('value is ', selectedValue);
+      this.selecionado = selectedValue;
 
-    this.agendamentosEnfermaria = [
-      {  nome: 'B', prontuario: '23123' },
-      {  nome: 'E', prontuario: '86848' },
-      {  nome: 'l', prontuario: '54414' },
-      {  nome: 'i', prontuario: '24946' },
-      {  nome: 'k', prontuario: '081488' }
+    }
 
-    ];
+    limpar() {
+     this.agendamentosSelecionado.forEach(el => {
+      console.log(el.uid);
+     });
 
-    this.agendamentosFisio = [
-      {  nome: 'Brigadeiro', prontuario: '23123' },
-      {  nome: 'Empada', prontuario: '86848' },
-      {  nome: 'Coxinha', prontuario: '54414' },
-      {  nome: 'Espaguete', prontuario: '24946' },
-      {  nome: 'Bolo', prontuario: '081488' }
+    }
 
-    ];
-
-    this.agendamentosPediatra = [
-      {  nome: 'Brigadeiro', prontuario: '23123' },
-      {  nome: 'Empada', prontuario: '86848' },
-      {  nome: 'Coxinha', prontuario: '54414' },
-      {  nome: 'Espaguete', prontuario: '24946' },
-      {  nome: 'Bolo', prontuario: '081488' }
-
-    ];
-
-    this.agendamentosPiscologo = [
-      {  nome: 'Brigadeiro', prontuario: '23123' },
-      {  nome: 'Empada', prontuario: '86848' },
-      {  nome: 'Coxinha', prontuario: '54414' },
-      {  nome: 'Espaguete', prontuario: '24946' },
-      {  nome: 'Bolo', prontuario: '081488' }
-
-    ];
-
-   }
    clinicoSelecionado() {
-    this.agendamentosSelecionado = this.agendamentosClinico;
+    this.dbService.listar<Clinico>('clinico')
+    .then(pacientessDB => {
+      this.agendamentosClinico = pacientessDB;
+      this.agendamentosSelecionado = this.agendamentosClinico.filter(p => p.dia === this.selected);
+    });
+    this.agendamentosClinico =  this.agendamentosSelecionado;
   }
 
   dentistaSelecionado() {
-    this.agendamentosSelecionado = this.agendamentosDentista;
+    this.dbService.listar<Dentista>('dentista')
+    .then(pacientessDB => {
+     this.agendamentosDentista = pacientessDB;
+     this.agendamentosSelecionado = this.agendamentosDentista.filter(p => p.dia === this.selected);
+    });
   }
 
   enfermariaSelecionado() {
-    this.agendamentosSelecionado = this.agendamentosEnfermaria;
+    this.dbService.listar<Enfermaria>('enfermaria')
+    .then(pacientessDB => {
+     this.agendamentosEnfermaria = pacientessDB;
+     this.agendamentosSelecionado = this.agendamentosEnfermaria.filter(p => p.dia === this.selected);
+    });
   }
 
   fisioSelecionado() {
-     this.agendamentosSelecionado = this.agendamentosFisio;
+
+    this.dbService.listar<Fisioterapia>('fisioterapia')
+    .then(pacientessDB => {
+     this.agendamentosFisio = pacientessDB;
+     this.agendamentosSelecionado = this.agendamentosFisio.filter(p => p.dia === this.selected);
+    });
   }
 
   pediatraSelecionado() {
-    this.agendamentosSelecionado = this.agendamentosPediatra;
+
+    this.dbService.listar<Pediatria>('pediatria')
+    .then(pacientessDB => {
+     this.agendamentosDentista = pacientessDB;
+     this.agendamentosSelecionado = this.agendamentosDentista.filter(p => p.dia === this.selected);
+    });
   }
 
   psicologoSelecionado() {
-    this.agendamentosSelecionado = this.agendamentosPiscologo;
+    this.dbService.listar<Psicologo>('psicologo')
+    .then(pacientessDB => {
+     this.agendamentosPiscologo = pacientessDB;
+     this.agendamentosSelecionado = this.agendamentosPiscologo.filter(p => p.dia === this.selected);
+    });
+
   }
 
    ngOnInit(): void {
@@ -110,6 +128,10 @@ export class PerfilPostoComponent implements OnInit {
 
        }, 100);
 
+  // tslint:disable-next-line: only-arrow-functions
+  $(document).ready( function() {
+        $('select').formSelect();
+      });
       }
    }
 
