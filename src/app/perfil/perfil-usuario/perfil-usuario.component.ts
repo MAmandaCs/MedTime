@@ -1,3 +1,4 @@
+import { Psicologo } from 'src/entidades/psicologo';
 import { Enfermaria } from './../../../entidades/enfermaria';
 import { Horario } from 'src/entidades/horario';
 import { CadastroPaciente } from './../../../entidades/cadastroPaciente';
@@ -10,7 +11,6 @@ import { DatabaseService } from 'src/app/servicos/databaseService';
 import { Clinico } from 'src/entidades/clinico';
 import { Fisioterapia } from 'src/entidades/fisioterapia';
 import { Pediatria } from 'src/entidades/pediatria';
-import { Psicologo } from 'src/entidades/psicologo';
 import { EspecialidadeService } from 'src/app/servicos/especialidadeService';
 
 declare var $: any;
@@ -50,6 +50,27 @@ export class PerfilUsuarioComponent implements OnInit {
 
   paC: Clinico [];
   paCli: Clinico [];
+
+  paD: Dentista [];
+  paDen: Dentista[];
+
+  paE: Enfermaria [];
+  paEn: Enfermaria [];
+
+
+paF: Fisioterapia [];
+
+paFi: Fisioterapia [];
+
+
+paP: Pediatria [];
+
+paPe: Pediatria [];
+
+
+paPS: Psicologo [];
+
+paPs: Psicologo [];
 
 
   horariosD: Horario [];
@@ -275,20 +296,20 @@ async marcarDen() {
 
  await this.dbService.listar<Dentista>('dentista')
     .then(pacCliDB => {
-      this.paC = pacCliDB;
-      let bbb = this.paC.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
-      this.paCli = bbb;
+      this.paD = pacCliDB;
+      let bbb = this.paD.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+      this.paDen = bbb;
     });
 
- console.log(this.paCli);
+ console.log(this.paDen);
 
- if (this.paCli.length === 0 ) {
- this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
- this.espService.inserirDentista(this.clinico);
+ if (this.paDen.length === 0 ) {
+ this.dentista = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+ this.espService.inserirDentista(this.dentista);
  alert('Consulta marcada.');
 
  } else {
-  this.paCli.forEach(el => {
+  this.paDen.forEach(el => {
   if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
     alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
 
@@ -297,8 +318,8 @@ async marcarDen() {
 
    } else {
 
-  this.clinico = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
-  this.espService.inserirClinico(this.clinico);
+    this.dentista = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+    this.espService.inserirDentista(this.dentista);
   alert('Consulta marcada.');
    }
 
@@ -315,23 +336,117 @@ async marcarDen() {
 
 async marcarEnf() {
 
- this.controle = (await this.dbService.buscar<Enfermaria>('/enfermaria', 'nProntuario', this.pacienteM.nProntuario ))[0];
- console.log(this.controle.nProntuario);
+  await this.dbService.listar<Enfermaria>('enfermaria')
+  .then(pacCliDB => {
+    this.paE = pacCliDB;
+    let bbb = this.paE.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+    this.paEn = bbb;
+  });
 
+console.log(this.paEn);
+
+if (this.paEn.length === 0 ) {
+this.enfermaria = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+this.espService.inserirEnfermaria(this.enfermaria);
+alert('Consulta marcada.');
+
+} else {
+this.paEn.forEach(el => {
+if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
+  alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
+
+ } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
+   alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
+
+ } else {
+
+  this.dentista = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+  this.espService.inserirDentista(this.dentista);
+alert('Consulta marcada.');
+ }
+
+}
+);
+
+}
  }
 async marcarFis() {
 
- this.controle = (await this.dbService.buscar<Fisioterapia>('/fisioterapia', 'nProntuario', this.pacienteM.nProntuario ))[0];
- console.log(this.controle.nProntuario);
+ /*this.controle = (await this.dbService.buscar<Fisioterapia>('/fisioterapia', 'nProntuario', this.pacienteM.nProntuario ))[0];
+ console.log(this.controle.nProntuario);*/
+ await this.dbService.listar<Fisioterapia>('fisioterapia')
+    .then(pacCliDB => {
+      this.paF = pacCliDB;
+      let bbb = this.paF.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+      this.paFi = bbb;
+    });
+
+   console.log(this.paFi);
+
+   if (this.paFi.length === 0 ) {
+ this.fisioterapia = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+ this.espService.inserirFisioterapia(this.fisioterapia);
+ alert('Consulta marcada.');
+
+ } else {
+  this.paFi.forEach(el => {
+  if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
+    alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
+
+   } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
+     alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
+
+   } else {
+
+  this.fisioterapia = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+  this.espService.inserirFisioterapia(this.fisioterapia);
+  alert('Consulta marcada.');
+   }
+
+  }
+  );
+}
+
 
 
  }
 
 async marcarPed() {
 
- this.controle = (await this.dbService.buscar<Pediatria>('/pediatria', 'nProntuario', this.pacienteM.nProntuario ))[0];
- console.log(this.controle.nProntuario);
+/* this.controle = (await this.dbService.buscar<Pediatria>('/pediatria', 'nProntuario', this.pacienteM.nProntuario ))[0];
+ console.log(this.controle.nProntuario);*/
+ await this.dbService.listar<Pediatria>('pediatria')
+    .then(pacCliDB => {
+      this.paP = pacCliDB;
+      let bbb = this.paP.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+      this.paPe = bbb;
+    });
 
+   console.log(this.paPe);
+
+   if (this.paPe.length === 0 ) {
+ this.pediatria = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+ this.espService.inserirPediatria(this.pediatria);
+ alert('Consulta marcada.');
+
+ } else {
+  this.paPe.forEach(el => {
+  if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
+    alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
+
+   } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
+     alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
+
+   } else {
+
+  this.pediatria = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+  this.espService.inserirPediatria(this.pediatria);
+  alert('Consulta marcada.');
+   }
+
+  }
+  );
+}
 
  }
 
@@ -339,10 +454,44 @@ async marcarPed() {
 
  async marcarPsi() {
 
- this.controle = (await this.dbService.buscar<Psicologo>('/psicologo', 'nProntuario', this.pacienteM.nProntuario ))[0];
- console.log(this.controle.nProntuario);
+  await this.dbService.listar<Psicologo>('psicologo')
+  .then(pacCliDB => {
+    this.paPS = pacCliDB;
+    let bbb = this.paPS.filter(pacient => pacient.nProntuario === this.pacienteM.nProntuario);
+    this.paPs = bbb;
+  });
+
+ console.log(this.paPs);
+
+ if (this.paPs.length === 0 ) {
+this.psicologo = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+this.espService.inserirPsicologo(this.psicologo);
+alert('Consulta marcada.');
+
+} else {
+this.paPs.forEach(el => {
+if (el.nome !== this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected ) {
+  alert('Marcação não efetuada, pois já tem um membro da família agendado para esse médico');
+
+ } else if (el.nome === this.pacienteM.nome && el.nProntuario === this.pacienteM.nProntuario && el.dia === this.selected) {
+   alert('Marcação não efetuada, pois você tem uma consulta agendada para esse dia.');
+
+ } else {
+
+  this.psicologo = {dia: this.selected, nome: this.pacienteM.nome, nProntuario: this.pacienteM.nProntuario};
+  this.espService.inserirPsicologo(this.psicologo);
+alert('Consulta marcada.');
+ }
+
+}
+);
+}
 
 
  }
+
+
+
+
 
 }
