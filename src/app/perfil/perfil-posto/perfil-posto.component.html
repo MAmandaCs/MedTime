@@ -38,9 +38,9 @@
 
     <div (click)="psicologoSelecionado()" class="button-item"><i class="material-icons" id="img">people</i>Psicologo
     </div>
-    <div class="input-field col s12" id="divSe">
-      <select (change)="filterChanged($event.target.value)">
-        <option value="" disabled selected>Escolha o dia do atendimento:</option>
+    <div class="input-field col s12" id="divFi">
+      <select (change)="funcEx($event.target.value)">
+        <option value="" disabled selected>Finalizar consultas de:</option>
         <option  value='clinico' >Clínico</option>
         <option  value='dentista' >Dentista</option>
         <option  value='enfermaria' >Enfermaria</option>
@@ -48,7 +48,7 @@
         <option  value='pediatria' >Pediatria</option>
         <option  value='psicologo' >Psicólogo</option>
       </select>
-      <button (click)="limpar()">Finalizar</button>
+      <button id="button3" (click)="limpar()" >excluir</button>
     </div>
 
   </div>

@@ -56,7 +56,12 @@ export class PerfilPostoComponent implements OnInit {
 
     limpar() {
      this.agendamentosSelecionado.forEach(el => {
-      console.log(el.uid);
+     console.log(el.uid);
+    console.log(this.selecionado);
+    this.dbService.remove('/'+this.selecionado, el.uid);
+     console.log('Excluiu ');
+     alert('Lista de consultas agendadas limpa.');
+      
      });
 
     }
