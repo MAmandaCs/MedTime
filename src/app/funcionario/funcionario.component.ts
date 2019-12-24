@@ -37,7 +37,7 @@ export class FuncionarioComponent implements OnInit {
                      $('.collapsible').collapsible();
                    });
       }, 100);
-  }
+  } 
 
   private carregarPacientes() {
     this.carregando = true;

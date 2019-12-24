@@ -21,7 +21,7 @@ export class PerfilPostoComponent implements OnInit {
   agendamentosPediatra: any[];
   agendamentosPiscologo: any[];
   agendamentosSelecionado: any[];
-
+  carregarPacientes: boolean;
   term: string;
   selected: any;
   selecionado: any;
