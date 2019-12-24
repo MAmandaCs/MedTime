@@ -18,7 +18,7 @@ export class ExamesComponent implements OnInit {
   formExame: FormGroup;
   labelButton: string;
   exame: Exames;
-  examess$: Observable<Exames[]>
+  exames$: Observable<Exames[]>
   edit: boolean;
   messages: string;
   id: string;
@@ -35,22 +35,22 @@ export class ExamesComponent implements OnInit {
   
   ngOnInit() {
     this.initForm()
-   // this.labelButton = 'Save';
-    this.examess$ = this.examesService.getAllProjects();
+    this.labelButton = 'Save';
+    this.exames$ = this.examesService.getAllExames();
     this.exame = new Exames();
   }
 
   initForm() {
     this.formExame = this.form.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required]
+      nomePaciente: ['', Validators.required],
+      tipoExame: ['', Validators.required]
     });
   }
 
   upload(event) {
     this.complete = false;
     const file = event.target.files[0]
-    const path = `file/${file.name}`;
+    const path = `file2/${file.name}`;
     const pdfRef = this.storage.ref(path.replace(/\s/g, ''));
     this.task = this.storage.upload(path.replace(/\s/g, ''), file)
     this.task.then(up => {
@@ -65,7 +65,7 @@ export class ExamesComponent implements OnInit {
   
     saveExame() {
     if (this.formExame.invalid) {
-      this.messages = 'Verifique os campo sobrigatórios!'
+      this.messages = 'Verifique os campos obrigatórios!'
       return;
     }
     this.exame = this.formExame.value
@@ -73,7 +73,7 @@ export class ExamesComponent implements OnInit {
     if (!this.edit) {
       this.examesService.save(this.exame)
         .then(() => {
-          this.messages = 'Projeto Salvo com sucesso!';
+          this.messages = `Exame salvo no banco de dados do posto`;
           this.formExame.reset();
 
         })

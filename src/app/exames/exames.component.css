@@ -1,9 +1,35 @@
 #divExa{
   margin-left: 5vw;
 }
+
+#divUpload{
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+
 #pFiltro{
   font-size: 2vw;
 }
+
+#pUpload{
+  font-size: 2vw;
+}
+
+#inputUpload{
+  text-decoration: none;
+    color: #fff;
+    background-color: #26a69a;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+}
+
+#inputFile{
+  display: none;
+}
+
 #dRadio{
   float: left;
 }

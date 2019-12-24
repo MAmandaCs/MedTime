@@ -17,17 +17,19 @@ export class ExamesService{
         this.examesCol = afs.collection<Exames>('exames');
     }
     
-  getAllProjects(): Observable<Exames[]> {
+  getAllExames(): Observable<Exames[]> {
     return this.afs.collection<Exames>('exames', ref =>
-      ref.orderBy('tipo'))
+      ref.orderBy('nomePaciente'))
       .valueChanges()
   }
 
   save(exame: Exames): Promise<void> {
+    exame.dataPubli = new Date();
     return this.examesCol.add(Object.assign({}, exame)).then(objeto => {
-      exame.idExame = objeto.id
-      this.update(exame)
+      exame.idExame = objeto.id;
+      this.update(exame);
     })
+    
   }
 
   update(exame: Exames): Promise<void> {

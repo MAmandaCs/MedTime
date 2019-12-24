@@ -1,9 +1,16 @@
 export class Exames {
     
     idExame: string;
-    nomeDoPaciente: string;
-    tipo: string;
+    nomePaciente: string;
+    tipoExame: string;
+    dataPubli: any;
     pdfMain?: string;
+    
+    // nome: string;
+    // titulo: string
+    // dataPub: any;
+    // descricao: string;
+    // pdfMain?: string;
 
     constructor(){
   }

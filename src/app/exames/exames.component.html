@@ -1,47 +1,60 @@
+<form [formGroup]="formExame" (ngSubmit)="saveExame()">
 
-<div id="divExa">
-    <div id="dRadio"></div>
-    <p id="pFiltro">Filtrar por:</p>
-    <form action="#">
-        <p>
-          <label>
-            <input name="group1" type="radio" />
-            <span>Nome do paciente</span>
-          </label>
-        </p>
-        <p>
-            <label>
-              <input name="group1" type="radio" />
-              <span>Tipo do exame</span>
-            </label>
-          </p>
-          </form>
-          <div id="dBusca">
-            <span> Buscar por:</span>
-           <input class="busca"  id="inputBusca" type="search" list=""/></div>
-    <table class="responsive-table highlight"  id="tabela3" >
-        <thead>
-          <tr>
-              <th>Exame(s)</th>
+  <div class="form-group floating-label-form-group controls mb-0 pb-2">
+    <label>Paciente</label>
+    <input class="form-control" formControlName="nomePaciente" type="text" placeholder="Nome do Paciente" required>
 
-          </tr>
-        </thead>
-        <tbody>
-            <tr  [class.selecionado]="exame.exame === exameSelecionado.exame"  (click)="selecionarExame(exame)"*ngFor="let exame of exames">
-              <td>{{exame.exame}}</td>
-          </tr>
-        </tbody>
+  </div>
 
-    </table>
-</div>
-<p style="margin-bottom: 10vh;"></p>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+      <label>Tipo do exame</label>
+      <input class="form-control" formControlName="tipoExame" type="text" placeholder="Tipo do exame" required>
 
-<input type="file" #inputFile (change)="upload($event)" accept=".pdf" />
-<button id="exameUp" type="submit" (click)="saveExame()">Upload</button>
+    </div>
+  </div>
 
+  <div class="control-group ">
+    <div class="form-group floating-label-form-group controls ">
+      <label>Exame em PDF</label>
+      <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".pdf" />
+      <div class="progress">
+        <progress class="determinate" style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
+    </div>
+    </div>
+  </div>
 
-<a class="waves-effect waves-light btn" id="opcBotoes" href="/posto">Voltar</a>
+  <div class="form-group">
+    <button type="submit" [disabled]='!formExame.valid' class="btn btn-block btn-info btn-xl ">
+      <i class="fas fa-check-double"></i> {{labelButton}}
+    </button>
+  </div>
+
+</form>
+
+<table class="table table-bordred table-striped">
+  <thead>
+    <th>Paciente</th>
+    <th>Data</th>
+    <th>Tipo do exame</th>
+    <!-- <th>Actions</th> -->
+  </thead>
+  <tbody>
+    <tr *ngFor="let ex of exames$ | async">
+      <td>{{ex.nomePaciente}}</td>
+      <td>{{ex.dataPubli.toDate() | date : 'dd/MM/yyyy'}}</td>
+      <td>{{ex.tipoExame}} </td>
+      <!-- <td>
+        <button type="button" (click)="editProject(p)" class="btn btn-success  ">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button type="button" (click)="deleteProject(p)" class="btn btn-danger  ">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
 
 
 <router-outlet></router-outlet>
-
