@@ -73,13 +73,44 @@ export class ExamesComponent implements OnInit {
     if (!this.edit) {
       this.examesService.save(this.exame)
         .then(() => {
-          this.messages = `Exame salvo no banco de dados do posto`;
+          this.messages = 'Exame salvo no banco de dados do posto';
           this.formExame.reset();
 
         })
-        .catch((erro) => { this.messages = 'Erro ao salvar o projeto: ${erro}' })
+        .catch((erro) => { this.messages = 'Erro ao salvar o exame: ${erro}' })
       }
+     else {
+      this.exame.idExame = this.id;
+      this.examesService.update(this.exame)
+        .then(() => {
+          this.messages = 'Exame atualizado';
+          this.formExame.reset();
+          this.labelButton = 'Save'
+
+        })
+        .catch((erro) => { this.messages = 'Erro ao atualizar o exame: ${erro}' })
     }
+  }
+
+    editarExame(exame: Exames) {
+      this.edit = true;
+      this.labelButton = 'Update';
+      this.id = exame.idExame;
+      this.formExame.controls['nomePaciente'].setValue(exame.nomePaciente);
+      this.formExame.controls['tipoExame'].setValue(exame.tipoExame);
+    }
+  
+    deletarExame(exame: Exames) {
+      this.examesService.delete(exame)
+        .then(() => {
+          this.messages = 'Exame excluído';
+          this.formExame.reset();
+  
+        })
+        .catch((erro) => { this.messages = 'Erro ao excluir o projeto: ${erro}' })
+  
+    }
+
   //   } else {
   //     this.project.idProject = this.id;
   //     this.projectService.update(this.project)

@@ -38,8 +38,8 @@ export class ExamesService{
 
   }
 
-//   delete(project: Project): Promise<void> {
-//     return this.projectCol.doc(project.idProject)
-//       .delete()
-//   }
+   delete(exame: Exames): Promise<void> {
+     return this.examesCol.doc(exame.idExame)
+       .delete()
+   }
 }

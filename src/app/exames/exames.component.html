@@ -20,7 +20,7 @@
       <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".pdf" />
       <div class="progress">
         <progress class="determinate" style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
-    </div>
+      </div>
     </div>
   </div>
 
@@ -37,21 +37,21 @@
     <th>Paciente</th>
     <th>Data</th>
     <th>Tipo do exame</th>
-    <!-- <th>Actions</th> -->
+    <th>Opções</th>
   </thead>
   <tbody>
     <tr *ngFor="let ex of exames$ | async">
       <td>{{ex.nomePaciente}}</td>
       <td>{{ex.dataPubli.toDate() | date : 'dd/MM/yyyy'}}</td>
       <td>{{ex.tipoExame}} </td>
-      <!-- <td>
-        <button type="button" (click)="editProject(p)" class="btn btn-success  ">
-          <i class="fas fa-edit"></i>
+      <td>
+        <button type="button" (click)="editarExame(ex)" class="btn btn-success  ">
+          <i class="material-icons">edit</i>
         </button>
-        <button type="button" (click)="deleteProject(p)" class="btn btn-danger  ">
-          <i class="fas fa-trash"></i>
+        <button type="button" (click)="deletarExame(ex)" class="btn btn-danger  ">
+          <i class="material-icons">delete</i>
         </button>
-      </td> -->
+      </td> 
     </tr>
   </tbody>
 </table>
