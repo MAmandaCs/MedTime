@@ -3,6 +3,7 @@ export class Exames {
     idExame: string;
     nomePaciente: string;
     tipoExame: string;
+    nSUS: string;
     dataPubli: any;
     pdfMain?: string;
     

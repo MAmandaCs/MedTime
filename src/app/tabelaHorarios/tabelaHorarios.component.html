@@ -1,31 +1,36 @@
 <p id="pHorario">Quadro de Horários</p>
-  <div id="tabelaH">
-<table class="responsive-table highlight">
+<div id="tabelaH">
+  <table class="responsive-table highlight">
 
-  <thead>
-    <tr>
-      <th></th>
-      <th>Segunda</th>
-      <th>Terça</th>
-      <th>Quarta</th>
-      <th>Quinta</th>
-      <th>Sexta</th>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Clínico Geral</th>
+        <th>Dentista</th>
+        <th>Enfermaria</th>
+        <th>Fisioterateupa</th>
+        <th>Pediatra</th>
+        <th>Piscólogo</th>
 
-    </tr>
-  </thead>
+      </tr>
+    </thead>
 
     <tbody>
-      <tr *ngFor="let horario of horarios;">
-          
-          <td>{{horario.inicio}} - {{horario.termino}}</td>
-          <td>{{horario.inicio}} - {{horario.termino}}</td>
-          <td>{{horario.inicio}} - {{horario.termino}}</td>
-          <td>{{horario.inicio}} - {{horario.termino}}</td>
-          <td>{{horario.inicio}} - {{horario.termino}}</td>
+      <tr *ngFor="let dia of dias">
+      <td>{{dia}}</td></tr>
+      <tr *ngFor="let horario of horarios">
+      <td>{{horario.inicio}}</td>
+
+      
+
+      
+
+
+  
       </tr>
     </tbody>
   </table>
 
 </div>
-    <a class="waves-effect waves-light btn" id="opcBotoes" href="/horario">Voltar</a>
+<a class="waves-effect waves-light btn" id="opcBotoes" href="/horario">Voltar</a>
 <router-outlet></router-outlet>

@@ -34,6 +34,12 @@
   float: left;
 }
 
+#exame{
+  width: 85vw;
+  margin-left: 8vw;
+  margin-top: 5vh;
+}
+
 #opcBotoes{
   margin-left: 76vw;
   margin-top: 5vh;

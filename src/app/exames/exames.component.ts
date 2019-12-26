@@ -43,6 +43,7 @@ export class ExamesComponent implements OnInit {
   initForm() {
     this.formExame = this.form.group({
       nomePaciente: ['', Validators.required],
+      nSUS: ['', Validators.required],
       tipoExame: ['', Validators.required]
     });
   }
@@ -50,7 +51,7 @@ export class ExamesComponent implements OnInit {
   upload(event) {
     this.complete = false;
     const file = event.target.files[0]
-    const path = `file2/${file.name}`;
+    const path = `exames/${file.name}`;
     const pdfRef = this.storage.ref(path.replace(/\s/g, ''));
     this.task = this.storage.upload(path.replace(/\s/g, ''), file)
     this.task.then(up => {
@@ -97,6 +98,7 @@ export class ExamesComponent implements OnInit {
       this.labelButton = 'Update';
       this.id = exame.idExame;
       this.formExame.controls['nomePaciente'].setValue(exame.nomePaciente);
+      this.formExame.controls['nSUS'].setValue(exame.nSUS);
       this.formExame.controls['tipoExame'].setValue(exame.tipoExame);
     }
   

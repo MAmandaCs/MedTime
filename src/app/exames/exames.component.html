@@ -1,5 +1,5 @@
 <form [formGroup]="formExame" (ngSubmit)="saveExame()">
-
+<div id="exame">
   <div class="form-group floating-label-form-group controls mb-0 pb-2">
     <label>Paciente</label>
     <input class="form-control" formControlName="nomePaciente" type="text" placeholder="Nome do Paciente" required>
@@ -8,18 +8,25 @@
 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls mb-0 pb-2">
-      <label>Tipo do exame</label>
-      <input class="form-control" formControlName="tipoExame" type="text" placeholder="Tipo do exame" required>
-
+      <label>Número do SUS</label>
+      <input class="form-control" formControlName="nSUS" type="text" placeholder="Número do SUS do paciente" required>
+      </div>
     </div>
+
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls mb-0 pb-2">
+        <label>Tipo do exame</label>
+        <input class="form-control" formControlName="tipoExame" type="text" placeholder="Tipo do exame" required>
+  
+      </div>
   </div>
 
   <div class="control-group ">
     <div class="form-group floating-label-form-group controls ">
-      <label>Exame em PDF</label>
+
       <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".pdf" />
       <div class="progress">
-        <progress class="determinate" style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
+        <progress class="determinate" style="width: 80%;" max="100" [value]="(uploadPercent | async)"></progress>
       </div>
     </div>
   </div>
@@ -29,12 +36,13 @@
       <i class="fas fa-check-double"></i> {{labelButton}}
     </button>
   </div>
-
+</div>
 </form>
 
 <table class="table table-bordred table-striped">
   <thead>
     <th>Paciente</th>
+    <th>Número do SUS</th>
     <th>Data</th>
     <th>Tipo do exame</th>
     <th>Opções</th>
@@ -42,6 +50,7 @@
   <tbody>
     <tr *ngFor="let ex of exames$ | async">
       <td>{{ex.nomePaciente}}</td>
+      <td>{{ex.nSUS}}</td>
       <td>{{ex.dataPubli.toDate() | date : 'dd/MM/yyyy'}}</td>
       <td>{{ex.tipoExame}} </td>
       <td>
