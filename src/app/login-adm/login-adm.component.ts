@@ -19,6 +19,7 @@ export class LoginAdmComponent implements OnInit {
     .then(() => {
       this.router.navigate(['posto']);
     });
+    console.log('oi');
   }
 
 }

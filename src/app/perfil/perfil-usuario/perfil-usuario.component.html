@@ -27,7 +27,7 @@
 
                   <select class="browser-default" (change)="filterChanged($event.target.value)">
                     <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                    <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                    <option *ngFor="let horario of horarioDen" [value]="horario.dia" > {{horario.dia}}</option>
                   </select>
                       <button type="submit" (click) ="marcarDen()">marcar</button>
 
@@ -41,7 +41,7 @@
 
                   <select class="browser-default" (change)="filterChanged($event.target.value)">
                     <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                    <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                    <option *ngFor="let horario of horarioEn" [value]="horario.dia" > {{horario.dia}}</option>
                   </select>
                       <button type="submit" (click) ="marcarEnf()">marcar</button>
 
@@ -55,7 +55,7 @@
 
                     <select class="browser-default" (change)="filterChanged($event.target.value)">
                       <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                      <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                      <option *ngFor="let horario of horarioFis" [value]="horario.dia" > {{horario.dia}}</option>
                     </select>
                         <button type="submit" (click) ="marcarFis()">marcar</button>
 
@@ -69,7 +69,7 @@
 
                     <select class="browser-default" (change)="filterChanged($event.target.value)">
                       <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                      <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                      <option *ngFor="let horario of horarioPed" [value]="horario.dia" > {{horario.dia}}</option>
                     </select>
                         <button type="submit" (click) ="marcarPed()">marcar</button>
 
@@ -82,7 +82,7 @@
 
                         <select class="browser-default" (change)="filterChanged($event.target.value)">
                           <option value="" disabled selected>Escolha o dia de atendimento:</option>
-                          <option *ngFor="let horario of horarioCli" [value]="horario.dia" > {{horario.dia}}</option>
+                          <option *ngFor="let horario of horarioPsi" [value]="horario.dia" > {{horario.dia}}</option>
                         </select>
                             <button type="submit" (click) ="marcarPsi()" >marcar</button>
 

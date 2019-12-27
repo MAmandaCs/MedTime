@@ -19,19 +19,23 @@
      <input class="inputCad4" id="inputSUS" name="inputSUS" type="text" placeholder="nº do SUS" [(ngModel)]="paciente.nSUS"/>
      <p></p>
 
-     <!--<label class="labelCad1">Data de Nasc: </label>
-     <input id="inputDate" name="inputDate" type="date" [(ngModel)]="dataNascimento"/>-->
-     <label class="labelCad2">Telefone: </label>
-     <input class="inputCad2"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="paciente.telefone"/>
+     <label class="labelCad1">Data de Nasc: </label>
+     <input id="inputDate" name="inputDate" type="text" [(ngModel)]="paciente.datNas"/>
+     <p></p>
+     <label class="labelCad1">Telefone: </label>
+     <input class="inputCad1"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="paciente.telefone"/>
      <p></p>
      <label class="labelCad1">E-mail:</label>
      <input class="inputCad1" id="inputEmail" name="inputEmail" type="text"placeholder="text@text.com" [(ngModel)]="paciente.email"/>
      <p></p>
      <label class="labelCad1">Cidade: </label>
      <input class="inputCad2" id="inputCidade" name="inputCidade" type="text" placeholder="ex.: Garanhuns" [(ngModel)]="paciente.cidade"/>
-     
+     <p></p>
+     <label class="labelCad1">UF: </label>
+     <input class="inputCad2" id="inputUF" name="inputUF" type="text" placeholder="ex.: Pernambuco" [(ngModel)]="paciente.uf"/>
+     <p></p>
      <label class="labelCad1">Bairro: </label>
-     <input class="inputCad1" id="inputBairro" name="inputBairro" type="text"placeholder="ex.: Heliópolis" [(ngModel)]="paciente.bairro"/>
+     <input class="inputCad2" id="inputBairro" name="inputBairro" type="text"placeholder="ex.: Heliópolis" [(ngModel)]="paciente.bairro"/>
      <p></p>
      <label class="labelCad1">Rua: </label>
      <input class="inputCad1" id="inputRua" name="inputRua" type="text" placeholder="ex.: Epitácio Coimbra" [(ngModel)]="paciente.rua"/>
@@ -42,7 +46,7 @@
      <label class="labelCad1">Confirmar Senha: </label>
      <input class="inputCad2" id="inputConfSenha" name="inputConfSenha" type="password" [(ngModel)]="paciente.confSenha"/>
    </div>
-   <button id="button" type="submit" [disabled]="!formulario" (click)="addPaciente()">Cadastrar</button>
+   <button id="button" type="submit" (click)="addPaciente()">Cadastrar</button>
 
 
 </form>

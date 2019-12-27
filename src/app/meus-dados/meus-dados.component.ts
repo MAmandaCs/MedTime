@@ -42,16 +42,21 @@ async update(atualizar) {
       confSenha: atualizar.inputConfSenha,
       nSUS: atualizar.inputSUS,
       nProntuario: atualizar.inputProntuario,
-      telefone: atualizar.telefone
+      telefone: atualizar.telefone,
+      uf: atualizar.uf,
+      datNas: atualizar.datNas
+
     };
     await this.dbService.update('/pacientes', this.cadastroPaciente.uid, this.cadastroPaciente);
     console.log(this.cadastroPaciente.email);
+    alert('Dados atualizados com successo!');
   }
 
 remover() {
   this.cadastroPaciente.uid = this.loginService.getUser().uid;
   this.dbService.remove('/pacientes', this.cadastroPaciente.uid);
   console.log('Excluiu ');
+  alert('Perfil excluído com sucesso!');
 
 }
 

@@ -24,9 +24,9 @@
      <input class="inputCad4" id="inputSUS" name="inputSUS" type="text" placeholder="nº do SUS" [(ngModel)]="cadastroPaciente.nSUS" />
      <p></p>
 
-        <!-- <label class="labelCad1">Data de Nasc: </label>
-         <input id="inputDate" name="inputDate" type="date"/>-->
-         <label class="labelCad2">Telefone: </label>
+         <label class="labelCad1">Data de Nasc: </label>
+         <input id="datNas" name="datNas" type="txt" [(ngModel)]="cadastroPaciente.datNas"/>
+         <label class="labelCad1">Telefone: </label>
          <input class="inputCad2"  id="telefone" name="telefone" type="text"placeholder="(00)00000-0000" [(ngModel)]="cadastroPaciente.telefone" />
          <p></p>
          <label class="labelCad1">E-mail:</label>
@@ -34,7 +34,6 @@
          <p></p>
          <label class="labelCad1">Cidade: </label>
          <input class="inputCad2" id="inputCidade" name="inputCidade" type="text" placeholder="ex.: Garanhuns" [(ngModel)]="cadastroPaciente.cidade" />
-         <label class="labelCad2">UF: </label>
         <!--<input id="inputUF" name="inputUF" type="search" list="estados">
          <datalist id="estados" style="display: hidden;">
          <option value="AC"></option>
@@ -66,6 +65,10 @@
          <option value="TO"></option>
          </datalist>
          <p></p>-->
+         <p></p>
+         <label class="labelCad1">UF: </label>
+         <input class="inputCad2" id="uf" name="uf" type="text" placeholder="ex.: Pernambuco" [(ngModel)]="cadastroPaciente.uf" />
+         <p></p>
          <label class="labelCad1">Bairro: </label>
          <input class="inputCad1" id="inputBairro" name="inputBairro" type="text"placeholder="ex.: Heliópolis" [(ngModel)]="cadastroPaciente.bairro" />
          <p></p>

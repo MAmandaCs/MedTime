@@ -1,3 +1,4 @@
+
 import { Psicologo } from 'src/entidades/psicologo';
 import { Enfermaria } from './../../../entidades/enfermaria';
 import { Horario } from 'src/entidades/horario';
@@ -46,8 +47,9 @@ export class PerfilUsuarioComponent implements OnInit {
   controleC: any [];
 
   horariosC: Horario [];
-  horarioCli: Horario[];
+  horarioCli: Horario[] = [];
 
+  h: any [] = [];
   paC: Clinico [];
   paCli: Clinico [];
 
@@ -74,19 +76,19 @@ paPs: Psicologo [];
 
 
   horariosD: Horario [];
-  horarioDen: Horario[];
+  horarioDen: Horario[] = [];
 
   horariosE: Horario [];
-  horarioEn: Horario[];
+  horarioEn: Horario[] = [];
 
   horariosF: Horario [];
-  horarioFis: Horario[];
+  horarioFis:  Horario[] = [];
 
   horariosP: Horario [];
-  horarioPed: Horario[];
+  horarioPed:  Horario[] = [];
 
   horariosPs: Horario [];
-  horarioPsi: Horario[];
+  horarioPsi: Horario[] = [];
 
 
   constructor(private loginService: LoginService, private dbService: DatabaseService, private espService: EspecialidadeService) {
@@ -96,7 +98,7 @@ paPs: Psicologo [];
       { profissional: 'Pediatria', segunda: '09:00-12:00', terca: '09:00-12:00', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' },
       { profissional: 'Psicologo', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '09:00-12:00', sexta: '09:00-12:00' },
       { profissional: 'Fisoterapeuta', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' },
-      { profissional: ' ', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' }
+      { profissional: 'Enfermaria ', segunda: '09:00-12:00', terca: '-', quarta: '09:00-12:00', quinta: '-', sexta: '09:00-12:00' }
     ];
 
   }
@@ -133,16 +135,25 @@ async listarC() {
     await this.dbService.listar<Horario>('horarios')
     .then(hoariosDB => {
       this.horariosC = hoariosDB;
-      let bbb = this.horariosC.filter(horario => horario.especialidade === 'Clínico Geral' );
-
-
+      let bbb = this.horariosC.filter(horario => horario.especialidade === 'Clínico Geral');
+      bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+          this.horarioCli.push(e); 
+         console.log(this.horarioCli);
+        }
+         
+      
+         
+      });
 
      // let aaa = bbb.map(el => {
       //  return el.dia
      // });
-      this.horarioCli = bbb;
+     
+
     });
-    console.log( this.horarioCli);
+     
+   // console.log( this.horarioCli);
   }
 
   alerta() {
@@ -215,13 +226,18 @@ async listarD() {
     .then(hoariosDB => {
       this.horariosD = hoariosDB;
       let bbb = this.horariosD.filter(horario => horario.especialidade === 'Dentista' );
-
-     // let aaa = bbb.map(el => {
-      //  return el.dia
-     // });
-      this.horarioDen = bbb;
+        bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+          this.horarioDen.push(e); 
+         console.log(this.horarioDen);
+        }
+         
+      
+         
+      });
+      
     });
-    console.log( this.horarioDen);
+   
   }
 
 async listarE() {
@@ -229,15 +245,17 @@ async listarE() {
     .then(hoariosDB => {
       this.horariosE = hoariosDB;
       let bbb = this.horariosE.filter(horario => horario.especialidade === 'Enfermaria' );
-
-
-
-     // let aaa = bbb.map(el => {
-      //  return el.dia
-     // });
-      this.horarioEn = bbb;
+      bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+          this.horarioEn.push(e); 
+         console.log(this.horarioEn );
+        }
+         
+      
+         
+      });
+      
     });
-    console.log( this.horarioEn);
   }
 
 async listarF() {
@@ -245,15 +263,17 @@ async listarF() {
     .then(hoariosDB => {
       this.horariosF = hoariosDB;
       let bbb = this.horariosF.filter(horario => horario.especialidade === 'Fisioterapeuta' );
-
-
-
-     // let aaa = bbb.map(el => {
-      //  return el.dia
-     // });
-      this.horarioFis = bbb;
+     bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+         this.horarioFis.push(e); 
+         console.log(this.horarioFis);
+        }
+         
+      
+         
+      });
+      
     });
-    console.log( this.horarioFis);
   }
 
 async listarP() {
@@ -261,30 +281,34 @@ async listarP() {
     .then(hoariosDB => {
       this.horariosP = hoariosDB;
       let bbb = this.horariosP.filter(horario => horario.especialidade === 'Pediatra' );
-
-
-
-     // let aaa = bbb.map(el => {
-      //  return el.dia
-     // });
-      this.horarioPed = bbb;
+  bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+         this.horarioPed.push(e); 
+         console.log(this.horarioPed);
+        }
+         
+      
+         
+      });
+      
     });
-    console.log( this.horarioPed);
   }
 async listarPs() {
     await this.dbService.listar<Horario>('horarios')
     .then(hoariosDB => {
       this.horariosPs = hoariosDB;
       let bbb = this.horariosPs.filter(horario => horario.especialidade === 'Psicólogo' );
-
-
-
-     // let aaa = bbb.map(el => {
-      //  return el.dia
-     // });
-      this.horarioPsi = bbb;
+  bbb.forEach(e =>{
+        if(e.possuiAtendimento){
+         this.horarioPsi.push(e); 
+         console.log(this.horarioPsi);
+        }
+         
+      
+         
+      });
+      
     });
-    console.log( this.horarioPsi);
   }
 
 

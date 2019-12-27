@@ -25,12 +25,12 @@ export class LoginAdmService {
     }
 
     public login(email: string, senha: string) {
-        return this.afAuth.auth.signInWithEmailAndPassword(email, senha);
+      return this.afAuth.auth.signInWithEmailAndPassword(email, senha);
 
-    }
+  }
 
-    public criarUser(email: string, password: string) {
-        return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    public criarUser(email: string, senha: string) {
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, senha);
 
     }
 
